@@ -1,0 +1,4 @@
+PyQt5
+opem==0.9
+pytest==3.7.3
+pytest-cov==2.5.1
