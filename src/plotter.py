@@ -45,10 +45,11 @@ class MyStaticMplCanvas(MyMplCanvas):
     """Simple canvas with a sine plot."""
 
     def compute_initial_figure(self):
-        global plot_vars
-        t = arange(0.0, 2.0, 0.1)
-        for key in plot_vars.keys():
-            self.axes.plot(t, plot_vars[key])
+        pass
+        # global plot_vars
+        # t = arange(0.0, 2.0, 0.1)
+        # for key in plot_vars.keys():
+        #     self.axes.plot(t, plot_vars[key])
         # t1 = arange(0.0, 3.0, 0.01)
         # t2 = arange(0.0, 3.0, 0.01)
         # s = sin(2*pi*t)
