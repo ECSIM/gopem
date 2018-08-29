@@ -1,9 +1,6 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from opem.Params import Amphlett_InputParams as A_Input
-from opem.Params import Chamberline_InputParams as C_Input
-from opem.Params import Larminiee_InputParams as L_Input
-from opem.Params import Padulles_InputParams as P_Input
+
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -14,18 +11,23 @@ from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett
 from art import tprint
 from opem.Params import Version, Description_Menu, Description_Links, Vectors
 from opem.Functions import check_update, description_print, description_control
-
-import src.plotter
+import gopem.helper
+import gopem.plotter
 
 
 class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.plotter = src.plotter.ApplicationWindow(parent=self)
+        self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
+        self.description = QLabel()
+        self.des_link = QLabel()
+        self.des_link.setTextFormat(Qt.RichText)
+        self.des_link.setTextInteractionFlags(Qt.TextBrowserInteraction)
+        self.des_link.setOpenExternalLinks(True)
         self.menu = {
         "Amphlett_Analysis (Static)": Amphlett_Analysis,
         "Larminiee_Analysis (Static)": Larminiee_Analysis,
@@ -50,6 +52,12 @@ class MainWindow(QWidget):
         for mode in self.mode:
             self.main.addWidget(mode)
         self.main.addWidget(self.getButtonWidget())
+        self.main.addWidget(self.HLine())
+        self.main.addWidget(QLabel("Description:"))
+        self.description.setText(Description_Menu[self.menuKey[0]])
+        self.des_link.setText('<a href="'+Description_Links[self.menuKey[0]]+'">Web Link</a>')
+        self.main.addWidget(self.description)
+        self.main.addWidget(self.des_link)
         self.setLayout(self.super)
         self.super.addLayout(self.main)
         self.super.addWidget(self.VLine())
@@ -57,11 +65,15 @@ class MainWindow(QWidget):
 
     def initialModes(self, menu):
         for i, k in enumerate(menu):
-            self.mode.append(QWidget(self))
+            self.mode.append(QScrollArea(self))
+            w = QWidget(self.mode[i])
             self.layout.append(QVBoxLayout(self.mode[i]))
             for f in self.get_attr_fields(i):
                 self.layout[i].addLayout(f)
-            self.mode[i].setLayout(self.layout[i])
+            w.setLayout(self.layout[i])
+            self.mode[i].setWidget(w)
+            self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+            # self.mode[i].setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
     def getButtonWidget(self):
         w = QWidget(self)
@@ -89,21 +101,10 @@ class MainWindow(QWidget):
 
     def get_attr_fields(self, mode):
         fields = []
-        Input = {}
-        if mode == 0:
-            Input = A_Input
-        elif mode == 1:
-            Input = C_Input
-        elif mode == 2:
-            Input = L_Input
-        elif mode == 3:
-            Input = P_Input
-        else:
-            return fields
-
-        for item in sorted(list(Input.keys())):
+        input_param = gopem.helper.InputParam[self.menuKey[mode]]
+        for item in sorted(list(input_param.keys())):
             field = QHBoxLayout(self)
-            label = QLabel(item + ' ( ' + Input[item] + ' ) : ')
+            label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
             field.addWidget(label, alignment=Qt.AlignLeft)
             self.attributes[item] = QDoubleSpinBox(self)
             self.attributes[item].setRange(0, 100000)
@@ -146,4 +147,6 @@ class MainWindow(QWidget):
         for m in self.mode:
             m.setVisible(False)
         self.mode[index].setVisible(True)
+        self.description.setText(Description_Menu[self.menuKey[index]])
+        self.des_link.setText('<a href="'+Description_Links[self.menuKey[index]]+'">Web Link</a>')
         self.selectedMode = index
