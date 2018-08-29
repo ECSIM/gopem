@@ -4,6 +4,17 @@ from opem.Params import Amphlett_InputParams as A_Input
 from opem.Params import Chamberline_InputParams as C_Input
 from opem.Params import Larminiee_InputParams as L_Input
 from opem.Params import Padulles_InputParams as P_Input
+from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
+from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
+from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
+from opem.Dynamic.Padulles1 import Dynamic_Analysis as Padulles1_Analysis
+from opem.Dynamic.Padulles2 import Dynamic_Analysis as Padulles2_Analysis
+from opem.Dynamic.Padulles_Hauer import Dynamic_Analysis as Padulles_Hauer_Analysis
+from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett_Analysis
+from art import tprint
+from opem.Params import Version, Description_Menu, Description_Links, Vectors
+from opem.Functions import check_update, description_print, description_control
+
 import src.plotter
 
 
@@ -15,13 +26,20 @@ class MainWindow(QWidget):
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
-        self.menu = menu
-        self.menuKey = list(menu.keys())
+        self.menu = {
+        "Amphlett_Analysis (Static)": Amphlett_Analysis,
+        "Larminiee_Analysis (Static)": Larminiee_Analysis,
+        "Chamberline_Kim_Analysis (Static)": Chamberline_Kim_Analysis,
+        "Padulles_Analysis I (Dynamic)": Padulles1_Analysis,
+        "Padulles_Analysis II (Dynamic)": Padulles2_Analysis,
+        "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
+        "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
+        self.menuKey = list(self.menu.keys())
         self.menuKey.sort()
         self.super = QHBoxLayout(self)
         self.main = QVBoxLayout(self)
 
-        self.initialModes(menu.keys())
+        self.initialModes(self.menu.keys())
         for mode in self.mode:
             mode.setVisible(False)
         self.mode[0].setVisible(True)
@@ -59,7 +77,7 @@ class MainWindow(QWidget):
 
     def getComboWidget(self, list):
         combo = QComboBox(self)
-        combo.currentIndexChanged.connect(self.mode_changed_slt);
+        combo.currentIndexChanged.connect(self.mode_changed_slt)
         for k in list:
             combo.addItem(k)
         return combo
