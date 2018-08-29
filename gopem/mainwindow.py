@@ -48,7 +48,10 @@ class MainWindow(QWidget):
 
         self.main.addWidget(self.getNameWidget())
         self.main.addWidget(self.HLine())
-        self.main.addWidget(self.getComboWidget(self.menuKey))
+        lay_0 = QHBoxLayout()
+        lay_0.addWidget(self.getComboWidget(self.menuKey))
+        lay_0.addWidget(self.getTestCheckBox())
+        self.main.addLayout(lay_0)
         for mode in self.mode:
             self.main.addWidget(mode)
         self.main.addWidget(self.getButtonWidget())
@@ -92,10 +95,16 @@ class MainWindow(QWidget):
         combo.currentIndexChanged.connect(self.mode_changed_slt)
         for k in list:
             combo.addItem(k)
+        combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         return combo
 
+    def getTestCheckBox(self):
+        test_check = QCheckBox("Use Test Data")
+        test_check.stateChanged.connect(self.test_slt)
+        return test_check
+
     def getNameWidget(self):
-        name = QLabel('OPEM')
+        name = QLabel('OPEM (v' + str(Version) + ')')
         name.setAlignment(Qt.AlignCenter)
         return name
 
@@ -106,11 +115,12 @@ class MainWindow(QWidget):
             field = QHBoxLayout(self)
             label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
             field.addWidget(label, alignment=Qt.AlignLeft)
-            self.attributes[item] = QDoubleSpinBox(self)
-            self.attributes[item].setRange(0, 100000)
-            self.attributes[item].setMinimumSize(200, 20)
-            self.attributes[item].setDecimals(10)
-            field.addWidget(self.attributes[item], alignment=Qt.AlignRight)
+            name = self.menuKey[mode] + '_' + item
+            self.attributes[name] = QDoubleSpinBox(self)
+            self.attributes[name].setRange(0, 100000)
+            self.attributes[name].setMinimumSize(200, 20)
+            self.attributes[name].setDecimals(10)
+            field.addWidget(self.attributes[name], alignment=Qt.AlignRight)
             fields.append(field)
         return fields
 
@@ -150,3 +160,11 @@ class MainWindow(QWidget):
         self.description.setText(Description_Menu[self.menuKey[index]])
         self.des_link.setText('<a href="'+Description_Links[self.menuKey[index]]+'">Web Link</a>')
         self.selectedMode = index
+
+    def test_slt(self, state):
+        if state == 2:
+            for k in self.attributes.keys():
+                if str(k).startswith(self.menuKey[self.selectedMode]):
+                    self.attributes[k].setValue(1.0)
+        else:
+            self.reset_slt()
