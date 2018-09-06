@@ -76,7 +76,6 @@ class MainWindow(QWidget):
             w.setLayout(self.layout[i])
             self.mode[i].setWidget(w)
             self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-            # self.mode[i].setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
 
     def getButtonWidget(self):
         w = QWidget(self)
@@ -111,34 +110,35 @@ class MainWindow(QWidget):
     def get_attr_fields(self, mode):
         fields = []
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
+        name = self.menuKey[mode]
+        self.attributes[name] = {}
         for item in sorted(list(input_param.keys())):
             field = QHBoxLayout(self)
             label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
             field.addWidget(label, alignment=Qt.AlignLeft)
-            name = self.menuKey[mode] + '_' + item
-            self.attributes[name] = QDoubleSpinBox(self)
-            self.attributes[name].setRange(0, 100000)
-            self.attributes[name].setMinimumSize(200, 20)
-            self.attributes[name].setDecimals(10)
-            field.addWidget(self.attributes[name], alignment=Qt.AlignRight)
+            self.attributes[name][item] = QDoubleSpinBox(self)
+            self.attributes[name][item].setRange(0, 100000)
+            self.attributes[name][item].setMinimumSize(200, 20)
+            self.attributes[name][item].setDecimals(10)
+            field.addWidget(self.attributes[name][item], alignment=Qt.AlignRight)
             fields.append(field)
         return fields
 
     def reset_slt(self):
-        for k in self.attributes.keys():
-            self.attributes[k].setValue(0.0)
+        for k in self.attributes[self.menuKey[self.selectedMode]].keys():
+            self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         print('reset')
 
     def analyze(self, menu, attributes):
         temp = {}
         for key, value in attributes.items():
             temp[key] = value.value()
-        menu[self.menuKey[self.selectedMode]](temp, True)
+        temp["Name"] = self.menuKey[self.selectedMode]
+        menu(temp, True, True, True)
 
     def analyse_slt(self):
         print('analyse ... ')
-
-        self.analyze(self.menu, self.attributes)
+        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
         print('analysed')
 
     def HLine(self):
@@ -163,8 +163,7 @@ class MainWindow(QWidget):
 
     def test_slt(self, state):
         if state == 2:
-            for k in self.attributes.keys():
-                if str(k).startswith(self.menuKey[self.selectedMode]):
-                    self.attributes[k].setValue(1.0)
+            for k in self.attributes[self.menuKey[self.selectedMode]].keys():
+                self.attributes[self.menuKey[self.selectedMode]][k].setValue(1.0)
         else:
             self.reset_slt()
