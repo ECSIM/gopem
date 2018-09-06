@@ -23,19 +23,27 @@ class MainWindow(QWidget):
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
+
+        self.output = {}
+
+        self.x_ax = QComboBox(self)
+        self.y_ax = QComboBox(self)
+        self.x_ax.currentTextChanged.connect(self.axis_changed)
+        self.y_ax.currentTextChanged.connect(self.axis_changed)
+
         self.description = QLabel()
         self.des_link = QLabel()
         self.des_link.setTextFormat(Qt.RichText)
         self.des_link.setTextInteractionFlags(Qt.TextBrowserInteraction)
         self.des_link.setOpenExternalLinks(True)
         self.menu = {
-        "Amphlett_Analysis (Static)": Amphlett_Analysis,
-        "Larminiee_Analysis (Static)": Larminiee_Analysis,
-        "Chamberline_Kim_Analysis (Static)": Chamberline_Kim_Analysis,
-        "Padulles_Analysis I (Dynamic)": Padulles1_Analysis,
-        "Padulles_Analysis II (Dynamic)": Padulles2_Analysis,
-        "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
-        "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
+            "Amphlett_Analysis (Static)": Amphlett_Analysis,
+            "Larminiee_Analysis (Static)": Larminiee_Analysis,
+            "Chamberline_Kim_Analysis (Static)": Chamberline_Kim_Analysis,
+            "Padulles_Analysis I (Dynamic)": Padulles1_Analysis,
+            "Padulles_Analysis II (Dynamic)": Padulles2_Analysis,
+            "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
+            "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
         self.menuKey = list(self.menu.keys())
         self.menuKey.sort()
         self.super = QHBoxLayout(self)
@@ -58,13 +66,13 @@ class MainWindow(QWidget):
         self.main.addWidget(self.HLine())
         self.main.addWidget(QLabel("Description:"))
         self.description.setText(Description_Menu[self.menuKey[0]])
-        self.des_link.setText('<a href="'+Description_Links[self.menuKey[0]]+'">Web Link</a>')
+        self.des_link.setText('<a href="' + Description_Links[self.menuKey[0]] + '">Web Link</a>')
         self.main.addWidget(self.description)
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
         self.super.addLayout(self.main)
         self.super.addWidget(self.VLine())
-        self.super.addWidget(self.plotter)
+        self.super.addWidget(self.getPlotterArea())
 
     def initialModes(self, menu):
         for i, k in enumerate(menu):
@@ -76,6 +84,23 @@ class MainWindow(QWidget):
             w.setLayout(self.layout[i])
             self.mode[i].setWidget(w)
             self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+
+    def getPlotterArea(self):
+        w = QWidget(self)
+        l = QVBoxLayout()
+        w.setLayout(l)
+        x_label = QLabel("X-Axis:")
+        y_label = QLabel("Y-Axis:")
+        ll = QHBoxLayout()
+        ll.addWidget(x_label)
+        ll.addWidget(self.x_ax)
+        ll.addWidget(y_label)
+        ll.addWidget(self.y_ax)
+        ll.setAlignment(Qt.AlignLeft)
+        l.addLayout(ll)
+        l.addWidget(self.HLine())
+        l.addWidget(self.plotter)
+        return w
 
     def getButtonWidget(self):
         w = QWidget(self)
@@ -133,8 +158,35 @@ class MainWindow(QWidget):
         temp = {}
         for key, value in attributes.items():
             temp[key] = value.value()
+
         temp["Name"] = self.menuKey[self.selectedMode]
-        menu(temp, True, True, True)
+        test = {
+            "i-step": 0.1,
+            "B": 0.016,
+            "i-start": 0.0,
+            "PO2": 1.0,
+            "N": 1.0,
+            "lambda": 23.0,
+            "R": 0.0,
+            "PH2": 1.0,
+            "JMax": 1.5,
+            "A": 50.6,
+            "i-stop": 75.0,
+            "T": 343.15,
+            "l": 0.0178,
+            "Name": self.menuKey[self.selectedMode]
+        }
+        print(temp)
+        print(test)
+        output = menu(test, True, True, True)
+        self.output = output
+        print(output.keys())
+        for k in output.keys():
+            if type(output[k]) is list:
+                self.x_ax.addItem(str(k))
+                self.y_ax.addItem(str(k))
+        print(output)
+        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
 
     def analyse_slt(self):
         print('analyse ... ')
@@ -158,7 +210,7 @@ class MainWindow(QWidget):
             m.setVisible(False)
         self.mode[index].setVisible(True)
         self.description.setText(Description_Menu[self.menuKey[index]])
-        self.des_link.setText('<a href="'+Description_Links[self.menuKey[index]]+'">Web Link</a>')
+        self.des_link.setText('<a href="' + Description_Links[self.menuKey[index]] + '">Web Link</a>')
         self.selectedMode = index
 
     def test_slt(self, state):
@@ -167,3 +219,6 @@ class MainWindow(QWidget):
                 self.attributes[self.menuKey[self.selectedMode]][k].setValue(1.0)
         else:
             self.reset_slt()
+
+    def axis_changed(self):
+        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
