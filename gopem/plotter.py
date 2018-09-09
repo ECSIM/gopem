@@ -40,12 +40,8 @@ class MyMplCanvas(FigureCanvas):
         self.axes.grid(True, linestyle='-.', which='both')
         if x_axis in data.keys() and y_axis in data.keys():
             self.axes.plot(data[x_axis], data[y_axis], 'r')
-
-        # self.axes.plot(data["I"], data["P"], 'g')
-        # self.axes.plot(data["I"], data["V0"], 'b')
-        # self.axes.plot(data["I"], data["K"], 'c')
-        # self.axes.plot(data["I"], data["V"], 'm')
-        # self.axes.plot(data["I"], data["Ph"], 'k')
+            self.axes.set_xlabel(x_axis)
+            self.axes.set_ylabel(y_axis)
         self.draw()
 
     def compute_initial_figure(self):
