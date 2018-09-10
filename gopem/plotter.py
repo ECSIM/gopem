@@ -42,6 +42,7 @@ class MyMplCanvas(FigureCanvas):
             self.axes.plot(data[x_axis], data[y_axis], 'r')
             self.axes.set_xlabel(x_axis)
             self.axes.set_ylabel(y_axis)
+
         self.draw()
 
     def compute_initial_figure(self):
