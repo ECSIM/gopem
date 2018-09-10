@@ -8,9 +8,7 @@ from opem.Dynamic.Padulles1 import Dynamic_Analysis as Padulles1_Analysis
 from opem.Dynamic.Padulles2 import Dynamic_Analysis as Padulles2_Analysis
 from opem.Dynamic.Padulles_Hauer import Dynamic_Analysis as Padulles_Hauer_Analysis
 from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett_Analysis
-from art import tprint
 from opem.Params import Version, Description_Menu, Description_Links, Vectors
-from opem.Functions import check_update, description_print, description_control
 import gopem.helper
 import gopem.plotter
 
@@ -162,12 +160,11 @@ class MainWindow(QWidget):
             temp[key] = value.value()
 
         name = self.menuKey[self.selectedMode]
-        input_attr = {}
-        input_attr["Name"] = name
+        input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
         print(input_attr)
-        output = menu(input_attr, True, False, False)
+        output = menu(input_attr, True, False, True)
         self.output = output
         print(output.keys())
         self.x_ax.clear()
