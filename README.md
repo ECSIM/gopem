@@ -32,25 +32,8 @@
 
 ## Overview		
 
-<img src="https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.jpg">
-<img src="https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.jpg">
-<p>Fig1. OPEM Block Diagram</p>
-
-</div>
-
-
-## Usage
-		
-		
-- Find Your Reports In `Model_Name` Folder
-
-<div align="center">
-
-<a href="https://asciinema.org/a/170416" target="_blank"><img src="https://asciinema.org/a/170416.png" /></a>
-<p>Screen Record</p>
-
-</div>
-		
+[Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
+[Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
 
 ## Issues & Bug Reports			
 
@@ -69,7 +52,7 @@ Gitter is another option :
 3. [OPEM](https://github.com/ECSIM/opem/blob/master/otherfile/test.opem)	
 
 ## Dependencies
-<a href="https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master"><img src="https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master" alt="Requirements Status" /></a>
+[![Requirements Status](https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master)](https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master)
 
 ## Thanks
 
