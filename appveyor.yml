@@ -28,6 +28,3 @@ init:
 install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"
   - "%PYTHON%/python.exe setup.py install"
-
-test_script:
-  - "%PYTHON%/python.exe -m pytest opem/Test --cov=opem --cov-report=term"
