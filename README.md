@@ -2,8 +2,6 @@
 <img src="https://github.com/ECSIM/opem/raw/master/otherfile/logo.png" width=250px height=250px>
 <br/>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
-<a href="https://travis-ci.org/ECSIM/opem-gui"><img src="https://travis-ci.org/ECSIM/opem-gui.svg?branch=master"></a>
-<a href="https://ci.appveyor.com/project/sepandhaghighi/opem"><img src="https://ci.appveyor.com/api/projects/status/h6qq5c806p1vu3v2?svg=true"></a>
 <a href="https://codecov.io/gh/ECSIM/opem-gui">
   <img src="https://codecov.io/gh/ECSIM/opem-gui/branch/master/graph/badge.svg" />
 </a>
@@ -13,6 +11,10 @@
 <a href="https://www.openhub.net/p/opem"><img src="https://www.openhub.net/p/opem/widgets/project_thin_badge.gif"></a>
 
 </div>
+
+[![Build Status](https://travis-ci.org/ECSIM/opem-gui.svg?branch=master)](https://travis-ci.org/ECSIM/opem-gui)
+[![Build status](https://ci.appveyor.com/api/projects/status/41wp3ghcvbiln2ty?svg=true)](https://ci.appveyor.com/project/mahi97/opem-gui)
+
 	
 ----------				
 
@@ -32,25 +34,8 @@
 
 ## Overview		
 
-<img src="https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.jpg">
-<img src="https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.jpg">
-<p>Fig1. OPEM Block Diagram</p>
-
-</div>
-
-
-## Usage
-		
-		
-- Find Your Reports In `Model_Name` Folder
-
-<div align="center">
-
-<a href="https://asciinema.org/a/170416" target="_blank"><img src="https://asciinema.org/a/170416.png" /></a>
-<p>Screen Record</p>
-
-</div>
-		
+![Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
+![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
 
 ## Issues & Bug Reports			
 
@@ -69,7 +54,7 @@ Gitter is another option :
 3. [OPEM](https://github.com/ECSIM/opem/blob/master/otherfile/test.opem)	
 
 ## Dependencies
-<a href="https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master"><img src="https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master" alt="Requirements Status" /></a>
+[![Requirements Status](https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master)](https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master)
 
 ## Thanks
 
