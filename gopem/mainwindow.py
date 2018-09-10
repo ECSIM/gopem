@@ -13,6 +13,12 @@ import gopem.helper
 import gopem.plotter
 
 
+def getNameWidget():
+    name = QLabel('OPEM (v' + str(Version) + ')')
+    name.setAlignment(Qt.AlignCenter)
+    return name
+
+
 class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -54,7 +60,7 @@ class MainWindow(QWidget):
             mode.setVisible(False)
         self.mode[0].setVisible(True)
 
-        self.main.addWidget(self.getNameWidget())
+        self.main.addWidget(getNameWidget())
         self.main.addWidget(self.HLine())
         lay_0 = QHBoxLayout()
         lay_0.addWidget(self.getComboWidget(self.menuKey))
@@ -75,7 +81,7 @@ class MainWindow(QWidget):
         self.super.addWidget(self.getPlotterArea())
 
     def initialModes(self, menu):
-        for i, k in enumerate(menu):
+        for i, _ in enumerate(menu):
             self.mode.append(QScrollArea(self))
             w = QWidget(self.mode[i])
             self.layout.append(QVBoxLayout(self.mode[i]))
@@ -114,10 +120,10 @@ class MainWindow(QWidget):
         w.setLayout(layout)
         return w
 
-    def getComboWidget(self, list):
+    def getComboWidget(self, combo_list):
         combo = QComboBox(self)
         combo.currentIndexChanged.connect(self.mode_changed_slt)
-        for k in list:
+        for k in combo_list:
             combo.addItem(k)
         combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         return combo
@@ -126,11 +132,6 @@ class MainWindow(QWidget):
         self.test_checkbox = QCheckBox("Use Test Data")
         self.test_checkbox.stateChanged.connect(self.test_slt)
         return self.test_checkbox
-
-    def getNameWidget(self):
-        name = QLabel('OPEM (v' + str(Version) + ')')
-        name.setAlignment(Qt.AlignCenter)
-        return name
 
     def get_attr_fields(self, mode):
         fields = []
@@ -170,7 +171,7 @@ class MainWindow(QWidget):
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
-            if type(output[k]) is list:
+            if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
         print(output)
