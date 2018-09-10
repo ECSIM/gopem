@@ -3,7 +3,6 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-import logging
 
 
 def get_requirements():
@@ -33,19 +32,18 @@ def read_description():
   reformers. OPEM is a platform for collaborative development of PEMFC models.'''
 
 
-
 setup(
     name='gopem',
-    packages=['src2', 'opem.Static', 'opem.Dynamic', 'opem.Test'],
-    version='0.9',
-    description='Open Source PEM Cell Simulation Tool',
+    packages=['gopem'],
+    version='0.1',
+    description='Open Source GUI Application for OPEM',
     long_description=read_description(),
     long_description_content_type='text/markdown',
-    author='Sepand Haghighi,Kasra Askari,Sarmin Hamidi,Mohammad Mahdi Rahimi',
+    author='Mohammad Mahdi Rahimi,Sepand Haghighi,Kasra Askari,Sarmin Hamidi',
     author_email='opem@ecsim.ir',
-    url='https://github.com/ecsim/opem',
-    download_url='https://github.com/ecsim/opem/tarball/v0.9',
-    keywords="OPEM PEM FC CELL Fuel-Cell Chemistry",
+    url='https://github.com/ecsim/opem-gui',
+    download_url='https://github.com/ecsim/opem-gui/tarball/v0.1',
+    keywords="OPEM PEM FC CELL Fuel-Cell Chemistry GUI PyQt",
     project_urls={
         'Webpage': 'http://opem.ecsim.ir',
         'Say Thanks!': 'https://saythanks.io/to/ecsim',
