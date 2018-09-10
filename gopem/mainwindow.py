@@ -31,6 +31,8 @@ class MainWindow(QWidget):
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
 
+        self.test_checkbox = QCheckBox()
+
         self.description = QLabel()
         self.des_link = QLabel()
         self.des_link.setTextFormat(Qt.RichText)
@@ -123,9 +125,9 @@ class MainWindow(QWidget):
         return combo
 
     def getTestCheckBox(self):
-        test_check = QCheckBox("Use Test Data")
-        test_check.stateChanged.connect(self.test_slt)
-        return test_check
+        self.test_checkbox = QCheckBox("Use Test Data")
+        self.test_checkbox.stateChanged.connect(self.test_slt)
+        return self.test_checkbox
 
     def getNameWidget(self):
         name = QLabel('OPEM (v' + str(Version) + ')')
@@ -159,28 +161,17 @@ class MainWindow(QWidget):
         for key, value in attributes.items():
             temp[key] = value.value()
 
-        temp["Name"] = self.menuKey[self.selectedMode]
-        test = {
-            "i-step": 0.1,
-            "B": 0.016,
-            "i-start": 0.0,
-            "PO2": 1.0,
-            "N": 1.0,
-            "lambda": 23.0,
-            "R": 0.0,
-            "PH2": 1.0,
-            "JMax": 1.5,
-            "A": 50.6,
-            "i-stop": 75.0,
-            "T": 343.15,
-            "l": 0.0178,
-            "Name": self.menuKey[self.selectedMode]
-        }
-        print(temp)
-        print(test)
-        output = menu(test, True, True, True)
+        name = self.menuKey[self.selectedMode]
+        input_attr = {}
+        input_attr["Name"] = name
+        for k in self.attributes[name].keys():
+            input_attr[k] = self.attributes[name][k].value()
+        print(input_attr)
+        output = menu(input_attr, True, False, False)
         self.output = output
         print(output.keys())
+        self.x_ax.clear()
+        self.y_ax.clear()
         for k in output.keys():
             if type(output[k]) is list:
                 self.x_ax.addItem(str(k))
@@ -212,13 +203,13 @@ class MainWindow(QWidget):
         self.description.setText(Description_Menu[self.menuKey[index]])
         self.des_link.setText('<a href="' + Description_Links[self.menuKey[index]] + '">Web Link</a>')
         self.selectedMode = index
+        self.test_checkbox.setChecked(False)
 
     def test_slt(self, state):
         if state == 2:
-            for k in self.attributes[self.menuKey[self.selectedMode]].keys():
-                self.attributes[self.menuKey[self.selectedMode]][k].setValue(1.0)
-        else:
-            self.reset_slt()
+            name = self.menuKey[self.selectedMode]
+            for k in self.attributes[name].keys():
+                self.attributes[name][k].setValue(Vectors[name][k])
 
     def axis_changed(self):
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
