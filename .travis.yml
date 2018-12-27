@@ -11,5 +11,5 @@ install:
   - pip install -r requirements.txt
   - python setup.py install
 
-after_success:
-  - codecov
+script:
+  - echo "Test"
