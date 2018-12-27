@@ -27,4 +27,4 @@ install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python setup.py install         ; fi
   
 script:
-  - python -m opem-gui --test
+  - python -m gopem --test
