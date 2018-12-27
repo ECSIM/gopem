@@ -2,14 +2,38 @@ sudo: true
 
 language: python
 
-python:
-  - 3.6
-  - 3.5
-  - 3.4
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          python: 3.7
+          dist: xenial
+
+        - os: linux
+          sudo: required
+          python: 3.6
+        
+        - os: linux
+          sudo: required
+          python: 3.5
+        
+        - os: osx
+          language: generic
+
+
 
 install:
-  - pip install -r requirements.txt
-  - python setup.py install
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r requirements.txt  ; fi
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 setup.py install          ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r requirements.txt ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python setup.py install         ; fi
 
-after_success:
-  - codecov
+before_script:
+  - "export DISPLAY=:99.0"
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sh -e /etc/init.d/xvfb start; fi
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
+  - sleep 3 # give xvfb some time to start
+  
+script:
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 -m gopem --test    ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python -m gopem --test   ; fi

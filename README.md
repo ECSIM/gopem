@@ -2,18 +2,12 @@
 <img src="https://github.com/ECSIM/opem/raw/master/otherfile/logo.png" width=250px height=250px>
 <br/>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
-<a href="https://codecov.io/gh/ECSIM/opem-gui">
-  <img src="https://codecov.io/gh/ECSIM/opem-gui/branch/master/graph/badge.svg" />
-</a>
-<a href="https://badge.fury.io/py/opem"><img src="https://badge.fury.io/py/opem-gui.svg" alt="PyPI version" height="18"></a>
-<a class="badge-align" href="https://www.codacy.com/app/sepand-haghighi/opem?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECSIM/opem&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/361480463fb1477180f066e8f945037d"/></a>
-<a href="Documents/"><img src="https://img.shields.io/badge/doc-latest-orange.svg"></a>
-<a href="https://www.openhub.net/p/opem"><img src="https://www.openhub.net/p/opem/widgets/project_thin_badge.gif"></a>
+<a href="https://badge.fury.io/py/opem-gui"><img src="https://badge.fury.io/py/opem-gui.svg" alt="PyPI version" height="18"></a>
 
 </div>
 
 [![Build Status](https://travis-ci.org/ECSIM/opem-gui.svg?branch=master)](https://travis-ci.org/ECSIM/opem-gui)
-[![Build status](https://ci.appveyor.com/api/projects/status/41wp3ghcvbiln2ty?svg=true)](https://ci.appveyor.com/project/mahi97/opem-gui)
+[![Build status](https://ci.appveyor.com/api/projects/status/8njc29i4knst0nkb?svg=true)](https://ci.appveyor.com/project/mahi97/opem-gui-3p4qo)
 
 	
 ----------				
@@ -21,7 +15,6 @@
 ## Table of contents			
    * [Overview](https://github.com/ECSIM/opem-gui#overview)
    * [Installation](https://github.com/ECSIM/opem-gui/blob/master/INSTALL.md)
-   * [Usage](https://github.com/ECSIM/opem-gui#usage)
    * [Issues & Bug Reports](https://github.com/ECSIM/opem-gui#issues--bug-reports)
    * [Contribution](https://github.com/ECSIM/opem-gui/blob/master/CONTRIBUTING.md)
    * [Dependencies](https://github.com/ECSIM/opem-gui#dependencies)
@@ -37,6 +30,8 @@
 ![Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
 ![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
 
+## Installation
+
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
@@ -46,12 +41,6 @@ Gitter is another option :
 
 [![Gitter](https://badges.gitter.im/ECSIM/opem.svg)](https://gitter.im/ECSIM/opem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-
-## Outputs	
-
-1. [HTML](http://www.ecsim.ir/opem/outputs/test.html)
-2. [CSV](https://github.com/ECSIM/opem/blob/master/otherfile/test.csv)
-3. [OPEM](https://github.com/ECSIM/opem/blob/master/otherfile/test.opem)	
 
 ## Dependencies
 [![Requirements Status](https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master)](https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master)
