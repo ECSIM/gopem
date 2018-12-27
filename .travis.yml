@@ -23,9 +23,9 @@ matrix:
 
 
 install:
-  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r requirements.txt  ; fi
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 setup.py install          ; fi
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r requirements.txt ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r dev-requirements.txt ; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python setup.py install         ; fi
 
 before_script:
