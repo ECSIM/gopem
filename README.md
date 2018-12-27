@@ -1,13 +1,11 @@
 <div align="center">
 <img src="https://github.com/ECSIM/opem/raw/master/otherfile/logo.png" width=250px height=250px>
-<br/>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/opem-gui"><img src="https://badge.fury.io/py/opem-gui.svg" alt="PyPI version" height="18"></a>
 
-</div>
-
 [![Build Status](https://travis-ci.org/ECSIM/opem-gui.svg?branch=master)](https://travis-ci.org/ECSIM/opem-gui)
 [![Build status](https://ci.appveyor.com/api/projects/status/8njc29i4knst0nkb?svg=true)](https://ci.appveyor.com/project/mahi97/opem-gui-3p4qo)
+</div>
 
 	
 ----------				
@@ -29,8 +27,6 @@
 
 ![Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
 ![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
-
-## Installation
 
 ## Issues & Bug Reports			
 
