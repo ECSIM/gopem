@@ -2,14 +2,29 @@ sudo: true
 
 language: python
 
-python:
-  - 3.6
-  - 3.5
-  - 3.7
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          python: 3.7
+          dist: xenial
+
+        - os: linux
+          sudo: required
+          python: 3.6
+        
+        - os: linux
+          sudo: required
+          python: 3.5
+        
+        - os: osx
+          language: generic
 
 install:
-  - pip install -r requirements.txt
-  - python setup.py install
-
+  - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then pip3 install -r requirements.txt fi;
+  - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then python3 setup.py install fi;
+  - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then pip install -r requirements.txt fi;
+  - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then python setup.py install fi;
+  
 script:
-  - python -m open-gui --test
+  - python -m opem-gui --test
