@@ -1,3 +1,3 @@
-matplotlib
-PyQt5
-opem==0.9
+matplotlib>=2.2.2
+PyQt5>=5.10
+opem>=0.9
