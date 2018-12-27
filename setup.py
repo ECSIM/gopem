@@ -33,7 +33,7 @@ def read_description():
 
 
 setup(
-    name='gopem',
+    name='opem-gui',
     packages=['gopem'],
     version='0.1',
     description='Open Source GUI Application for OPEM',
