@@ -20,11 +20,19 @@ matrix:
         - os: osx
           language: generic
 
+
+
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r requirements.txt  ; fi
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 setup.py install          ; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r requirements.txt ; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python setup.py install         ; fi
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sh -e /etc/init.d/xvfb start; fi
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
+  - sleep 3 # give xvfb some time to start
   
 script:
   - python -m gopem --test
