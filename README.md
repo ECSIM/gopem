@@ -6,9 +6,7 @@
 
 [![Build Status](https://travis-ci.org/ECSIM/opem-gui.svg?branch=master)](https://travis-ci.org/ECSIM/opem-gui)
 [![Build status](https://ci.appveyor.com/api/projects/status/8njc29i4knst0nkb?svg=true)](https://ci.appveyor.com/project/mahi97/opem-gui-3p4qo)
-</div>
-
-	
+[![CodeFactor](https://www.codefactor.io/repository/github/ecsim/gopem/badge)](https://www.codefactor.io/repository/github/ecsim/gopem)
 ----------				
 
 ## Table of contents			
