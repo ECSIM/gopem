@@ -1,5 +1,7 @@
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
+from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
+from PyQt5.QtWidgets import QLabel, QPushButton
 
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
@@ -13,7 +15,7 @@ import gopem.helper
 import gopem.plotter
 
 
-def getNameWidget():
+def get_name_widget():
     name = QLabel('OPEM (v' + str(Version) + ')')
     name.setAlignment(Qt.AlignCenter)
     return name
@@ -60,7 +62,7 @@ class MainWindow(QWidget):
             mode.setVisible(False)
         self.mode[0].setVisible(True)
 
-        self.main.addWidget(getNameWidget())
+        self.main.addWidget(get_name_widget())
         self.main.addWidget(self.HLine())
         lay_0 = QHBoxLayout()
         lay_0.addWidget(self.getComboWidget(self.menuKey))
