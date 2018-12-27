@@ -12,11 +12,11 @@ matrix:
         - os: linux
           sudo: required
           python: 3.6
-        
+
         - os: linux
           sudo: required
           python: 3.5
-        
+
         - os: osx
           language: generic
 
@@ -33,7 +33,7 @@ before_script:
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sh -e /etc/init.d/xvfb start; fi
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
   - sleep 3 # give xvfb some time to start
-  
+
 script:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 -m gopem --test    ; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python -m gopem --test   ; fi
