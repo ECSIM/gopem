@@ -24,10 +24,14 @@
    * [Donate](https://github.com/ECSIM/opem#donate-to-our-project)
    * [Changelog](https://github.com/ECSIM/opem-gui/blob/master/CHANGELOG.md)
 
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)
+
 ## Overview		
 
 ![Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
-![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
+![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_shield)
+
 
 ## Issues & Bug Reports			
 
