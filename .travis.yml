@@ -19,10 +19,6 @@ matrix:
 
         - os: osx
           language: generic
-addons:
-  apt:
-    packages:
-      - libxcb
 
 
 install:
@@ -36,6 +32,8 @@ before_script:
   - "export QT_DEBUG_PLUGINS=1"
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then ldd /usr/lib/qt/plugins/platforms/libqxcb.so ; fi
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then pacman -S libxcb ; fi
+  
   
   - sleep 3 # give xvfb some time to start
 
