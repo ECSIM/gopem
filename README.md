@@ -4,30 +4,15 @@
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/opem-gui"><img src="https://badge.fury.io/py/opem-gui.svg" alt="PyPI version" height="18"></a>
 
-[![Build Status](https://travis-ci.org/ECSIM/opem-gui.svg?branch=master)](https://travis-ci.org/ECSIM/opem-gui)
+[![Build Status](https://travis-ci.org/ECSIM/gopem.svg?branch=master)](https://travis-ci.org/ECSIM/gopem)
 [![Build status](https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2?svg=true)](https://ci.appveyor.com/project/mahi97/gopem)
 [![CodeFactor](https://www.codefactor.io/repository/github/ecsim/gopem/badge)](https://www.codefactor.io/repository/github/ecsim/gopem)
 </div>
 
-----------				
-
-## Table of contents			
-   * [Overview](https://github.com/ECSIM/opem-gui#overview)
-   * [Installation](https://github.com/ECSIM/opem-gui/blob/master/INSTALL.md)
-   * [Issues & Bug Reports](https://github.com/ECSIM/opem-gui#issues--bug-reports)
-   * [Contribution](https://github.com/ECSIM/opem-gui/blob/master/CONTRIBUTING.md)
-   * [Dependencies](https://github.com/ECSIM/opem-gui#dependencies)
-   * [Thanks](https://github.com/ECSIM/opem-gui#thanks)
-   * [Cite](https://github.com/ECSIM/opem-gui#cite)
-   * [Authors](https://github.com/ECSIM/opem-gui/blob/master/AUTHORS.md)
-   * [License](https://github.com/ECSIM/opem-gui#license)
-   * [Donate](https://github.com/ECSIM/opem#donate-to-our-project)
-   * [Changelog](https://github.com/ECSIM/opem-gui/blob/master/CHANGELOG.md)
-
 ## Overview		
 
-![Image1](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS1.png?branch=master)
-![Image2](https://github.com/ECSIM/opem-gui/raw/master/rsrc/SS2.png?branch=master)	
+![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
+![Image2](https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png)	
 
 ## Issues & Bug Reports			
 
@@ -40,7 +25,7 @@ Gitter is another option :
 
 
 ## Dependencies
-[![Requirements Status](https://requires.io/github/ECSIM/opem-gui/requirements.svg?branch=master)](https://requires.io/github/ECSIM/opem-gui/requirements/?branch=master)
+[![Requirements Status](https://requires.io/github/ECSIM/gopem/requirements.svg?branch=pyup-update-opem-0.9-to-1.0)](https://requires.io/github/ECSIM/gopem/requirements/?branch=pyup-update-opem-0.9-to-1.0)
 
 ## Thanks
 
