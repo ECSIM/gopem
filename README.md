@@ -28,12 +28,15 @@
 
 ## Overview		
 
-![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
-![Image2](https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png)	
+GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulation Tool)](https://github.com/ECSIM/opem "OPEM").
+
 
 ## Installation	
 
 ## Usage
+
+![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
+![Image2](https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png)	
 
 ## Issues & Bug Reports			
 
