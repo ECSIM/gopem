@@ -31,6 +31,10 @@
 ![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
 ![Image2](https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png)	
 
+## Installation	
+
+## Usage
+
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
