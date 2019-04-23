@@ -209,7 +209,8 @@ class MainWindow(QWidget):
         if state == 2:
             name = self.menuKey[self.selectedMode]
             for k in self.attributes[name].keys():
-                self.attributes[name][k].setValue(Vectors[name][k])
+                if k in Vectors[name].keys():
+                    self.attributes[name][k].setValue(Vectors[name][k])
 
     def axis_changed(self):
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
