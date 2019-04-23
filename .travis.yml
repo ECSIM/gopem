@@ -40,5 +40,6 @@ before_script:
   - sleep 5 # give xvfb some time to start
 
 script:
+  - bash rsrc/static_test.sh
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 -m gopem --test    ; fi
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python -m gopem --test   ; fi
