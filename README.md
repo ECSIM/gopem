@@ -33,6 +33,43 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 ## Installation	
 
+### Source Code
+- Download [Python3.x](https://www.python.org/downloads/) (>=3.4)
+- Download [Version 0.2](https://github.com/ecsim/gopem/archive/v0.2.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/master.zip)
+- Run `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
+- Run `python3 setup.py install` or `python setup.py install` (Need root access)				
+
+### PyPI
+
+
+- Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
+- Run `pip install gopem` or `pip3 install gopem` (Need root access)
+
+### Easy Install
+
+- Run `easy_install --upgrade gopem` (Need root access)
+
+
+### Exe Version (Only Windows)
+- Download [Exe-Version 0.2](https://github.com/ECSIM/opem/releases/download/v0.2/GOPEM-0.2.exe)
+- Run `GOPEM.exe`
+
+
+### DMG Version (MacOS)
+- Download [DMG-Version 0.2](https://github.com/ECSIM/opem/releases/download/v0.2/OPEM-0.2.dmg)
+- Open DMG file
+- Copy `GOPEM` into your system
+- Run `GOPEM`
+
+
+### System Requirements
+GOPEM will likely run on a modern dual core PC. Typical configuration is:
+
+- Dual Core CPU (2.0 Ghz+)
+- 2GB of RAM
+
+Note that it may run on lower end equipment though good performance is not guaranteed.
+
 ## Usage
 
 ![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
