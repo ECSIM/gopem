@@ -9,6 +9,23 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ecsim/gopem/badge)](https://www.codefactor.io/repository/github/ecsim/gopem)
 </div>
 
+--------
+
+## Table of contents				
+   * [Overview](https://github.com/ECSIM/gopem#overview)
+   * [Installation](https://github.com/ECSIM/gopem#installation)
+   * [Usage](https://github.com/ECSIM/gopem#usage)
+   * [Issues & Bug Reports](https://github.com/ECSIM/gopem#issues--bug-reports)
+   * [Contribution](https://github.com/ECSIM/gopem/blob/master/.github/CONTRIBUTING.md)
+   * [Dependencies](https://github.com/ECSIM/gopem#dependencies)
+   * [Thanks](https://github.com/ECSIM/gopem#thanks)
+   * [Cite](https://github.com/ECSIM/gopem#cite)
+   * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
+   * [License](https://github.com/ECSIM/gopem#license)
+   * [Donate](https://github.com/ECSIM/gopem#donate-to-our-project)
+   * [Changelog](https://github.com/ECSIM/gopem/blob/master/CHANGELOG.md)
+   * [Code of Conduct](https://github.com/ECSIM/gopem/blob/master/.github/CODE_OF_CONDUCT.md)
+
 ## Overview		
 
 ![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
