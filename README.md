@@ -51,12 +51,12 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.2](https://github.com/ECSIM/opem/releases/download/v0.2/GOPEM-0.2.exe)
+- Download [Exe-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.exe)
 - Run `GOPEM.exe`
 
 
 ### DMG Version (MacOS)
-- Download [DMG-Version 0.2](https://github.com/ECSIM/opem/releases/download/v0.2/OPEM-0.2.dmg)
+- Download [DMG-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.dmg)
 - Open DMG file
 - Copy `GOPEM` into your system
 - Run `GOPEM`

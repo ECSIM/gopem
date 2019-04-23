@@ -35,14 +35,14 @@ def read_description():
 setup(
     name='gopem',
     packages=['gopem'],
-    version='0.1',
+    version='0.2',
     description='Open Source GUI Application for OPEM',
     long_description=read_description(),
     long_description_content_type='text/markdown',
     author='Mohammad Mahdi Rahimi,Sepand Haghighi,Kasra Askari,Sarmin Hamidi',
     author_email='opem@ecsim.ir',
-    url='https://github.com/ecsim/opem-gui',
-    download_url='https://github.com/ecsim/opem-gui/tarball/v0.1',
+    url='https://github.com/ecsim/gopem',
+    download_url='https://github.com/ecsim/gopem/tarball/v0.2',
     keywords="OPEM PEM FC CELL Fuel-Cell Chemistry GUI PyQt",
     project_urls={
         'Webpage': 'http://opem.ecsim.ir',
