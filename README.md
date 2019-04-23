@@ -3,10 +3,6 @@
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/opem-gui"><img src="https://badge.fury.io/py/opem-gui.svg" alt="PyPI version" height="18"></a>
-
-[![Build Status](https://travis-ci.org/ECSIM/gopem.svg?branch=master)](https://travis-ci.org/ECSIM/gopem)
-[![Build status](https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2?svg=true)](https://ci.appveyor.com/project/mahi97/gopem)
-[![CodeFactor](https://www.codefactor.io/repository/github/ecsim/gopem/badge)](https://www.codefactor.io/repository/github/ecsim/gopem)
 </div>
 
 --------
@@ -30,6 +26,30 @@
 
 GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulation Tool)](https://github.com/ECSIM/opem "OPEM").
 
+<table>
+	<tr> 
+		<td align="center">Branch</td>
+		<td align="center">master</td>	
+		<td align="center">develop</td>	
+	</tr>
+	<tr>
+		<td align="center">Travis</td>
+		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=master"></a></td>
+		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=develop"></a></td>
+	</tr>
+	<tr>
+		<td align="center">AppVeyor</td>
+		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/master?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/develop?svg=true"></a></td>
+	</tr>
+</table>
+
+<table>
+	<tr> 
+		<td align="center">Code Quality</td>
+		<td align="center"><a href="https://www.codefactor.io/repository/github/ecsim/gopem"><img src="https://www.codefactor.io/repository/github/ecsim/gopem/badge" alt="CodeFactor" /></a></td>
+	</tr>
+</table>
 
 ## Installation	
 
