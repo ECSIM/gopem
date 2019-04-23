@@ -20,6 +20,10 @@ matrix:
         - os: osx
           language: generic
 
+addons:
+  apt:
+    packages:
+      - pacman
 
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
