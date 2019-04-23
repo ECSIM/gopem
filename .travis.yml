@@ -24,6 +24,9 @@ addons:
   apt:
     packages:
       - libegl1-mesa
+      - mesa-common-dev
+      - ibgl1-mesa-dev
+      - ibglu1-mesa-dev
 
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
