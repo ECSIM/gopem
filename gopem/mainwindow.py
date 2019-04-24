@@ -127,7 +127,7 @@ class MainWindow(QWidget):
         combo.currentIndexChanged.connect(self.mode_changed_slt)
         for k in combo_list:
             combo.addItem(k)
-        combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         return combo
 
     def getTestCheckBox(self):
