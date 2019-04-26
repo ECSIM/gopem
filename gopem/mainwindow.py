@@ -62,14 +62,14 @@ class MainWindow(QWidget):
         self.main.addWidget(self.get_name_widget())
         self.main.addWidget(self.HLine())
         lay_0 = QHBoxLayout()
-        lay_0.addWidget(self.getComboWidget(self.menuKey))
-        lay_0.addWidget(self.getTestCheckBox())
+        lay_0.addWidget(self.get_combo_widget(self.menuKey))
+        lay_0.addWidget(self.get_test_check_box())
         self.main.addLayout(lay_0)
         for mode in self.mode:
             self.main.addWidget(mode)
 
         self.reportChkBox = QCheckBox()
-        self.main.addWidget(self.getButtonWidget())
+        self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.HLine())
         self.main.addWidget(QLabel("Description:"))
         self.description.setText(Description_Menu[self.menuKey[0]])
@@ -110,7 +110,7 @@ class MainWindow(QWidget):
     def get_plotter_area(self):
         """
         Initial the plotter widget
-        :return: QWidget for plotter
+        :return: QWidget for plotter layer
         """
         w = QWidget(self)
         l = QVBoxLayout()
@@ -128,7 +128,11 @@ class MainWindow(QWidget):
         l.addWidget(self.plotter)
         return w
 
-    def getButtonWidget(self):
+    def get_button_widget(self):
+        """
+        Initial and Construct Rest, Analyse Buttons and connection
+        :return: QWidget of Buttons Layer
+        """
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
@@ -144,7 +148,12 @@ class MainWindow(QWidget):
         w.setLayout(layout_v)
         return w
 
-    def getComboWidget(self, combo_list):
+    def get_combo_widget(self, combo_list):
+        """
+        Construct the combo box of models
+        :param combo_list: The list of models
+        :return: QComboBox of models
+        """
         combo = QComboBox(self)
         combo.currentIndexChanged.connect(self.mode_changed_slt)
         for k in combo_list:
@@ -152,12 +161,21 @@ class MainWindow(QWidget):
         combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         return combo
 
-    def getTestCheckBox(self):
+    def get_test_check_box(self):
+        """
+        Construct and Initialize of the check box for test data and its connections
+        :return: QCheckBox for Test Data
+        """
         self.test_checkbox = QCheckBox("Use Test Data")
         self.test_checkbox.stateChanged.connect(self.test_slt)
         return self.test_checkbox
 
     def get_attr_fields(self, mode):
+        """
+        Returns the list of attributes for the given model
+        :param mode: The model to get its attribues
+        :return: The list of attributes for the given model
+        """
         fields = []
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
         name = self.menuKey[mode]
@@ -175,11 +193,21 @@ class MainWindow(QWidget):
         return fields
 
     def reset_slt(self):
+        """
+        The Slot Function for the reset PushButton
+        It will set all the attributes' value to 0.0
+        :return: None
+        """
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
-        print('reset')
 
     def analyze(self, menu, attributes):
+        """
+        Start an analysis by the selected model and given attributes values
+        :param menu: The model that analysis is based on
+        :param attributes: The value of each parameter of model
+        :return: None
+        """
         temp = {}
         for key, value in attributes.items():
             temp[key] = value.value()
@@ -188,17 +216,14 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        print(input_attr)
         output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
         self.output = output
-        print(output.keys())
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        print(output)
         self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
 
     def analyse_slt(self):
