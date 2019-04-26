@@ -26,6 +26,9 @@ addons:
       - libegl1-mesa
       - mesa-common-dev
       - libxkbcommon-x11-0
+      - libqt5x11extras5
+      - libxcb-xinerama0
+      - libdbus-1-3
 
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
