@@ -1,5 +1,6 @@
 matplotlib==3.0.2
 opem==0.9
+PyQt5==5.12.1
 setuptools==40.8.0
 bandit==1.5.1
 vulture==1.0
