@@ -15,14 +15,11 @@ import gopem.helper
 import gopem.plotter
 
 
-def get_name_widget():
-    name = QLabel('OPEM (v' + str(Version) + ')')
-    name.setAlignment(Qt.AlignCenter)
-    return name
-
-
 class MainWindow(QWidget):
     def __init__(self):
+        """
+        The Constructor of GUI Window
+        """
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
@@ -57,12 +54,12 @@ class MainWindow(QWidget):
         self.super = QHBoxLayout(self)
         self.main = QVBoxLayout(self)
 
-        self.initialModes(self.menu.keys())
+        self.initial_modes(self.menu.keys())
         for mode in self.mode:
             mode.setVisible(False)
         self.mode[0].setVisible(True)
 
-        self.main.addWidget(get_name_widget())
+        self.main.addWidget(self.get_name_widget())
         self.main.addWidget(self.HLine())
         lay_0 = QHBoxLayout()
         lay_0.addWidget(self.getComboWidget(self.menuKey))
@@ -82,9 +79,24 @@ class MainWindow(QWidget):
         self.setLayout(self.super)
         self.super.addLayout(self.main)
         self.super.addWidget(self.VLine())
-        self.super.addWidget(self.getPlotterArea())
+        self.super.addWidget(self.get_plotter_area())
 
-    def initialModes(self, menu):
+    def get_name_widget(self):
+        """
+        The Top Widget that shows the name and version of Opem library.
+
+        :return: Containing the name and version of the opem
+        """
+        name = QLabel('OPEM (v' + str(Version) + ')', self)
+        name.setAlignment(Qt.AlignCenter)
+        return name
+
+    def initial_modes(self, menu):
+        """
+        Generate a page for each model in opem and put them on each other.
+        :param menu: dict: The dictionary of opem models
+        :return: None
+        """
         for i, _ in enumerate(menu):
             self.mode.append(QScrollArea(self))
             w = QWidget(self.mode[i])
@@ -95,7 +107,11 @@ class MainWindow(QWidget):
             self.mode[i].setWidget(w)
             self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-    def getPlotterArea(self):
+    def get_plotter_area(self):
+        """
+        Initial the plotter widget
+        :return: QWidget for plotter
+        """
         w = QWidget(self)
         l = QVBoxLayout()
         w.setLayout(l)
@@ -191,6 +207,10 @@ class MainWindow(QWidget):
         print('analysed')
 
     def HLine(self):
+        """
+
+        :return:
+        """
         toto = QFrame(parent=self)
         toto.setFrameShape(QFrame.HLine)
         toto.setFrameShadow(QFrame.Sunken)
