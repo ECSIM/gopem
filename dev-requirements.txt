@@ -1,5 +1,4 @@
 matplotlib==3.0.2
-PyQt5==5.12.1
 opem==0.9
 setuptools==40.8.0
 bandit==1.5.1
