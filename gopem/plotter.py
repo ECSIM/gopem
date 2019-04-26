@@ -1,11 +1,10 @@
 from __future__ import unicode_literals
 import matplotlib
 from PyQt5 import QtWidgets
-
-matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
-
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+
+matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 
 
 class MyMplCanvas(FigureCanvas):
@@ -24,9 +23,7 @@ class MyMplCanvas(FigureCanvas):
         FigureCanvas.updateGeometry(self)
 
     def update_plot(self, data, x_axis, y_axis):
-        # Build a list of 4 random integers between 0 and 10 (both inclusive)
         self.axes.cla()
-        # Major ticks every 20, minor ticks every 5
         self.axes.grid(True, linestyle='-.', which='both')
         if x_axis in data.keys() and y_axis in data.keys():
             self.axes.plot(data[x_axis], data[y_axis], 'r')
@@ -34,9 +31,6 @@ class MyMplCanvas(FigureCanvas):
             self.axes.set_ylabel(y_axis)
 
         self.draw()
-
-    def compute_initial_figure(self):
-        pass
 
 
 class ApplicationWindow(QtWidgets.QWidget):
@@ -51,8 +45,8 @@ class ApplicationWindow(QtWidgets.QWidget):
     def update_plotter_data(self, data, x_axis, y_axis):
         self.sc.update_plot(data, x_axis, y_axis)
 
-    def fileQuit(self):
+    def file_quit(self):
         self.close()
 
-    def closeEvent(self, ce):
-        self.fileQuit()
+    def close_event(self, ce):
+        self.file_quit()
