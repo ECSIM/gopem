@@ -60,7 +60,7 @@ class MainWindow(QWidget):
         self.mode[0].setVisible(True)
 
         self.main.addWidget(self.get_name_widget())
-        self.main.addWidget(self.HLine())
+        self.main.addWidget(self.h_line())
         lay_0 = QHBoxLayout()
         lay_0.addWidget(self.get_combo_widget(self.menuKey))
         lay_0.addWidget(self.get_test_check_box())
@@ -70,7 +70,7 @@ class MainWindow(QWidget):
 
         self.reportChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
-        self.main.addWidget(self.HLine())
+        self.main.addWidget(self.h_line())
         self.main.addWidget(QLabel("Description:"))
         self.description.setText(Description_Menu[self.menuKey[0]])
         self.des_link.setText('<a href="' + Description_Links[self.menuKey[0]] + '">Web Link</a>')
@@ -78,7 +78,7 @@ class MainWindow(QWidget):
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
         self.super.addLayout(self.main)
-        self.super.addWidget(self.VLine())
+        self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
     def get_name_widget(self):
@@ -124,7 +124,7 @@ class MainWindow(QWidget):
         ll.addWidget(self.y_ax)
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
-        l.addWidget(self.HLine())
+        l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         return w
 
@@ -227,27 +227,38 @@ class MainWindow(QWidget):
         self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
 
     def analyse_slt(self):
-        print('analyse ... ')
-        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
-        print('analysed')
-
-    def HLine(self):
         """
+        The Slot Function for the analyse PushButton
+        :return: None
+        """
+        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
 
-        :return:
+    def h_line(self):
+        """
+        Generate a Horizontal line with QFrame
+        :return: QFrame looks like a horizontal separator line
         """
         toto = QFrame(parent=self)
         toto.setFrameShape(QFrame.HLine)
         toto.setFrameShadow(QFrame.Sunken)
         return toto
 
-    def VLine(self):
+    def v_line(self):
+        """
+        Generate a Vertical line with QFrame
+        :return: QFrame looks like a vertical separator line
+        """
         toto = QFrame(parent=self)
         toto.setFrameShape(QFrame.VLine)
         toto.setFrameShadow(QFrame.Sunken)
         return toto
 
     def mode_changed_slt(self, index):
+        """
+        The Slot function for Mode selector ComboBox
+        :param index: The index of the model that has been selected
+        :return: None
+        """
         for m in self.mode:
             m.setVisible(False)
         self.mode[index].setVisible(True)
@@ -257,6 +268,11 @@ class MainWindow(QWidget):
         self.test_checkbox.setChecked(False)
 
     def test_slt(self, state):
+        """
+        The Slot Function for Test CheckBox
+        :param state: The state of the check box
+        :return: None
+        """
         if state == 2:
             name = self.menuKey[self.selectedMode]
             for k in self.attributes[name].keys():
@@ -264,4 +280,8 @@ class MainWindow(QWidget):
                     self.attributes[name][k].setValue(Vectors[name][k])
 
     def axis_changed(self):
+        """
+        The Slot Function for the axis selector comboBox
+        :return: None
+        """
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
