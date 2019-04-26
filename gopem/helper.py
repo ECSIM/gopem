@@ -15,10 +15,3 @@ InputParam = {
     "Padulles_Hauer Analysis (Dynamic)": PH,
     "Padulles_Amphlett Analysis (Dynamic)": PA
 }
-
-
-
-def frange(x, y, jump):
-    while x < y:
-        yield x
-        x += jump
