@@ -70,6 +70,8 @@ class MainWindow(QWidget):
         self.main.addLayout(lay_0)
         for mode in self.mode:
             self.main.addWidget(mode)
+
+        self.reportChkBox = QCheckBox()
         self.main.addWidget(self.getButtonWidget())
         self.main.addWidget(self.HLine())
         self.main.addWidget(QLabel("Description:"))
@@ -114,12 +116,16 @@ class MainWindow(QWidget):
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
+        self.reportChkBox = QCheckBox('Do you want to have a generated report for this analysis ?')
+        layout_v = QVBoxLayout(self)
         layout = QHBoxLayout(self)
         layout.addWidget(resetBtn)
         layout.addWidget(analyseBtn)
         resetBtn.clicked.connect(self.reset_slt)
         analyseBtn.clicked.connect(self.analyse_slt)
-        w.setLayout(layout)
+        layout_v.addLayout(layout)
+        layout_v.addWidget(self.reportChkBox)
+        w.setLayout(layout_v)
         return w
 
     def getComboWidget(self, combo_list):
@@ -167,7 +173,7 @@ class MainWindow(QWidget):
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
         print(input_attr)
-        output = menu(input_attr, True, False, True)
+        output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
         self.output = output
         print(output.keys())
         self.x_ax.clear()
