@@ -9,6 +9,13 @@ matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 
 class MyMplCanvas(FigureCanvas):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
+        """
+        The Constructor of MatPlotLib Canvas for plotter
+        :param parent: The QWidfet Parent
+        :param width: The initial width of canvas
+        :param height: The initial height of canvas
+        :param dpi: The dpi of the canvas
+        """
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
 
@@ -23,6 +30,13 @@ class MyMplCanvas(FigureCanvas):
         FigureCanvas.updateGeometry(self)
 
     def update_plot(self, data, x_axis, y_axis):
+        """
+        Update the Data and axis range of the canvas
+        :param data: A dictionary that contains the data points
+        :param x_axis: The ticks on X axis
+        :param y_axis: The ticks on Y axis
+        :return: None
+        """
         self.axes.cla()
         self.axes.grid(True, linestyle='-.', which='both')
         if x_axis in data.keys() and y_axis in data.keys():
