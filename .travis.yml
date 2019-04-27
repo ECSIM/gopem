@@ -55,9 +55,9 @@ addons:
       - libxkbcommon-x11-dev
 
 install:
-  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
+  
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 setup.py install          ; fi
-  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r dev-requirements.txt ; fi
+  
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python setup.py install         ; fi
 
 before_script:
@@ -67,6 +67,10 @@ before_script:
   - sleep 5 # give xvfb some time to start
 
 script:
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 -m gopem --test    ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then python -m gopem --test   ; fi
+  - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt --user ; fi
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then pip install -r dev-requirements.txt ; fi
   - chmod +x rsrc/static_test.sh
   - bash rsrc/static_test.sh
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then python3 -m gopem --test    ; fi
