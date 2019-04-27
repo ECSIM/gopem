@@ -1,3 +1,4 @@
+"""GOPEM helper."""
 from opem.Params import Amphlett_InputParams as A
 from opem.Params import Chamberline_InputParams as C
 from opem.Params import Larminiee_InputParams as L
