@@ -19,8 +19,6 @@ class MplCanvas(FigureCanvas):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
 
-        self.compute_initial_figure()
-
         FigureCanvas.__init__(self, fig)
         self.setParent(parent)
 

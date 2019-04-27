@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QApplication
 
-from gopem.mainwindow import MainWindow
+from .mainwindow import MainWindow
 import sys
 
 if __name__ == "__main__":
