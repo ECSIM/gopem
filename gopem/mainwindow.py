@@ -97,7 +97,6 @@ class MainWindow(QWidget):
         Generate a page for each model in OPEM and put them on each other.
 
         :param menu: the dictionary of OPEM models
-        :type menu: dict
         :return: None
         """
         for i, _ in enumerate(menu):
@@ -158,7 +157,6 @@ class MainWindow(QWidget):
         Construct the combo box of models.
 
         :param combo_list: the list of models
-        :type combo_list: list
         :return: QComboBox of models
         """
         combo = QComboBox(self)
