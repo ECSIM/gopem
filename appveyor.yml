@@ -20,3 +20,4 @@ init:
 install:
   - "%PYTHON%/Scripts/pip.exe install -r requirements.txt"
   - "%PYTHON%/python.exe setup.py install"
+  - "%PYTHON%/python.exe rsrc/version_check.py"

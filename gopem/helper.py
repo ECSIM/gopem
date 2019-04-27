@@ -1,3 +1,4 @@
+"""GOPEM helper."""
 from opem.Params import Amphlett_InputParams as A
 from opem.Params import Chamberline_InputParams as C
 from opem.Params import Larminiee_InputParams as L
@@ -15,10 +16,3 @@ InputParam = {
     "Padulles_Hauer Analysis (Dynamic)": PH,
     "Padulles_Amphlett Analysis (Dynamic)": PA
 }
-
-
-
-def frange(x, y, jump):
-    while x < y:
-        yield x
-        x += jump

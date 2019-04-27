@@ -1,3 +1,4 @@
+"""GOPEM mainwindow."""
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
@@ -15,14 +16,11 @@ import gopem.helper
 import gopem.plotter
 
 
-def get_name_widget():
-    name = QLabel('OPEM (v' + str(Version) + ')')
-    name.setAlignment(Qt.AlignCenter)
-    return name
-
-
 class MainWindow(QWidget):
+    """MainWindow class."""
+
     def __init__(self):
+        """Initialize of GUI window."""
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
@@ -57,21 +55,23 @@ class MainWindow(QWidget):
         self.super = QHBoxLayout(self)
         self.main = QVBoxLayout(self)
 
-        self.initialModes(self.menu.keys())
+        self.initial_modes(self.menu.keys())
         for mode in self.mode:
             mode.setVisible(False)
         self.mode[0].setVisible(True)
 
-        self.main.addWidget(get_name_widget())
-        self.main.addWidget(self.HLine())
+        self.main.addWidget(self.get_name_widget())
+        self.main.addWidget(self.h_line())
         lay_0 = QHBoxLayout()
-        lay_0.addWidget(self.getComboWidget(self.menuKey))
-        lay_0.addWidget(self.getTestCheckBox())
+        lay_0.addWidget(self.get_combo_widget(self.menuKey))
+        lay_0.addWidget(self.get_test_check_box())
         self.main.addLayout(lay_0)
         for mode in self.mode:
             self.main.addWidget(mode)
-        self.main.addWidget(self.getButtonWidget())
-        self.main.addWidget(self.HLine())
+
+        self.reportChkBox = QCheckBox()
+        self.main.addWidget(self.get_button_widget())
+        self.main.addWidget(self.h_line())
         self.main.addWidget(QLabel("Description:"))
         self.description.setText(Description_Menu[self.menuKey[0]])
         self.des_link.setText('<a href="' + Description_Links[self.menuKey[0]] + '">Web Link</a>')
@@ -79,10 +79,26 @@ class MainWindow(QWidget):
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
         self.super.addLayout(self.main)
-        self.super.addWidget(self.VLine())
-        self.super.addWidget(self.getPlotterArea())
+        self.super.addWidget(self.v_line())
+        self.super.addWidget(self.get_plotter_area())
 
-    def initialModes(self, menu):
+    def get_name_widget(self):
+        """
+        Top widget that shows the name and version of OPEM library.
+
+        :return: containing the name and version of the OPEM
+        """
+        name = QLabel('OPEM (v' + str(Version) + ')', self)
+        name.setAlignment(Qt.AlignCenter)
+        return name
+
+    def initial_modes(self, menu):
+        """
+        Generate a page for each model in OPEM and put them on each other.
+
+        :param menu: the dictionary of OPEM models
+        :return: None
+        """
         for i, _ in enumerate(menu):
             self.mode.append(QScrollArea(self))
             w = QWidget(self.mode[i])
@@ -93,7 +109,12 @@ class MainWindow(QWidget):
             self.mode[i].setWidget(w)
             self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 
-    def getPlotterArea(self):
+    def get_plotter_area(self):
+        """
+        Initialize the plotter widget.
+
+        :return: QWidget for plotter layer
+        """
         w = QWidget(self)
         l = QVBoxLayout()
         w.setLayout(l)
@@ -106,36 +127,62 @@ class MainWindow(QWidget):
         ll.addWidget(self.y_ax)
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
-        l.addWidget(self.HLine())
+        l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         return w
 
-    def getButtonWidget(self):
+    def get_button_widget(self):
+        """
+        Initialize and construct reset, analyse buttons and connection.
+
+        :return: QWidget of buttons Layer
+        """
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
+        self.reportChkBox = QCheckBox('Do you want to have a generated report for this analysis ?')
+        layout_v = QVBoxLayout(self)
         layout = QHBoxLayout(self)
         layout.addWidget(resetBtn)
         layout.addWidget(analyseBtn)
         resetBtn.clicked.connect(self.reset_slt)
         analyseBtn.clicked.connect(self.analyse_slt)
-        w.setLayout(layout)
+        layout_v.addLayout(layout)
+        layout_v.addWidget(self.reportChkBox)
+        w.setLayout(layout_v)
         return w
 
-    def getComboWidget(self, combo_list):
+    def get_combo_widget(self, combo_list):
+        """
+        Construct the combo box of models.
+
+        :param combo_list: the list of models
+        :return: QComboBox of models
+        """
         combo = QComboBox(self)
         combo.currentIndexChanged.connect(self.mode_changed_slt)
         for k in combo_list:
             combo.addItem(k)
-        combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        combo.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         return combo
 
-    def getTestCheckBox(self):
+    def get_test_check_box(self):
+        """
+        Construct and initialize of the check box for test data and its connections.
+
+        :return: QCheckBox for test data
+        """
         self.test_checkbox = QCheckBox("Use Test Data")
         self.test_checkbox.stateChanged.connect(self.test_slt)
         return self.test_checkbox
 
     def get_attr_fields(self, mode):
+        """
+        Return the list of attributes for the given model.
+
+        :param mode: the model to get its attributes
+        :return: the list of attributes for the given model
+        """
         fields = []
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
         name = self.menuKey[mode]
@@ -153,11 +200,22 @@ class MainWindow(QWidget):
         return fields
 
     def reset_slt(self):
+        """
+        Slot function for the reset button, it will set all the attributes value to 0.0.
+
+        :return: None
+        """
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
-        print('reset')
 
     def analyze(self, menu, attributes):
+        """
+        Start an analysis by the selected model and given attributes values.
+
+        :param menu: the model that analysis is based on
+        :param attributes: the value of each parameter of model
+        :return: None
+        """
         temp = {}
         for key, value in attributes.items():
             temp[key] = value.value()
@@ -166,37 +224,53 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        print(input_attr)
-        output = menu(input_attr, True, False, True)
+        output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
         self.output = output
-        print(output.keys())
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        print(output)
         self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
 
     def analyse_slt(self):
-        print('analyse ... ')
-        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
-        print('analysed')
+        """
+        Slot function for the analyse button.
 
-    def HLine(self):
+        :return: None
+        """
+        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
+
+    def h_line(self):
+        """
+        Generate a horizontal line with QFrame.
+
+        :return: QFrame looks like a horizontal separator line
+        """
         toto = QFrame(parent=self)
         toto.setFrameShape(QFrame.HLine)
         toto.setFrameShadow(QFrame.Sunken)
         return toto
 
-    def VLine(self):
+    def v_line(self):
+        """
+        Generate a vertical line with QFrame.
+
+        :return: QFrame looks like a vertical separator line
+        """
         toto = QFrame(parent=self)
         toto.setFrameShape(QFrame.VLine)
         toto.setFrameShadow(QFrame.Sunken)
         return toto
 
     def mode_changed_slt(self, index):
+        """
+        Slot function for mode selector ComboBox.
+
+        :param index: the index of the model that has been selected
+        :return: None
+        """
         for m in self.mode:
             m.setVisible(False)
         self.mode[index].setVisible(True)
@@ -206,10 +280,22 @@ class MainWindow(QWidget):
         self.test_checkbox.setChecked(False)
 
     def test_slt(self, state):
+        """
+        The slot function for test CheckBox.
+
+        :param state: the state of the check box
+        :return: None
+        """
         if state == 2:
             name = self.menuKey[self.selectedMode]
             for k in self.attributes[name].keys():
-                self.attributes[name][k].setValue(Vectors[name][k])
+                if k in Vectors[name].keys():
+                    self.attributes[name][k].setValue(Vectors[name][k])
 
     def axis_changed(self):
+        """
+        Slot function for the axis selector comboBox.
+
+        :return: None
+        """
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
