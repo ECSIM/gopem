@@ -108,8 +108,9 @@ Note that it may run on lower end equipment though good performance is not guara
 
 - Open `CMD` (Windows) or `Terminal` (UNIX)
 - Run `python -m gopem` or `python3 -m gopem` (or run `GOPEM.exe`)
-- Enter PEM cell parameters (or run standard test vectors)
+- Enter PEM cell parameters (or run standard test vectors)	
 
+* For more information about parameters visit [OPEM (Open Source PEM Fuel Cell Simulation Tool)](https://github.com/ECSIM/opem "OPEM")
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
