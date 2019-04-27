@@ -8,28 +8,25 @@ matrix:
           sudo: required
           python: 3.7
           dist: xenial
+          services:
+              - xvfb
 
         - os: linux
           sudo: required
           python: 3.6
+          dist: xenial
+          services:
+              - xvfb
 
         - os: linux
           sudo: required
           python: 3.5
+          dist: xenial
+          services:
+              - xvfb
 
         - os: osx
           language: generic
-
-addons:
-  apt:
-    packages:
-      - libegl1-mesa
-      - mesa-common-dev
-      - libxkbcommon-x11-0
-      - libqt5x11extras5
-      - libxcb-xinerama0
-      - libdbus-1-3
-      - python3-pyqt5
 
 install:
   - if [[ $TRAVIS_OS_NAME == "osx" ]]; then pip3 install -r dev-requirements.txt  ; fi
@@ -41,7 +38,6 @@ before_script:
   - "export DISPLAY=:99.0"
   - "export QT_DEBUG_PLUGINS=1"
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then ( sudo Xvfb :99 -ac -screen 0 1024x768x8; echo ok )& fi
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sh -e /etc/init.d/xvfb start ; fi
   - sleep 5 # give xvfb some time to start
 
 script:
