@@ -96,7 +96,7 @@ Note that it may run on lower end equipment though good performance is not guara
 <div align="center">
 
 <img src="https://github.com/ECSIM/gopem/blob/master/rsrc/GOPEM.gif">
-<p>Quick Start</p>
+<p>GIF</p>
 
 <img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
 <p>Screenshot 1</p>
@@ -108,6 +108,7 @@ Note that it may run on lower end equipment though good performance is not guara
 
 - Open `CMD` (Windows) or `Terminal` (UNIX)
 - Run `python -m gopem` or `python3 -m gopem` (or run `GOPEM.exe`)
+- Wait about 4-15 seconds (depends on your system specification)
 - Enter PEM cell parameters (or run standard test vectors)	
 - For more information about parameters visit [OPEM (Open Source PEM Fuel Cell Simulation Tool)](https://github.com/ECSIM/opem "OPEM")
 ## Issues & Bug Reports			
