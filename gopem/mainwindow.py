@@ -17,8 +17,10 @@ import gopem.plotter
 
 
 class MainWindow(QWidget):
+    """MainWindow class."""
+    
     def __init__(self):
-        """Constructor of GUI window."""
+        """Initialize of GUI window."""
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
