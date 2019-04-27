@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Setup module."""
 try:
     from setuptools import setup
 except ImportError:
@@ -6,11 +7,13 @@ except ImportError:
 
 
 def get_requirements():
+    """Read requirements.txt."""
     requirements = open("requirements.txt", "r").read()
     return list(filter(lambda x: x != "", requirements.split()))
 
 
 def read_description():
+    """Read README.md and CHANGELOG.md."""
     try:
         with open("README.md") as r:
             description = "\n"
@@ -47,11 +50,11 @@ setup(
     project_urls={
         'Webpage': 'http://opem.ecsim.ir',
         'Say Thanks!': 'https://saythanks.io/to/ecsim',
-        'Source': 'https://github.com/ecsim/opem',
+        'Source': 'https://github.com/ecsim/gopem',
     },
     platforms=["any"],
     install_requires=get_requirements(),
-    python_requires='>=3.4',
+    python_requires='>=3.5',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: End Users/Desktop',
