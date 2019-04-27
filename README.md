@@ -101,7 +101,7 @@ Note that it may run on lower end equipment though good performance is not guara
 <img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
 <p>Screenshot 1</p>
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
+<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png">
 <p>Screenshot 2</p>
 
 </div>	
