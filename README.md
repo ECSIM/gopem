@@ -121,7 +121,7 @@ Gitter is another option :
 
 
 ## Dependencies
-[![Requirements Status](https://requires.io/github/ECSIM/gopem/requirements.svg?branch=pyup-update-opem-0.9-to-1.0)](https://requires.io/github/ECSIM/gopem/requirements/?branch=pyup-update-opem-0.9-to-1.0)
+[![Requirements Status](https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop)](https://requires.io/github/ECSIM/gopem/requirements/?branch=develop)
 
 ## Thanks
 
