@@ -9,11 +9,13 @@ matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 
 
 class MplCanvas(FigureCanvas):
+    """MplCanvas class."""
+
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         """
-        The constructor of MatPlotLib canvas for plotter.
+        Initialize of MatPlotLib canvas for plotter.
 
-        :param parent: the QWidfet Parent
+        :param parent: the QWidget parent
         :param width: the initial width of canvas
         :param height: the initial height of canvas
         :param dpi: the dpi of the canvas
@@ -49,9 +51,11 @@ class MplCanvas(FigureCanvas):
 
 
 class ApplicationWindow(QtWidgets.QWidget):
+    """ApplicationWindow class."""
+
     def __init__(self, *args, **kwargs):
         """
-        The application widget for MPLCanvas class.
+        Application widget for MPLCanvas class.
 
         :param args: the list of arguments
         :param kwargs: the dictionary of keywords
@@ -84,7 +88,7 @@ class ApplicationWindow(QtWidgets.QWidget):
 
     def close_event(self, ce):
         """
-        The slot for close event trigger.
+        Slot for close event trigger.
 
         :param ce: close event
         :return: None
