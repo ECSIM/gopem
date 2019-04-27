@@ -1,7 +1,7 @@
-matplotlib==3.0.2
-opem==0.9
+matplotlib==3.0.3
+opem==1.0
 PyQt5==5.12.1
-setuptools==40.8.0
+setuptools==41.0.1
 bandit==1.5.1
 vulture==1.0
 pydocstyle==3.0.0
