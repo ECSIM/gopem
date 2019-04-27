@@ -93,8 +93,22 @@ Note that it may run on lower end equipment though good performance is not guara
 
 ## Usage
 
-![Image1](https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png)
-![Image2](https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png)	
+<div align="center">
+
+<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/GOPEM.gif">
+<p>Quick Start</p>
+
+<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
+<p>Screenshot 1</p>
+
+<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
+<p>Screenshot 2</p>
+
+</div>	
+
+- Open `CMD` (Windows) or `Terminal` (UNIX)
+- Run `python -m gopem` or `python3 -m gopem` (or run `GOPEM.exe`)
+- Enter PEM cell parameters (or run standard test vectors)
 
 ## Issues & Bug Reports			
 
