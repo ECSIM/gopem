@@ -1,11 +1,12 @@
 """GOPEM plotter."""
 from __future__ import unicode_literals
 import matplotlib
+matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 from PyQt5 import QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
+
 
 
 class MplCanvas(FigureCanvas):
