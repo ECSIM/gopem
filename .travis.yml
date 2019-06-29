@@ -27,7 +27,14 @@ matrix:
 
         - os: osx
           language: generic
-
+    allow_failures:
+        - os: linux
+          sudo: required
+          python: 3.5
+          dist: xenial
+          services:
+              - xvfb
+        
 addons:
   apt:
     packages: &BASE_PACKAGES
