@@ -127,8 +127,19 @@ Gitter is another option :
 [![Gitter](https://badges.gitter.im/ECSIM/opem.svg)](https://gitter.im/ECSIM/opem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
-## Dependencies
-[![Requirements Status](https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop)](https://requires.io/github/ECSIM/gopem/requirements/?branch=develop)
+## Dependencies		
+
+
+<table>
+	<tr> 
+		<td align="center">master</td>	
+		<td align="center">develop</td>	
+	</tr>
+	<tr>
+		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=master"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
+		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=develop"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop" alt="Requirements Status" /></a></td>
+	</tr>
+</table>
 
 ## Thanks
 
@@ -161,11 +172,20 @@ If you use OPEM in your research , please cite this paper :
 
 Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)									
 
-<a style="border-width:0" href="https://doi.org/10.21105/joss.00676">
-  <img src="http://joss.theoj.org/papers/10.21105/joss.00676/status.svg" alt="DOI badge" >
-</a>
-
-<a href="https://doi.org/10.5281/zenodo.1133110"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1133110.svg" alt="DOI"></a>
+<table>
+	<tr> 
+		<td align="center">JOSS</td>
+		<td align="center"><a style="border-width:0" href="https://doi.org/10.21105/joss.00676"><img src="http://joss.theoj.org/papers/10.21105/joss.00676/status.svg" alt="DOI badge" ></a></td>	
+	</tr>
+	<tr>
+		<td align="center">Zenodo</td>
+		<td align="center"><a href="https://doi.org/10.5281/zenodo.1133110"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1133110.svg" alt="DOI"></a></td>
+	</tr>
+	<tr>
+		<td align="center">Researchgate</td>
+		<td align="center"><a href="https://www.researchgate.net/project/Open-Source-Electrochemistry-Simulation-Toolbox"><img src="https://img.shields.io/badge/Researchgate-OPEM-yellow.svg"></a></td>
+	</tr>
+</table>
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)		
