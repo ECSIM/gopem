@@ -217,6 +217,7 @@ class MainWindow(QWidget):
         :return: None
         """
         temp = {}
+        report_flag = self.reportChkBox.isChecked()
         for key, value in attributes.items():
             temp[key] = value.value()
 
@@ -224,7 +225,7 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
+        output = menu(input_attr, True, report_flag, report_flag)  # Test Print Report
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
