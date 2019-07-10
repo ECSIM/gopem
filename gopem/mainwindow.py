@@ -20,7 +20,7 @@ def check_update():
     """
     Check for new gopem version in website.
 
-    :return: None
+    :return: update message as str
     """
     try:
         update_obj = requests.get(gopem.helper.UpdateUrl)
