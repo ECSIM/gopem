@@ -1,9 +1,9 @@
 """GOPEM mainwindow."""
+import requests
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
-
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -14,6 +14,22 @@ from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett
 from opem.Params import Version, Description_Menu, Description_Links, Vectors
 import gopem.helper
 import gopem.plotter
+
+
+def check_update():
+    """
+    Check for new gopem version in website.
+
+    :return: None
+    """
+    try:
+        update_obj = requests.get(gopem.helper.UpdateUrl)
+        update_data = update_obj.text
+        if float(update_data) > float(gopem.helper.Version):
+            return gopem.helper.UpdateMessage1.format(gopem.helper.Version, update_data)
+        return gopem.helper.UpdateMessage2.format(gopem.helper.Version, update_data)
+    except Exception:
+        gopem.helper.UpdateMessage3.format(gopem.helper.Version, "??")
 
 
 class MainWindow(QWidget):
