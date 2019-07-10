@@ -26,10 +26,10 @@ def check_update():
         update_obj = requests.get(gopem.helper.UpdateUrl)
         update_data = update_obj.text
         if float(update_data) > float(gopem.helper.Version):
-            return gopem.helper.UpdateMessage1.format(gopem.helper.Version, update_data)
-        return gopem.helper.UpdateMessage2.format(gopem.helper.Version, update_data)
+            return gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data)
+        return gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data)
     except Exception:
-        gopem.helper.UpdateMessage3.format(gopem.helper.Version, "??")
+        gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??")
 
 
 class MainWindow(QWidget):

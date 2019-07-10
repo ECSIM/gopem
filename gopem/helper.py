@@ -7,7 +7,7 @@ from opem.Params import Padulles2_InputParams as P2
 from opem.Params import Padulles_Amphlett_InputParams as PA
 from opem.Params import Padulles_Hauer_InputParams as PH
 
-Version = "0.2"
+Version = 0.2
 UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
 VersionMessage = """
 
