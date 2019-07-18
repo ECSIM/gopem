@@ -7,4 +7,5 @@
      python -m vulture --min-confidence 80 --exclude=gopem,build,.eggs --sort-by-size .
 	 python -m bandit -r gopem -s B322
 	 python rsrc/version_check.py
+	 python -m pydocstyle
  fi

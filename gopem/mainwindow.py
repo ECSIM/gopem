@@ -1,8 +1,9 @@
+"""GOPEM mainwindow."""
+import requests
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
-
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -15,11 +16,27 @@ import gopem.helper
 import gopem.plotter
 
 
+def check_update():
+    """
+    Check for new gopem version in website.
+
+    :return: update message as str
+    """
+    try:
+        update_obj = requests.get(gopem.helper.UpdateUrl)
+        update_data = update_obj.text
+        if float(update_data) > float(gopem.helper.Version):
+            return gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data)
+        return gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data)
+    except Exception:
+        gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??")
+
+
 class MainWindow(QWidget):
+    """MainWindow class."""
+
     def __init__(self):
-        """
-        The Constructor of GUI Window
-        """
+        """Initialize of GUI window."""
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
@@ -83,9 +100,9 @@ class MainWindow(QWidget):
 
     def get_name_widget(self):
         """
-        The Top Widget that shows the name and version of Opem library.
+        Top widget that shows the name and version of OPEM library.
 
-        :return: Containing the name and version of the opem
+        :return: containing the name and version of the OPEM
         """
         name = QLabel('OPEM (v' + str(Version) + ')', self)
         name.setAlignment(Qt.AlignCenter)
@@ -93,8 +110,9 @@ class MainWindow(QWidget):
 
     def initial_modes(self, menu):
         """
-        Generate a page for each model in opem and put them on each other.
-        :param menu: dict: The dictionary of opem models
+        Generate a page for each model in OPEM and put them on each other.
+
+        :param menu: the dictionary of OPEM models
         :return: None
         """
         for i, _ in enumerate(menu):
@@ -109,7 +127,8 @@ class MainWindow(QWidget):
 
     def get_plotter_area(self):
         """
-        Initial the plotter widget
+        Initialize the plotter widget.
+
         :return: QWidget for plotter layer
         """
         w = QWidget(self)
@@ -134,8 +153,9 @@ class MainWindow(QWidget):
 
     def get_button_widget(self):
         """
-        Initial and Construct Rest, Analyse Buttons and connection
-        :return: QWidget of Buttons Layer
+        Initialize and construct reset, analyse buttons and connection.
+
+        :return: QWidget of buttons Layer
         """
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
@@ -154,8 +174,9 @@ class MainWindow(QWidget):
 
     def get_combo_widget(self, combo_list):
         """
-        Construct the combo box of models
-        :param combo_list: The list of models
+        Construct the combo box of models.
+
+        :param combo_list: the list of models
         :return: QComboBox of models
         """
         combo = QComboBox(self)
@@ -167,8 +188,9 @@ class MainWindow(QWidget):
 
     def get_test_check_box(self):
         """
-        Construct and Initialize of the check box for test data and its connections
-        :return: QCheckBox for Test Data
+        Construct and initialize of the check box for test data and its connections.
+
+        :return: QCheckBox for test data
         """
         self.test_checkbox = QCheckBox("Use Test Data")
         self.test_checkbox.stateChanged.connect(self.test_slt)
@@ -176,9 +198,10 @@ class MainWindow(QWidget):
 
     def get_attr_fields(self, mode):
         """
-        Returns the list of attributes for the given model
-        :param mode: The model to get its attribues
-        :return: The list of attributes for the given model
+        Return the list of attributes for the given model.
+
+        :param mode: the model to get its attributes
+        :return: the list of attributes for the given model
         """
         fields = []
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
@@ -198,8 +221,8 @@ class MainWindow(QWidget):
 
     def reset_slt(self):
         """
-        The Slot Function for the reset PushButton
-        It will set all the attributes' value to 0.0
+        Slot function for the reset button, it will set all the attributes value to 0.0.
+
         :return: None
         """
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
@@ -207,12 +230,14 @@ class MainWindow(QWidget):
 
     def analyze(self, menu, attributes):
         """
-        Start an analysis by the selected model and given attributes values
-        :param menu: The model that analysis is based on
-        :param attributes: The value of each parameter of model
+        Start an analysis by the selected model and given attributes values.
+
+        :param menu: the model that analysis is based on
+        :param attributes: the value of each parameter of model
         :return: None
         """
         temp = {}
+        report_flag = self.reportChkBox.isChecked()
         for key, value in attributes.items():
             temp[key] = value.value()
 
@@ -220,7 +245,7 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
+        output = menu(input_attr, True, report_flag, report_flag)  # Test Print Report
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
@@ -232,14 +257,16 @@ class MainWindow(QWidget):
 
     def analyse_slt(self):
         """
-        The Slot Function for the analyse PushButton
+        Slot function for the analyse button.
+
         :return: None
         """
         self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
 
     def h_line(self):
         """
-        Generate a Horizontal line with QFrame
+        Generate a horizontal line with QFrame.
+
         :return: QFrame looks like a horizontal separator line
         """
         toto = QFrame(parent=self)
@@ -249,7 +276,8 @@ class MainWindow(QWidget):
 
     def v_line(self):
         """
-        Generate a Vertical line with QFrame
+        Generate a vertical line with QFrame.
+
         :return: QFrame looks like a vertical separator line
         """
         toto = QFrame(parent=self)
@@ -259,8 +287,9 @@ class MainWindow(QWidget):
 
     def mode_changed_slt(self, index):
         """
-        The Slot function for Mode selector ComboBox
-        :param index: The index of the model that has been selected
+        Slot function for mode selector ComboBox.
+
+        :param index: the index of the model that has been selected
         :return: None
         """
         for m in self.mode:
@@ -273,8 +302,9 @@ class MainWindow(QWidget):
 
     def test_slt(self, state):
         """
-        The Slot Function for Test CheckBox
-        :param state: The state of the check box
+        The slot function for test CheckBox.
+
+        :param state: the state of the check box
         :return: None
         """
         if state == 2:
@@ -285,7 +315,8 @@ class MainWindow(QWidget):
 
     def axis_changed(self):
         """
-        The Slot Function for the axis selector comboBox
+        Slot function for the axis selector comboBox.
+
         :return: None
         """
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())

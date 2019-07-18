@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Version-check script."""
 import os
 import sys
 import codecs
@@ -26,12 +27,19 @@ HTML_ITEMS = ["Version {0}"]
 PARAMS_ITEMS = ["Version = {0}"]
 RC_ITEMS =["filevers=({0}, {1}, {2}, {3})","prodvers=({0}, {1}, {2}, {3})","(u'FileVersion', u'{0}.{1}.{2}.{3}'),","(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
-FILES = {"setup.py": SETUP_ITEMS, "README.md": INSTALL_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS}
+FILES = {"setup.py": SETUP_ITEMS, "README.md": INSTALL_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS, os.path.join("gopem", "helper.py"): PARAMS_ITEMS}
 
 TEST_NUMBER = len(FILES.keys()) +1
 
 
 def print_result(failed=False):
+    """
+    Print final result.
+
+    :param failed: failed flag
+    :type failed: bool
+    :return: None
+    """
     message = "Version tag tests "
     if not failed:
         print("\n" + message + "passed!")
