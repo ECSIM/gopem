@@ -117,6 +117,8 @@ class MainWindow(QWidget):
         w.setLayout(l)
         x_label = QLabel("X-Axis:")
         y_label = QLabel("Y-Axis:")
+        saveBtn = QPushButton('Save')
+        saveBtn.clicked.connect(self.save_slt)
         ll = QHBoxLayout()
         ll.addWidget(x_label)
         ll.addWidget(self.x_ax)
@@ -126,6 +128,8 @@ class MainWindow(QWidget):
         l.addLayout(ll)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
+        l.addWidget(self.h_line())
+        l.addWidget(saveBtn)
         return w
 
     def get_button_widget(self):
@@ -285,3 +289,6 @@ class MainWindow(QWidget):
         :return: None
         """
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
+
+    def save_slt(self):
+        self.plotter.sc.save_fig()
