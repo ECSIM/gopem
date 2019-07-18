@@ -16,10 +16,10 @@ class MplCanvas(FigureCanvas):
         :param height: The initial height of canvas
         :param dpi: The dpi of the canvas
         """
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
+        self.fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = self.fig.add_subplot(111)
 
-        FigureCanvas.__init__(self, fig)
+        FigureCanvas.__init__(self, self.fig)
         self.setParent(parent)
 
         FigureCanvas.setSizePolicy(self,
@@ -43,6 +43,9 @@ class MplCanvas(FigureCanvas):
             self.axes.set_ylabel(y_axis)
 
         self.draw()
+
+    def save_fig(self):
+        self.fig.savefig('plot.jpg', transparent=True);
 
 
 class ApplicationWindow(QtWidgets.QWidget):
