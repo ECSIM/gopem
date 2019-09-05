@@ -322,4 +322,9 @@ class MainWindow(QWidget):
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
 
     def save_slt(self):
+        """
+        Save slot.
+
+        :return: None
+        """
         self.plotter.sc.save_fig()

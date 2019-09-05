@@ -51,6 +51,11 @@ class MplCanvas(FigureCanvas):
         self.draw()
 
     def save_fig(self):
+        """
+        Save figure.
+
+        :return: None
+        """
         self.fig.savefig('plot.jpg', transparent=True);
 
 
