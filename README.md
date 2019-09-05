@@ -39,8 +39,8 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	</tr>
 	<tr>
 		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/develop?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/master?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/develop?svg=true"></a></td>
 	</tr>
 </table>
 
