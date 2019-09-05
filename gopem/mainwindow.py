@@ -1,9 +1,9 @@
 """GOPEM mainwindow."""
+import requests
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
-
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -14,6 +14,22 @@ from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett
 from opem.Params import Version, Description_Menu, Description_Links, Vectors
 import gopem.helper
 import gopem.plotter
+
+
+def check_update():
+    """
+    Check for new gopem version in website.
+
+    :return: update message as str
+    """
+    try:
+        update_obj = requests.get(gopem.helper.UpdateUrl)
+        update_data = update_obj.text
+        if float(update_data) > float(gopem.helper.Version):
+            return gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data)
+        return gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data)
+    except Exception:
+        gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??")
 
 
 class MainWindow(QWidget):
@@ -120,6 +136,8 @@ class MainWindow(QWidget):
         w.setLayout(l)
         x_label = QLabel("X-Axis:")
         y_label = QLabel("Y-Axis:")
+        saveBtn = QPushButton('Save')
+        saveBtn.clicked.connect(self.save_slt)
         ll = QHBoxLayout()
         ll.addWidget(x_label)
         ll.addWidget(self.x_ax)
@@ -129,6 +147,8 @@ class MainWindow(QWidget):
         l.addLayout(ll)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
+        l.addWidget(self.h_line())
+        l.addWidget(saveBtn)
         return w
 
     def get_button_widget(self):
@@ -217,6 +237,7 @@ class MainWindow(QWidget):
         :return: None
         """
         temp = {}
+        report_flag = self.reportChkBox.isChecked()
         for key, value in attributes.items():
             temp[key] = value.value()
 
@@ -224,7 +245,7 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        output = menu(input_attr, True, False, self.reportChkBox.isChecked())  # Test Print Report
+        output = menu(input_attr, True, report_flag, report_flag)  # Test Print Report
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
@@ -299,3 +320,6 @@ class MainWindow(QWidget):
         :return: None
         """
         self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
+
+    def save_slt(self):
+        self.plotter.sc.save_fig()

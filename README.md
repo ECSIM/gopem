@@ -39,8 +39,8 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	</tr>
 	<tr>
 		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/mahi97/gopem"><img src="https://ci.appveyor.com/api/projects/status/oxetgptvua5e94j2/branch/develop?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/master?svg=true"></a></td>
+		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/develop?svg=true"></a></td>
 	</tr>
 </table>
 
@@ -55,8 +55,10 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 ## Installation	
 
 ### Source Code
-- Download [Python3.x](https://www.python.org/downloads/) (>=3.5)
-- Download [Version 0.2](https://github.com/ecsim/gopem/archive/v0.2.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/master.zip)
+- Download and install [Python3.x](https://www.python.org/downloads/) (>=3.6)
+	- [x] Select `Add to PATH` option
+	- [x] Select `Install pip` option
+- Download [Version 0.2](https://github.com/ecsim/gopem/archive/v0.2.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
 - Run `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - Run `python3 setup.py install` or `python setup.py install` (Need root access)				
 
@@ -75,13 +77,19 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Download [Exe-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.exe)
 - Run `GOPEM.exe`
 
-
 ### DMG Version (MacOS)
 - Download [DMG-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.dmg)
 - Open DMG file
 - Copy `GOPEM` into your system
 - Run `GOPEM`
 
+
+### Exe Version Note
+For GOPEM targeting Windows < 10, the user needs to take special care to include the Visual C++ run-time .dlls: Python >=3.5 uses Visual Studio 2015 run-time, which has been renamed into “Universal CRT“ and has become part of Windows 10. For Windows Vista through Windows 8.1 there are Windows update packages, which may or may not be installed in the target-system. So you have the following options:
+
+1. Use [OPEM](https://github.com/ECSIM/opem) (Without GUI)
+2. Use [Source Code](https://github.com/ECSIM/gopem#source-code)
+3. Download and install [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
 ### System Requirements
 GOPEM will likely run on a modern dual core PC. Typical configuration is:
@@ -121,8 +129,19 @@ Gitter is another option :
 [![Gitter](https://badges.gitter.im/ECSIM/opem.svg)](https://gitter.im/ECSIM/opem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 
-## Dependencies
-[![Requirements Status](https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop)](https://requires.io/github/ECSIM/gopem/requirements/?branch=develop)
+## Dependencies		
+
+
+<table>
+	<tr> 
+		<td align="center">master</td>	
+		<td align="center">develop</td>	
+	</tr>
+	<tr>
+		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=master"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
+		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=develop"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop" alt="Requirements Status" /></a></td>
+	</tr>
+</table>
 
 ## Thanks
 
@@ -155,11 +174,20 @@ If you use OPEM in your research , please cite this paper :
 
 Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)									
 
-<a style="border-width:0" href="https://doi.org/10.21105/joss.00676">
-  <img src="http://joss.theoj.org/papers/10.21105/joss.00676/status.svg" alt="DOI badge" >
-</a>
-
-<a href="https://doi.org/10.5281/zenodo.1133110"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1133110.svg" alt="DOI"></a>
+<table>
+	<tr> 
+		<td align="center">JOSS</td>
+		<td align="center"><a style="border-width:0" href="https://doi.org/10.21105/joss.00676"><img src="http://joss.theoj.org/papers/10.21105/joss.00676/status.svg" alt="DOI badge" ></a></td>	
+	</tr>
+	<tr>
+		<td align="center">Zenodo</td>
+		<td align="center"><a href="https://doi.org/10.5281/zenodo.1133110"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.1133110.svg" alt="DOI"></a></td>
+	</tr>
+	<tr>
+		<td align="center">Researchgate</td>
+		<td align="center"><a href="https://www.researchgate.net/project/Open-Source-Electrochemistry-Simulation-Toolbox"><img src="https://img.shields.io/badge/Researchgate-OPEM-yellow.svg"></a></td>
+	</tr>
+</table>
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)		

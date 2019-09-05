@@ -1,11 +1,12 @@
 """GOPEM plotter."""
 from __future__ import unicode_literals
 import matplotlib
+matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 from PyQt5 import QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
+
 
 
 class MplCanvas(FigureCanvas):
@@ -20,10 +21,10 @@ class MplCanvas(FigureCanvas):
         :param height: the initial height of canvas
         :param dpi: the dpi of the canvas
         """
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
+        self.fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = self.fig.add_subplot(111)
 
-        FigureCanvas.__init__(self, fig)
+        FigureCanvas.__init__(self, self.fig)
         self.setParent(parent)
 
         FigureCanvas.setSizePolicy(self,
@@ -48,6 +49,9 @@ class MplCanvas(FigureCanvas):
             self.axes.set_ylabel(y_axis)
 
         self.draw()
+
+    def save_fig(self):
+        self.fig.savefig('plot.jpg', transparent=True);
 
 
 class ApplicationWindow(QtWidgets.QWidget):
