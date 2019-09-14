@@ -50,14 +50,14 @@ class MplCanvas(FigureCanvas):
 
         self.draw()
 
-    def save_fig(self,fileaddr):
+    def save_fig(self,filename):
         """
         Save figure.
 
-        :param fileaddr: file address
+        :param filename: file name
         :return: None
         """
-        self.fig.savefig(fileaddr, transparent=True);
+        self.fig.savefig(filename, transparent=True);
 
 
 class ApplicationWindow(QtWidgets.QWidget):
