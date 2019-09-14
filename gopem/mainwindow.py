@@ -1,7 +1,7 @@
 """GOPEM mainwindow."""
 import requests
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox
+from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
@@ -14,22 +14,6 @@ from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett
 from opem.Params import Version, Description_Menu, Description_Links, Vectors
 import gopem.helper
 import gopem.plotter
-
-
-def check_update():
-    """
-    Check for new gopem version in website.
-
-    :return: update message as str
-    """
-    try:
-        update_obj = requests.get(gopem.helper.UpdateUrl)
-        update_data = update_obj.text
-        if float(update_data) > float(gopem.helper.Version):
-            return gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data)
-        return gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data)
-    except Exception:
-        gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??")
 
 
 class MainWindow(QWidget):
@@ -137,7 +121,9 @@ class MainWindow(QWidget):
         x_label = QLabel("X-Axis:")
         y_label = QLabel("Y-Axis:")
         saveBtn = QPushButton('Save')
+        checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
+        checkBtn.clicked.connect(self.check_update)
         ll = QHBoxLayout()
         ll.addWidget(x_label)
         ll.addWidget(self.x_ax)
@@ -149,6 +135,7 @@ class MainWindow(QWidget):
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
         l.addWidget(saveBtn)
+        l.addWidget(checkBtn)
         return w
 
     def get_button_widget(self):
@@ -328,3 +315,24 @@ class MainWindow(QWidget):
         :return: None
         """
         self.plotter.sc.save_fig()
+
+    def check_update(self):
+        """
+        Check for new gopem version in website.
+
+        :return: update message as str
+        """
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Critical)
+        msg.setWindowTitle("Check Update")
+        try:
+            update_obj = requests.get(gopem.helper.UpdateUrl)
+            update_data = update_obj.text
+            if float(update_data) > float(gopem.helper.Version):
+                msg.setText(gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data))
+            msg.setText(gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data))
+            msg.exec_()
+        except Exception:
+            msg.setText(gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??"))
+            msg.exec_()
+
