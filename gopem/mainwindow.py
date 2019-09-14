@@ -134,8 +134,10 @@ class MainWindow(QWidget):
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
-        l.addWidget(saveBtn)
-        l.addWidget(checkBtn)
+        lll = QHBoxLayout()
+        lll.addWidget(checkBtn)
+        lll.addWidget(saveBtn)
+        l.addLayout(lll)
         return w
 
     def get_button_widget(self):
