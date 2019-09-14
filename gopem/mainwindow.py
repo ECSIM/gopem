@@ -92,6 +92,7 @@ class MainWindow(QWidget):
         """
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
+        msg.setTextFormat(Qt.RichText)
         msg.setWindowTitle(title)
         msg.setText(message)
         msg.exec_()

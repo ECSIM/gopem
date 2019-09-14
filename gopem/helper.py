@@ -8,13 +8,17 @@ from opem.Params import Padulles_Amphlett_InputParams as PA
 from opem.Params import Padulles_Hauer_InputParams as PH
 
 Version = 0.2
+DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
 VersionMessage = """
-
+<br/>
+<br/>
 Your version : {0}
-
+<br/>
+<br/>
 Current version : {1}
-
+<br/>
+<br/>
 """
 
 UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
@@ -22,10 +26,9 @@ UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
 
 
 
-UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + VersionMessage
+UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + VersionMessage + "\n" + DownloadLink
 
-
-UpdateMessage3 = "Update check failed!\n" + VersionMessage
+UpdateMessage3 = "Update check failed!\n" + VersionMessage +"\n"
 
 ReportMessage = "Report has been saved successfully in current folder!"
 PlotMessage = "Plot has been saved successfully!"
