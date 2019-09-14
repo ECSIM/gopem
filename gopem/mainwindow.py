@@ -323,7 +323,7 @@ class MainWindow(QWidget):
         :return: update message as str
         """
         msg = QMessageBox()
-        msg.setIcon(QMessageBox.Critical)
+        msg.setIcon(QMessageBox.Information)
         msg.setWindowTitle("Check Update")
         try:
             update_obj = requests.get(gopem.helper.UpdateUrl)
