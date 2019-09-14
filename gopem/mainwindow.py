@@ -243,6 +243,14 @@ class MainWindow(QWidget):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
         self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
+        if report_flag:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setWindowTitle("Report")
+            msg.setText(gopem.helper.ReportMessage)
+            msg.exec_()
+
+
 
     def analyse_slt(self):
         """
