@@ -337,7 +337,7 @@ class MainWindow(QWidget):
         """
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        filename, _ = QFileDialog.getSaveFileName(self, "QFileDialog.getSaveFileName()", "", "PNG (*.png)", options=options)
+        filename, _ = QFileDialog.getSaveFileName(self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             self.plotter.sc.save_fig(filename)
 
