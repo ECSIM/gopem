@@ -349,7 +349,6 @@ class MainWindow(QWidget):
 
         :return: None
         """
-
         try:
             update_obj = requests.get(gopem.helper.UpdateUrl)
             update_data = update_obj.text
