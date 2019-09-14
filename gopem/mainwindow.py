@@ -1,7 +1,7 @@
 """GOPEM mainwindow."""
 import requests
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox
+from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
@@ -316,7 +316,11 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.plotter.sc.save_fig()
+        options = QFileDialog.Options()
+        options |= QFileDialog.DontUseNativeDialog
+        filename, _ = QFileDialog.getSaveFileName(self, "QFileDialog.getSaveFileName()", "", "PNG (*.png)", options=options)
+        if filename:
+            self.plotter.sc.save_fig(filename)
 
     def check_update(self):
         """
