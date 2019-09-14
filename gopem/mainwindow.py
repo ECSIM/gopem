@@ -135,7 +135,7 @@ class MainWindow(QWidget):
         w.setLayout(l)
         x_label = QLabel("X-Axis:")
         y_label = QLabel("Y-Axis:")
-        saveBtn = QPushButton('Save')
+        saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
