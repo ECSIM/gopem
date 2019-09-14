@@ -82,6 +82,21 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
+    def message_box(self,title,message):
+        """
+        Show message box.
+
+        :param title: title of window
+        :param message: message text
+        :return: None
+        """
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowTitle(title)
+        msg.setText(message)
+        msg.exec_()
+
+
     def get_name_widget(self):
         """
         Top widget that shows the name and version of OPEM library.
@@ -244,11 +259,7 @@ class MainWindow(QWidget):
                 self.y_ax.addItem(str(k))
         self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
         if report_flag:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setWindowTitle("Report")
-            msg.setText(gopem.helper.ReportMessage)
-            msg.exec_()
+            self.message_box("Report",gopem.helper.ReportMessage)
 
 
 
@@ -334,19 +345,16 @@ class MainWindow(QWidget):
         """
         Check for new gopem version in website.
 
-        :return: update message as str
+        :return: None
         """
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-        msg.setWindowTitle("Check Update")
+
         try:
             update_obj = requests.get(gopem.helper.UpdateUrl)
             update_data = update_obj.text
             if float(update_data) > float(gopem.helper.Version):
-                msg.setText(gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data))
-            msg.setText(gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data))
-            msg.exec_()
+                self.message_box("Check Update",gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data))
+            else:
+                self.message_box("Check Update",gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data))
         except Exception:
-            msg.setText(gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??"))
-            msg.exec_()
+            self.message_box("Check Update",gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??"))
 
