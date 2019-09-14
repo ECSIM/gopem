@@ -27,7 +27,9 @@ UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + Ve
 
 UpdateMessage3 = "Update check failed!\n" + VersionMessage
 
-ReportMessage = "Report has been saved in current folder!"
+ReportMessage = "Report has been saved successfully in current folder!"
+PlotMessage = "Plot has been saved successfully!"
+
 InputParam = {
     "Amphlett_Analysis (Static)": A,
     "Larminiee_Analysis (Static)": L,

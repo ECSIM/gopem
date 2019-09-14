@@ -340,6 +340,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             self.plotter.sc.save_fig(filename)
+            self.message_box("Save Plot",gopem.helper.PlotMessage)
 
     def check_update(self):
         """
