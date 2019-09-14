@@ -21,6 +21,16 @@ Current version : {1}
 <br/>
 """
 
+CiteMessage = """
+Hi!
+<br/>
+When you want to use this software in your research project and reports, we appreciate if you cite us.
+<br/>
+<br/>
+<a href="https://doi.org/10.21105/joss.00676">Paper Link</a>
+<br/>
+<a href="http://www.ecsim.ir/opem/OPEM.bib">BibTeX Link</a>
+"""
 UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
 
 
