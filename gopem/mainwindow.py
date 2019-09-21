@@ -82,6 +82,16 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
+    def location_on_screen(self,x=0,y=0):
+        """
+        Set window location.
+
+        :param x: x-axis
+        :param y: y-axis
+        :return: None
+        """
+        self.move(x, y)
+
     def message_box(self,title,message):
         """
         Show message box.

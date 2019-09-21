@@ -10,6 +10,7 @@ if __name__ == "__main__":
     tprint("v" + str(Version))
     app = QApplication(sys.argv)
     a = MainWindow()
+    a.location_on_screen()
     if len(sys.argv) > 1 and sys.argv[1] == "--test" and app is not None:
         sys.exit(0)
     a.show()
