@@ -24,7 +24,7 @@ Current version : {1}
 CiteMessage = """
 Hi!
 <br/>
-When you want to use this software in your research project and reports, we appreciate if you cite us.
+When you want to use this software in your research projects and reports, we appreciate if you cite us.
 <br/>
 <br/>
 <a href="https://doi.org/10.21105/joss.00676">Paper Link</a>
