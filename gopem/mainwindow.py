@@ -1,9 +1,11 @@
 """GOPEM mainwindow."""
 import requests
+import os
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
+from PyQt5.QtGui import QIcon
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -24,6 +26,9 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
+        script_dir = os.path.dirname(os.path.realpath(__file__))
+        parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
+        self.setWindowIcon(QIcon(os.path.join(parent_dir,"rsrc","icon.ico")))
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
