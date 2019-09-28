@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon,QFont
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -119,8 +119,9 @@ class MainWindow(QWidget):
 
         :return: containing the name and version of the OPEM
         """
-        name = QLabel('OPEM (v' + str(Version) + ')', self)
+        name = QLabel('GOPEM(v{0}) / OPEM(v{1}) '.format(str(gopem.helper.Version),str(Version)), self)
         name.setAlignment(Qt.AlignCenter)
+        name.setFont(QFont("Times", 12, QFont.Bold))
         return name
 
     def initial_modes(self, menu):
