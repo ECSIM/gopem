@@ -57,8 +57,8 @@ class MainWindow(QWidget):
             "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
         self.menuKey = list(self.menu.keys())
         self.menuKey.sort()
-        self.super = QHBoxLayout(self)
-        self.main = QVBoxLayout(self)
+        self.super = QHBoxLayout()
+        self.main = QVBoxLayout()
 
         self.initial_modes(self.menu.keys())
         for mode in self.mode:
