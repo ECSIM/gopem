@@ -183,7 +183,7 @@ class MainWindow(QWidget):
         analyseBtn = QPushButton('Analyse')
         self.reportChkBox = QCheckBox('Do you want to have a generated report for this analysis ?')
         layout_v = QVBoxLayout(self)
-        layout = QHBoxLayout(self)
+        layout = QHBoxLayout()
         layout.addWidget(resetBtn)
         layout.addWidget(analyseBtn)
         resetBtn.clicked.connect(self.reset_slt)
