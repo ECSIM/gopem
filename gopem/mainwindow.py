@@ -115,9 +115,9 @@ class MainWindow(QWidget):
 
     def get_name_widget(self):
         """
-        Top widget that shows the name and version of OPEM library.
+        Top widget that shows the name and version of OPEM/GOPEM.
 
-        :return: containing the name and version of the OPEM
+        :return: containing the name and version of the OPEM/GOPEM
         """
         name = QLabel('GOPEM(v{0}) / OPEM(v{1}) '.format(str(gopem.helper.Version),str(Version)), self)
         name.setAlignment(Qt.AlignCenter)
