@@ -229,7 +229,7 @@ class MainWindow(QWidget):
         name = self.menuKey[mode]
         self.attributes[name] = {}
         for item in sorted(list(input_param.keys())):
-            field = QHBoxLayout(self)
+            field = QHBoxLayout()
             label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
             field.addWidget(label, alignment=Qt.AlignLeft)
             self.attributes[name][item] = QDoubleSpinBox(self)
