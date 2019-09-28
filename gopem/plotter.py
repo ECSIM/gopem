@@ -104,3 +104,11 @@ class ApplicationWindow(QtWidgets.QWidget):
         :return: None
         """
         self.file_quit()
+
+    def clear_plot(self):
+        """
+        Clear plot.
+
+        :return: None
+        """
+        self.sc.axes.cla()

@@ -246,6 +246,7 @@ class MainWindow(QWidget):
         self.test_checkbox.setChecked(False)
         self.x_ax.clear()
         self.y_ax.clear()
+        self.plotter.clear_plot()
 
 
     def analyze(self, menu, attributes):
