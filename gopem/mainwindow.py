@@ -236,7 +236,7 @@ class MainWindow(QWidget):
 
     def reset_slt(self):
         """
-        Slot function for the reset button, it will set all the attributes value to 0.0.
+        Slot function for the reset button, it will set all the attributes value to 0.0, clear plot and reset checkbox.
 
         :return: None
         """
