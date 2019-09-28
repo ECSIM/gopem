@@ -1,4 +1,5 @@
 """GOPEM main."""
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
 from art import tprint
 from gopem.mainwindow import MainWindow
@@ -8,6 +9,10 @@ import sys
 if __name__ == "__main__":
     tprint("GOPEM")
     tprint("v" + str(Version))
+    try:
+        QtCore.Qt.AA_EnableHighDpiScaling = 1
+    except Exception:
+        pass
     app = QApplication(sys.argv)
     a = MainWindow()
     a.location_on_screen()
