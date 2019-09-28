@@ -242,6 +242,9 @@ class MainWindow(QWidget):
         """
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
+        self.reportChkBox.setChecked(False)
+        self.test_checkbox.setChecked(False)
+
 
     def analyze(self, menu, attributes):
         """
