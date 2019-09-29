@@ -75,6 +75,7 @@ class MainWindow(QWidget):
             self.main.addWidget(mode)
 
         self.reportChkBox = QCheckBox()
+        self.printChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.h_line())
         self.main.addWidget(QLabel("Description:"))
@@ -198,14 +199,18 @@ class MainWindow(QWidget):
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
         self.reportChkBox = QCheckBox('Do you want to have a generated report for this analysis ?')
+        self.printChkBox = QCheckBox('Console print')
+        self.printChkBox.setDisabled(True)
         layout_v = QVBoxLayout(self)
         layout = QHBoxLayout()
         layout.addWidget(resetBtn)
         layout.addWidget(analyseBtn)
         resetBtn.clicked.connect(self.reset_slt)
         analyseBtn.clicked.connect(self.analyse_slt)
+        self.reportChkBox.stateChanged.connect(self.print_slt)
         layout_v.addLayout(layout)
         layout_v.addWidget(self.reportChkBox)
+        layout_v.addWidget(self.printChkBox)
         w.setLayout(layout_v)
         return w
 
@@ -266,6 +271,8 @@ class MainWindow(QWidget):
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
+        self.printChkBox.setChecked(False)
+        self.printChkBox.setDisabled(True)
         self.x_ax.clear()
         self.y_ax.clear()
         self.plotter.clear_plot()
@@ -281,6 +288,7 @@ class MainWindow(QWidget):
         """
         temp = {}
         report_flag = self.reportChkBox.isChecked()
+        print_flag = self.printChkBox.isChecked()
         for key, value in attributes.items():
             temp[key] = value.value()
 
@@ -289,7 +297,7 @@ class MainWindow(QWidget):
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
         self.edit_name_widget(True)
-        output = menu(input_attr, True, report_flag, report_flag)  # Test Print Report
+        output = menu(input_attr, True, print_flag, report_flag)  # Test Print Report
         self.edit_name_widget(False)
         self.output = output
         self.x_ax.clear()
@@ -311,6 +319,12 @@ class MainWindow(QWidget):
         :return: None
         """
         self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
+
+    def print_slt(self):
+        if self.reportChkBox.isChecked():
+            self.printChkBox.setEnabled(True)
+        else:
+            self.printChkBox.setEnabled(False)
 
     def h_line(self):
         """
