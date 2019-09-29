@@ -207,7 +207,7 @@ class MainWindow(QWidget):
         layout.addWidget(analyseBtn)
         resetBtn.clicked.connect(self.reset_slt)
         analyseBtn.clicked.connect(self.analyse_slt)
-        self.reportChkBox.stateChanged.connect(self.print_slt)
+        self.reportChkBox.stateChanged.connect(self.report_slt)
         layout_v.addLayout(layout)
         layout_v.addWidget(self.reportChkBox)
         layout_v.addWidget(self.printChkBox)
@@ -320,7 +320,12 @@ class MainWindow(QWidget):
         """
         self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
 
-    def print_slt(self):
+    def report_slt(self):
+        """
+        Slot function for the report checkbox.
+
+        :return: None
+        """
         if self.reportChkBox.isChecked():
             self.printChkBox.setEnabled(True)
         else:
