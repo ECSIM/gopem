@@ -27,6 +27,22 @@ matrix:
 
         - os: osx
           language: generic
+          
+        - os: linux
+          python: 3.7-dev
+          dist: xenial
+          services:
+              - xvfb
+        - os: linux
+          python: 3.8-dev
+          dist: xenial
+          services:
+              - xvfb
+        - os: linux
+          python: nightly
+          dist: xenial
+          services:
+              - xvfb
     allow_failures:
         - os: linux
           sudo: required
