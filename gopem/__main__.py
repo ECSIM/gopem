@@ -11,8 +11,8 @@ if __name__ == "__main__":
     tprint("v" + str(Version))
     try:
         QtCore.Qt.AA_EnableHighDpiScaling = 1
-    except Exception:
-        pass
+    except Exception as e:
+        print(str(e))
     app = QApplication(sys.argv)
     a = MainWindow()
     a.location_on_screen()
