@@ -46,13 +46,18 @@ class MplCanvas(FigureCanvas):
         if x_axis in data.keys() and y_axis in data.keys():
             x_unit = ""
             y_unit = ""
+            title = ""
             self.axes.plot(data[x_axis], data[y_axis], 'r')
-            if x_axis in gopem.helper.UnitTable.keys():
-                if gopem.helper.UnitTable[x_axis][1] is not None :
-                    x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
             if y_axis in gopem.helper.UnitTable.keys():
+                title += gopem.helper.UnitTable[y_axis][0] + "~"
                 if gopem.helper.UnitTable[y_axis][1] is not None :
                     y_unit = "({0})".format(gopem.helper.UnitTable[y_axis][1])
+            if x_axis in gopem.helper.UnitTable.keys():
+                if len(title)!=0:
+                    title += gopem.helper.UnitTable[x_axis][0]
+                    self.axes.set_title(title)
+                if gopem.helper.UnitTable[x_axis][1] is not None :
+                    x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
             self.axes.set_xlabel(x_axis+x_unit)
             self.axes.set_ylabel(y_axis+y_unit)
 
