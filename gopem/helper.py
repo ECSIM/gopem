@@ -55,3 +55,6 @@ InputParam = {
     "Padulles_Hauer Analysis (Dynamic)": PH,
     "Padulles_Amphlett Analysis (Dynamic)": PA
 }
+
+UnitTable = {"P": ["Power","W"],"I": ["Current","A"],"V": ["Voltage","V"],"EFF": ["Efficiency",None],"Ph": ["Power-Thermal","W"],"Eta_Active": ["Eta Activation","V"],
+             "Eta_Conc": ["Eta Concentration","V"],"Eta_Ohmic": ["Eta Ohmic","V"],"VE": ["Estimated Voltage","V"],"PO2": ["PO2","atm"],"PH2": ["PH2","atm"],"PH2O": ["PH2O","atm"]}

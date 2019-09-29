@@ -5,7 +5,7 @@ matplotlib.use('Qt5Agg')  # Make sure that we are using QT5
 from PyQt5 import QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-
+import gopem.helper
 
 
 
@@ -44,9 +44,17 @@ class MplCanvas(FigureCanvas):
         self.axes.cla()
         self.axes.grid(True, linestyle='-.', which='both')
         if x_axis in data.keys() and y_axis in data.keys():
+            x_unit = ""
+            y_unit = ""
             self.axes.plot(data[x_axis], data[y_axis], 'r')
-            self.axes.set_xlabel(x_axis)
-            self.axes.set_ylabel(y_axis)
+            if x_axis in gopem.helper.UnitTable.keys():
+                if gopem.helper.UnitTable[x_axis][1] is not None :
+                    x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
+            if y_axis in gopem.helper.UnitTable.keys():
+                if gopem.helper.UnitTable[y_axis][1] is not None :
+                    y_unit = "({0})".format(gopem.helper.UnitTable[y_axis][1])
+            self.axes.set_xlabel(x_axis+x_unit)
+            self.axes.set_ylabel(y_axis+y_unit)
 
         self.draw()
 
