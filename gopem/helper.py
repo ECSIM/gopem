@@ -6,8 +6,11 @@ from opem.Params import Padulles_InputParams as P
 from opem.Params import Padulles2_InputParams as P2
 from opem.Params import Padulles_Amphlett_InputParams as PA
 from opem.Params import Padulles_Hauer_InputParams as PH
+from opem.Params import Version as OPEM_Version
 
 Version = 0.2
+
+VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),str(OPEM_Version))
 DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
 VersionMessage = """

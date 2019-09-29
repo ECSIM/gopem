@@ -64,8 +64,8 @@ class MainWindow(QWidget):
         for mode in self.mode:
             mode.setVisible(False)
         self.mode[0].setVisible(True)
-
-        self.main.addWidget(self.get_name_widget())
+        self.name_version = self.get_name_widget()
+        self.main.addWidget(self.name_version)
         self.main.addWidget(self.h_line())
         lay_0 = QHBoxLayout()
         lay_0.addWidget(self.get_combo_widget(self.menuKey))
@@ -115,14 +115,30 @@ class MainWindow(QWidget):
 
     def get_name_widget(self):
         """
-        Top widget that shows the name and version of OPEM/GOPEM.
+        Top widget that shows the names and versions of OPEM/GOPEM.
 
-        :return: containing the name and version of the OPEM/GOPEM
+        :return: containing the names and versions of the OPEM/GOPEM
         """
-        name = QLabel('GOPEM(v{0}) / OPEM(v{1}) '.format(str(gopem.helper.Version),str(Version)), self)
+        name = QLabel(gopem.helper.VersionText, self)
         name.setAlignment(Qt.AlignCenter)
         name.setFont(QFont("Times", 12, QFont.Bold))
         return name
+
+    def edit_name_widget(self,analyse = True):
+        """
+        Edit name_version widget in different mode.
+
+        :param analyse: analyse mode flag
+        :return: None
+        """
+        if analyse:
+            self.name_version.setText("Analyzing ...")
+            self.name_version.setStyleSheet("color:red;")
+            self.repaint()
+        else:
+            self.name_version.setText(gopem.helper.VersionText)
+            self.name_version.setStyleSheet("color:black;")
+            self.repaint()
 
     def initial_modes(self, menu):
         """
@@ -272,7 +288,9 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
+        self.edit_name_widget(True)
         output = menu(input_attr, True, report_flag, report_flag)  # Test Print Report
+        self.edit_name_widget(False)
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
