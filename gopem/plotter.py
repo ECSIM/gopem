@@ -55,11 +55,11 @@ class MplCanvas(FigureCanvas):
             if x_axis in gopem.helper.UnitTable.keys():
                 if len(title)!=0:
                     title += gopem.helper.UnitTable[x_axis][0]
-                    self.axes.set_title(title)
+                    self.axes.set_title(title,fontsize=21)
                 if gopem.helper.UnitTable[x_axis][1] is not None :
                     x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
-            self.axes.set_xlabel(x_axis+x_unit)
-            self.axes.set_ylabel(y_axis+y_unit)
+            self.axes.set_xlabel(x_axis+x_unit,fontsize=17)
+            self.axes.set_ylabel(y_axis+y_unit,fontsize=17)
 
         self.draw()
 

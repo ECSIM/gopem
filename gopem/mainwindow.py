@@ -36,7 +36,9 @@ class MainWindow(QWidget):
         self.output = {}
 
         self.x_ax = QComboBox(self)
+        self.x_ax.setMinimumWidth(350)
         self.y_ax = QComboBox(self)
+        self.y_ax.setMinimumWidth(350)
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
 
