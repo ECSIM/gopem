@@ -40,6 +40,8 @@ class MplCanvas(FigureCanvas):
         :param x_axis: the ticks on X axis
         :param y_axis: the ticks on Y axis
         :param color: color name
+        :param marker : data marker
+        :param style: line style
         :return: None
         """
         self.axes.cla()
@@ -99,6 +101,8 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param x_axis: the Ticks on X axis
         :param y_axis:  the Ticks on Y axis
         :param color: color name
+        :param marker : data marker
+        :param style: line style
         :return: None
         """
         if len(marker) == 0:
