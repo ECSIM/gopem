@@ -65,3 +65,4 @@ MarkerTable = {"Point":".","Pixel":"o","Circle":"o","Square":"s","Pentagon":"p",
 
 StyleTable = {"Solid":"-","Dashed":"--","Dash-Dot":"-.","Dotted":":"}
 
+ScaleList = ["Linear","Log","SymLog","Logit"]

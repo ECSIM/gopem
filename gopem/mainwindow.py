@@ -45,11 +45,17 @@ class MainWindow(QWidget):
         self.marker_bar.setMinimumWidth(170)
         self.style_bar = QComboBox(self)
         self.style_bar.setMinimumWidth(170)
+        self.x_scale = QComboBox(self)
+        self.x_scale.setMinimumWidth(170)
+        self.y_scale = QComboBox(self)
+        self.y_scale.setMinimumWidth(170)
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
         self.color_bar.currentTextChanged.connect(self.axis_changed)
         self.marker_bar.currentTextChanged.connect(self.axis_changed)
         self.style_bar.currentTextChanged.connect(self.axis_changed)
+        self.x_scale.currentTextChanged.connect(self.axis_changed)
+        self.y_scale.currentTextChanged.connect(self.axis_changed)
 
         self.test_checkbox = QCheckBox()
 
@@ -183,6 +189,8 @@ class MainWindow(QWidget):
         color_label = QLabel("Color:")
         marker_label = QLabel("Marker:")
         style_label = QLabel("Style:")
+        x_scale_label = QLabel("X-Scale:")
+        y_scale_label = QLabel("Y-Scale:")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
@@ -192,6 +200,10 @@ class MainWindow(QWidget):
         ll.addWidget(self.x_ax)
         ll.addWidget(y_label)
         ll.addWidget(self.y_ax)
+        ll.addWidget(x_scale_label)
+        ll.addWidget(self.x_scale)
+        ll.addWidget(y_scale_label)
+        ll.addWidget(self.y_scale)
         ll.addWidget(color_label)
         ll.addWidget(self.color_bar)
         ll.addWidget(marker_label)
@@ -298,6 +310,8 @@ class MainWindow(QWidget):
         self.color_bar.clear()
         self.marker_bar.clear()
         self.style_bar.clear()
+        self.x_scale.clear()
+        self.y_scale.clear()
         self.plotter.clear_plot()
 
 
@@ -331,11 +345,15 @@ class MainWindow(QWidget):
             self.marker_bar.addItem(marker)
         for style in sorted(gopem.helper.StyleTable.keys()):
             self.style_bar.addItem(style)
+        for scale in gopem.helper.ScaleList:
+            self.x_scale.addItem(scale)
+            self.y_scale.addItem(scale)
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText())
+        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText(),
+                                         self.x_scale.currentText(),self.y_scale.currentText())
         if report_flag:
             self.message_box("Report",gopem.helper.ReportMessage)
 
@@ -416,7 +434,7 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText())
+        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText(),self.x_scale.currentText(),self.y_scale.currentText())
 
     def save_slt(self):
         """
