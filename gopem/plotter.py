@@ -42,6 +42,8 @@ class MplCanvas(FigureCanvas):
         :param color: color name
         :param marker : data marker
         :param style: line style
+        :param x_scale: x-axis scale
+        :param y_scale: y-axis scale
         :return: None
         """
         self.axes.cla()
@@ -105,6 +107,8 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param color: color name
         :param marker : data marker
         :param style: line style
+        :param x_scale: x-axis scale
+        :param y_scale: y-axis scale
         :return: None
         """
         if len(marker) == 0:
