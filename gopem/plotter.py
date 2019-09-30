@@ -39,6 +39,7 @@ class MplCanvas(FigureCanvas):
         :param data: a dictionary that contains the data points
         :param x_axis: the ticks on X axis
         :param y_axis: the ticks on Y axis
+        :param color: color name
         :return: None
         """
         self.axes.cla()
@@ -99,6 +100,7 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param data: the dictionary of data
         :param x_axis: the Ticks on X axis
         :param y_axis:  the Ticks on Y axis
+        :param color: color name
         :return: None
         """
         self.sc.update_plot(data, x_axis, y_axis, color)
