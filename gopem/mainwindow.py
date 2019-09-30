@@ -36,26 +36,13 @@ class MainWindow(QWidget):
         self.output = {}
 
         self.x_ax = QComboBox(self)
-        self.x_ax.setMinimumWidth(170)
         self.y_ax = QComboBox(self)
-        self.y_ax.setMinimumWidth(170)
         self.color_bar = QComboBox(self)
-        self.color_bar.setMinimumWidth(170)
         self.marker_bar = QComboBox(self)
-        self.marker_bar.setMinimumWidth(170)
         self.style_bar = QComboBox(self)
-        self.style_bar.setMinimumWidth(170)
         self.x_scale = QComboBox(self)
-        self.x_scale.setMinimumWidth(170)
         self.y_scale = QComboBox(self)
-        self.y_scale.setMinimumWidth(170)
-        self.x_ax.currentTextChanged.connect(self.axis_changed)
-        self.y_ax.currentTextChanged.connect(self.axis_changed)
-        self.color_bar.currentTextChanged.connect(self.axis_changed)
-        self.marker_bar.currentTextChanged.connect(self.axis_changed)
-        self.style_bar.currentTextChanged.connect(self.axis_changed)
-        self.x_scale.currentTextChanged.connect(self.axis_changed)
-        self.y_scale.currentTextChanged.connect(self.axis_changed)
+        self.config_plot_bar(min_width=140)
 
         self.test_checkbox = QCheckBox()
 
@@ -104,6 +91,29 @@ class MainWindow(QWidget):
         self.super.addLayout(self.main)
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
+
+    def config_plot_bar(self,min_width=140):
+        """
+        Set config for plot setting bar.
+
+        :param min_width: minimum width
+        :return: None
+        """
+        self.x_ax.setMinimumWidth(min_width)
+        self.y_ax.setMinimumWidth(min_width)
+        self.color_bar.setMinimumWidth(min_width)
+        self.marker_bar.setMinimumWidth(min_width)
+        self.style_bar.setMinimumWidth(min_width)
+        self.x_scale.setMinimumWidth(min_width)
+        self.y_scale.setMinimumWidth(min_width)
+        self.x_ax.currentTextChanged.connect(self.axis_changed)
+        self.y_ax.currentTextChanged.connect(self.axis_changed)
+        self.color_bar.currentTextChanged.connect(self.axis_changed)
+        self.marker_bar.currentTextChanged.connect(self.axis_changed)
+        self.style_bar.currentTextChanged.connect(self.axis_changed)
+        self.x_scale.currentTextChanged.connect(self.axis_changed)
+        self.y_scale.currentTextChanged.connect(self.axis_changed)
+
 
     def location_on_screen(self,x=0,y=0):
         """
