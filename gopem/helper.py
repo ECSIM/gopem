@@ -60,3 +60,6 @@ UnitTable = {"P": ["Power","W"],"I": ["Current","A"],"V": ["Voltage","V"],"EFF":
              "Eta_Conc": ["Eta Concentration","V"],"Eta_Ohmic": ["Eta Ohmic","V"],"VE": ["Estimated Voltage","V"],"PO2": ["PO2","atm"],"PH2": ["PH2","atm"],"PH2O": ["PH2O","atm"]}
 
 ColorList = ["Black","Blue","Green","Red","Cyan","Magenta","Yellow"]
+
+MarkerTable = {"Point":".","Pixel":"o","Circle":"o","Square":"s","Pentagon":"p","Star":"*","Plus":"+","Vline":"|","Hline":"_","None":""}
+
