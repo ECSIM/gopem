@@ -63,3 +63,5 @@ ColorList = ["Black","Blue","Green","Red","Cyan","Magenta","Yellow"]
 
 MarkerTable = {"Point":".","Pixel":"o","Circle":"o","Square":"s","Pentagon":"p","Star":"*","Plus":"+","Vline":"|","Hline":"_","None":""}
 
+StyleTable = {"Solid":"-","Dashed":"--","Dash-Dot":"-.","Dotted":":"}
+

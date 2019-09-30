@@ -32,7 +32,7 @@ class MplCanvas(FigureCanvas):
                                    QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
-    def update_plot(self, data, x_axis, y_axis, color, marker):
+    def update_plot(self, data, x_axis, y_axis, color, marker, style):
         """
         Update the data and axis range of the canvas.
 
@@ -48,7 +48,7 @@ class MplCanvas(FigureCanvas):
             x_unit = ""
             y_unit = ""
             title = ""
-            self.axes.plot(data[x_axis], data[y_axis], color = color, marker=marker)
+            self.axes.plot(data[x_axis], data[y_axis], color = color, marker=marker,linestyle=style)
             if y_axis in gopem.helper.UnitTable.keys():
                 title += gopem.helper.UnitTable[y_axis][0] + "~"
                 if gopem.helper.UnitTable[y_axis][1] is not None :
@@ -91,7 +91,7 @@ class ApplicationWindow(QtWidgets.QWidget):
 
         l.addWidget(self.sc)
 
-    def update_plotter_data(self, data, x_axis, y_axis, color, marker):
+    def update_plotter_data(self, data, x_axis, y_axis, color, marker, style):
         """
         Update the plotter data and axis.
 
@@ -102,12 +102,16 @@ class ApplicationWindow(QtWidgets.QWidget):
         :return: None
         """
         if len(marker) == 0:
-            marker = "."
+            marker = ""
         else:
             marker = gopem.helper.MarkerTable[marker]
         if len(color) == 0:
             color = "Black"
-        self.sc.update_plot(data, x_axis, y_axis, color, marker)
+        if len(style) == 0:
+            style = "Solid"
+        else:
+            style = gopem.helper.StyleTable[style]
+        self.sc.update_plot(data, x_axis, y_axis, color, marker, style)
 
     def file_quit(self):
         """
