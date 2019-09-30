@@ -311,7 +311,7 @@ class MainWindow(QWidget):
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
-        for color in gopem.helper.ColorTable:
+        for color in gopem.helper.ColorList:
             self.color_bar.addItem(color)
         for k in output.keys():
             if isinstance(output[k], list):
