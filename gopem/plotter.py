@@ -32,7 +32,7 @@ class MplCanvas(FigureCanvas):
                                    QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
-    def update_plot(self, data, x_axis, y_axis):
+    def update_plot(self, data, x_axis, y_axis, color):
         """
         Update the data and axis range of the canvas.
 
@@ -47,7 +47,9 @@ class MplCanvas(FigureCanvas):
             x_unit = ""
             y_unit = ""
             title = ""
-            self.axes.plot(data[x_axis], data[y_axis], 'r')
+            if len(color) == 0:
+                color = "Black"
+            self.axes.plot(data[x_axis], data[y_axis], color = color)
             if y_axis in gopem.helper.UnitTable.keys():
                 title += gopem.helper.UnitTable[y_axis][0] + "~"
                 if gopem.helper.UnitTable[y_axis][1] is not None :
@@ -90,7 +92,7 @@ class ApplicationWindow(QtWidgets.QWidget):
 
         l.addWidget(self.sc)
 
-    def update_plotter_data(self, data, x_axis, y_axis):
+    def update_plotter_data(self, data, x_axis, y_axis, color):
         """
         Update the plotter data and axis.
 
@@ -99,7 +101,7 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param y_axis:  the Ticks on Y axis
         :return: None
         """
-        self.sc.update_plot(data, x_axis, y_axis)
+        self.sc.update_plot(data, x_axis, y_axis, color)
 
     def file_quit(self):
         """

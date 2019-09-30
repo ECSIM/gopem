@@ -36,11 +36,14 @@ class MainWindow(QWidget):
         self.output = {}
 
         self.x_ax = QComboBox(self)
-        self.x_ax.setMinimumWidth(350)
+        self.x_ax.setMinimumWidth(200)
         self.y_ax = QComboBox(self)
-        self.y_ax.setMinimumWidth(350)
+        self.y_ax.setMinimumWidth(200)
+        self.color_bar = QComboBox(self)
+        self.color_bar.setMinimumWidth(200)
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
+        self.color_bar.currentTextChanged.connect(self.axis_changed)
 
         self.test_checkbox = QCheckBox()
 
@@ -171,6 +174,7 @@ class MainWindow(QWidget):
         w.setLayout(l)
         x_label = QLabel("X-Axis:")
         y_label = QLabel("Y-Axis:")
+        color_label = QLabel("Color:")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
@@ -180,6 +184,8 @@ class MainWindow(QWidget):
         ll.addWidget(self.x_ax)
         ll.addWidget(y_label)
         ll.addWidget(self.y_ax)
+        ll.addWidget(color_label)
+        ll.addWidget(self.color_bar)
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
         l.addWidget(self.h_line())
@@ -277,6 +283,7 @@ class MainWindow(QWidget):
         self.printChkBox.setDisabled(True)
         self.x_ax.clear()
         self.y_ax.clear()
+        self.color_bar.clear()
         self.plotter.clear_plot()
 
 
@@ -304,11 +311,13 @@ class MainWindow(QWidget):
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
+        for color in gopem.helper.ColorTable:
+            self.color_bar.addItem(color)
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText())
+        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText())
         if report_flag:
             self.message_box("Report",gopem.helper.ReportMessage)
 
@@ -389,7 +398,7 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText())
+        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText())
 
     def save_slt(self):
         """
