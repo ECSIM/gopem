@@ -7,8 +7,9 @@ Failed = 0
 VERSION = "0.2"
 
 VERSION_1 = VERSION.split(".")[0]
-VERSION_2 = str(int(float(VERSION)*10 - int(VERSION_1)*10))
-VERSION_3 = str(int(float(VERSION)*100 - int(VERSION_1)*100 - int(VERSION_2)*10))
+VERSION_2 = str(int(float(VERSION) * 10 - int(VERSION_1) * 10))
+VERSION_3 = str(int(float(VERSION) * 100 - int(VERSION_1)
+                    * 100 - int(VERSION_2) * 10))
 VERSION_4 = "0"
 
 SETUP_ITEMS = [
@@ -25,11 +26,21 @@ CHANGELOG_ITEMS = [
 
 HTML_ITEMS = ["Version {0}"]
 PARAMS_ITEMS = ["Version = {0}"]
-RC_ITEMS =["filevers=({0}, {1}, {2}, {3})","prodvers=({0}, {1}, {2}, {3})","(u'FileVersion', u'{0}.{1}.{2}.{3}'),","(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
+RC_ITEMS = [
+    "filevers=({0}, {1}, {2}, {3})",
+    "prodvers=({0}, {1}, {2}, {3})",
+    "(u'FileVersion', u'{0}.{1}.{2}.{3}'),",
+    "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
-FILES = {"setup.py": SETUP_ITEMS, "README.md": INSTALL_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS, os.path.join("gopem", "helper.py"): PARAMS_ITEMS}
+FILES = {
+    "setup.py": SETUP_ITEMS,
+    "README.md": INSTALL_ITEMS,
+    "CHANGELOG.md": CHANGELOG_ITEMS,
+    os.path.join(
+        "gopem",
+        "helper.py"): PARAMS_ITEMS}
 
-TEST_NUMBER = len(FILES.keys()) +1
+TEST_NUMBER = len(FILES.keys()) + 1
 
 
 def print_result(failed=False):
@@ -62,9 +73,20 @@ if __name__ == "__main__":
             Failed += 1
             print("Error in " + file_name + "\n" + "Message : " + str(e))
     try:
-        file_content = codecs.open(os.path.join("rsrc","Version.rc"), "r", "utf-8", 'ignore').read()
+        file_content = codecs.open(
+            os.path.join(
+                "rsrc",
+                "Version.rc"),
+            "r",
+            "utf-8",
+            'ignore').read()
         for test_item in RC_ITEMS:
-            if file_content.find(test_item.format(VERSION_1,VERSION_2,VERSION_3,VERSION_4)) == -1:
+            if file_content.find(
+                test_item.format(
+                    VERSION_1,
+                    VERSION_2,
+                    VERSION_3,
+                    VERSION_4)) == -1:
                 print("Incorrect version tag in " + "Version.rc")
                 Failed += 1
                 break

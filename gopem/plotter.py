@@ -8,7 +8,6 @@ from matplotlib.figure import Figure
 import gopem.helper
 
 
-
 class MplCanvas(FigureCanvas):
     """MplCanvas class."""
 
@@ -32,7 +31,16 @@ class MplCanvas(FigureCanvas):
                                    QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
-    def update_plot(self, data, x_axis, y_axis, color, marker, style, x_scale, y_scale):
+    def update_plot(
+            self,
+            data,
+            x_axis,
+            y_axis,
+            color,
+            marker,
+            style,
+            x_scale,
+            y_scale):
         """
         Update the data and axis range of the canvas.
 
@@ -52,32 +60,37 @@ class MplCanvas(FigureCanvas):
             x_unit = ""
             y_unit = ""
             title = ""
-            self.axes.plot(data[x_axis], data[y_axis], color = color, marker=marker,linestyle=style)
+            self.axes.plot(
+                data[x_axis],
+                data[y_axis],
+                color=color,
+                marker=marker,
+                linestyle=style)
             if y_axis in gopem.helper.UnitTable.keys():
                 title += gopem.helper.UnitTable[y_axis][0] + "~"
-                if gopem.helper.UnitTable[y_axis][1] is not None :
+                if gopem.helper.UnitTable[y_axis][1] is not None:
                     y_unit = "({0})".format(gopem.helper.UnitTable[y_axis][1])
             if x_axis in gopem.helper.UnitTable.keys():
-                if len(title)!=0:
+                if len(title) != 0:
                     title += gopem.helper.UnitTable[x_axis][0]
-                    self.axes.set_title(title,fontsize=21)
-                if gopem.helper.UnitTable[x_axis][1] is not None :
+                    self.axes.set_title(title, fontsize=21)
+                if gopem.helper.UnitTable[x_axis][1] is not None:
                     x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
-            self.axes.set_xlabel(x_axis+x_unit,fontsize=17)
-            self.axes.set_ylabel(y_axis+y_unit,fontsize=17)
+            self.axes.set_xlabel(x_axis + x_unit, fontsize=17)
+            self.axes.set_ylabel(y_axis + y_unit, fontsize=17)
             self.axes.set_yscale(y_scale)
             self.axes.set_xscale(x_scale)
 
         self.draw()
 
-    def save_fig(self,filename):
+    def save_fig(self, filename):
         """
         Save figure.
 
         :param filename: file name
         :return: None
         """
-        self.fig.savefig(filename, transparent=True);
+        self.fig.savefig(filename, transparent=True)
 
 
 class ApplicationWindow(QtWidgets.QWidget):
@@ -97,7 +110,16 @@ class ApplicationWindow(QtWidgets.QWidget):
 
         l.addWidget(self.sc)
 
-    def update_plotter_data(self, data, x_axis, y_axis, color, marker, style, x_scale, y_scale):
+    def update_plotter_data(
+            self,
+            data,
+            x_axis,
+            y_axis,
+            color,
+            marker,
+            style,
+            x_scale,
+            y_scale):
         """
         Update the plotter data and axis.
 
@@ -125,7 +147,15 @@ class ApplicationWindow(QtWidgets.QWidget):
             style = "Solid"
         else:
             style = gopem.helper.StyleTable[style]
-        self.sc.update_plot(data, x_axis, y_axis, color, marker, style, x_scale, y_scale)
+        self.sc.update_plot(
+            data,
+            x_axis,
+            y_axis,
+            color,
+            marker,
+            style,
+            x_scale,
+            y_scale)
 
     def file_quit(self):
         """

@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton
-from PyQt5.QtGui import QIcon,QFont
+from PyQt5.QtGui import QIcon, QFont
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
 from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
@@ -28,7 +28,7 @@ class MainWindow(QWidget):
         self.mode = []
         script_dir = os.path.dirname(os.path.realpath(__file__))
         parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
-        self.setWindowIcon(QIcon(os.path.join(parent_dir,"rsrc","icon.ico")))
+        self.setWindowIcon(QIcon(os.path.join(parent_dir, "rsrc", "icon.ico")))
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
@@ -84,7 +84,9 @@ class MainWindow(QWidget):
         self.main.addWidget(self.h_line())
         self.main.addWidget(QLabel("Description:"))
         self.description.setText(Description_Menu[self.menuKey[0]])
-        self.des_link.setText('<a href="' + Description_Links[self.menuKey[0]] + '">Web Link</a>')
+        self.des_link.setText('<a href="' +
+                              Description_Links[self.menuKey[0]] +
+                              '">Web Link</a>')
         self.main.addWidget(self.description)
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
@@ -92,7 +94,7 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
-    def config_plot_bar(self,min_width=140):
+    def config_plot_bar(self, min_width=140):
         """
         Set config for plot setting bar.
 
@@ -114,8 +116,7 @@ class MainWindow(QWidget):
         self.x_scale.currentTextChanged.connect(self.axis_changed)
         self.y_scale.currentTextChanged.connect(self.axis_changed)
 
-
-    def location_on_screen(self,x=0,y=0):
+    def location_on_screen(self, x=0, y=0):
         """
         Set window location.
 
@@ -125,7 +126,7 @@ class MainWindow(QWidget):
         """
         self.move(x, y)
 
-    def message_box(self,title,message):
+    def message_box(self, title, message):
         """
         Show message box.
 
@@ -140,7 +141,6 @@ class MainWindow(QWidget):
         msg.setText(message)
         msg.exec_()
 
-
     def get_name_widget(self):
         """
         Top widget that shows the names and versions of OPEM/GOPEM.
@@ -152,7 +152,7 @@ class MainWindow(QWidget):
         name.setFont(QFont("Times", 12, QFont.Bold))
         return name
 
-    def edit_name_widget(self,analyse = True):
+    def edit_name_widget(self, analyse=True):
         """
         Edit name_version widget in different mode.
 
@@ -240,7 +240,8 @@ class MainWindow(QWidget):
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
-        self.reportChkBox = QCheckBox('Do you want to have a generated report for this analysis ?')
+        self.reportChkBox = QCheckBox(
+            'Do you want to have a generated report for this analysis ?')
         self.printChkBox = QCheckBox('Console print')
         self.printChkBox.setDisabled(True)
         layout_v = QVBoxLayout(self)
@@ -299,7 +300,9 @@ class MainWindow(QWidget):
             self.attributes[name][item].setRange(0, 100000)
             self.attributes[name][item].setMinimumSize(200, 20)
             self.attributes[name][item].setDecimals(10)
-            field.addWidget(self.attributes[name][item], alignment=Qt.AlignRight)
+            field.addWidget(
+                self.attributes[name][item],
+                alignment=Qt.AlignRight)
             fields.append(field)
         return fields
 
@@ -324,7 +327,6 @@ class MainWindow(QWidget):
         self.y_scale.clear()
         self.plotter.clear_plot()
 
-
     def analyze(self, menu, attributes):
         """
         Start an analysis by the selected model and given attributes values.
@@ -344,7 +346,11 @@ class MainWindow(QWidget):
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
         self.edit_name_widget(True)
-        output = menu(input_attr, True, print_flag, report_flag)  # Test Print Report
+        output = menu(
+            input_attr,
+            True,
+            print_flag,
+            report_flag)  # Test Print Report
         self.edit_name_widget(False)
         self.output = output
         self.x_ax.clear()
@@ -362,12 +368,17 @@ class MainWindow(QWidget):
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        self.plotter.update_plotter_data(output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText(),
-                                         self.x_scale.currentText(),self.y_scale.currentText())
+        self.plotter.update_plotter_data(
+            output,
+            self.x_ax.currentText(),
+            self.y_ax.currentText(),
+            self.color_bar.currentText(),
+            self.marker_bar.currentText(),
+            self.style_bar.currentText(),
+            self.x_scale.currentText(),
+            self.y_scale.currentText())
         if report_flag:
-            self.message_box("Report",gopem.helper.ReportMessage)
-
-
+            self.message_box("Report", gopem.helper.ReportMessage)
 
     def analyse_slt(self):
         """
@@ -375,7 +386,8 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.analyze(self.menu[self.menuKey[self.selectedMode]], self.attributes[self.menuKey[self.selectedMode]])
+        self.analyze(self.menu[self.menuKey[self.selectedMode]],
+                     self.attributes[self.menuKey[self.selectedMode]])
 
     def report_slt(self):
         """
@@ -421,7 +433,9 @@ class MainWindow(QWidget):
             m.setVisible(False)
         self.mode[index].setVisible(True)
         self.description.setText(Description_Menu[self.menuKey[index]])
-        self.des_link.setText('<a href="' + Description_Links[self.menuKey[index]] + '">Web Link</a>')
+        self.des_link.setText('<a href="' +
+                              Description_Links[self.menuKey[index]] +
+                              '">Web Link</a>')
         self.selectedMode = index
         self.test_checkbox.setChecked(False)
 
@@ -444,7 +458,15 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.plotter.update_plotter_data(self.output, self.x_ax.currentText(), self.y_ax.currentText(),self.color_bar.currentText(),self.marker_bar.currentText(),self.style_bar.currentText(),self.x_scale.currentText(),self.y_scale.currentText())
+        self.plotter.update_plotter_data(
+            self.output,
+            self.x_ax.currentText(),
+            self.y_ax.currentText(),
+            self.color_bar.currentText(),
+            self.marker_bar.currentText(),
+            self.style_bar.currentText(),
+            self.x_scale.currentText(),
+            self.y_scale.currentText())
 
     def save_slt(self):
         """
@@ -454,10 +476,11 @@ class MainWindow(QWidget):
         """
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        filename, _ = QFileDialog.getSaveFileName(self, "Save Plot", "", "PNG (*.png)", options=options)
+        filename, _ = QFileDialog.getSaveFileName(
+            self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             self.plotter.sc.save_fig(filename)
-            self.message_box("Save Plot",gopem.helper.PlotMessage)
+            self.message_box("Save Plot", gopem.helper.PlotMessage)
 
     def check_update(self):
         """
@@ -469,9 +492,11 @@ class MainWindow(QWidget):
             update_obj = requests.get(gopem.helper.UpdateUrl)
             update_data = update_obj.text
             if float(update_data) > float(gopem.helper.Version):
-                self.message_box("Check Update",gopem.helper.UpdateMessage2.format(str(gopem.helper.Version), update_data))
+                self.message_box("Check Update", gopem.helper.UpdateMessage2.format(
+                    str(gopem.helper.Version), update_data))
             else:
-                self.message_box("Check Update",gopem.helper.UpdateMessage1.format(str(gopem.helper.Version), update_data))
+                self.message_box("Check Update", gopem.helper.UpdateMessage1.format(
+                    str(gopem.helper.Version), update_data))
         except Exception:
-            self.message_box("Check Update",gopem.helper.UpdateMessage3.format(str(gopem.helper.Version), "??"))
-
+            self.message_box("Check Update", gopem.helper.UpdateMessage3.format(
+                str(gopem.helper.Version), "??"))

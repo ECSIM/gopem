@@ -10,7 +10,8 @@ from opem.Params import Version as OPEM_Version
 
 Version = 0.2
 
-VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),str(OPEM_Version))
+VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),
+                                                 str(OPEM_Version))
 DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
 VersionMessage = """
@@ -37,11 +38,10 @@ When you want to use this software in your research projects and reports, we app
 UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
 
 
+UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + \
+    VersionMessage + "\n" + DownloadLink
 
-
-UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + VersionMessage + "\n" + DownloadLink
-
-UpdateMessage3 = "Update check failed!\n" + VersionMessage +"\n"
+UpdateMessage3 = "Update check failed!\n" + VersionMessage + "\n"
 
 ReportMessage = "Report has been saved successfully in current folder!"
 PlotMessage = "Plot has been saved successfully!"
@@ -56,13 +56,35 @@ InputParam = {
     "Padulles_Amphlett Analysis (Dynamic)": PA
 }
 
-UnitTable = {"P": ["Power","W"],"I": ["Current","A"],"V": ["Voltage","V"],"EFF": ["Efficiency",None],"Ph": ["Power-Thermal","W"],"Eta_Active": ["Eta Activation","V"],
-             "Eta_Conc": ["Eta Concentration","V"],"Eta_Ohmic": ["Eta Ohmic","V"],"VE": ["Estimated Voltage","V"],"PO2": ["PO2","atm"],"PH2": ["PH2","atm"],"PH2O": ["PH2O","atm"]}
+UnitTable = {
+    "P": [
+        "Power", "W"], "I": [
+            "Current", "A"], "V": [
+                "Voltage", "V"], "EFF": [
+                    "Efficiency", None], "Ph": [
+                        "Power-Thermal", "W"], "Eta_Active": [
+                            "Eta Activation", "V"], "Eta_Conc": [
+                                "Eta Concentration", "V"], "Eta_Ohmic": [
+                                    "Eta Ohmic", "V"], "VE": [
+                                        "Estimated Voltage", "V"], "PO2": [
+                                            "PO2", "atm"], "PH2": [
+                                                "PH2", "atm"], "PH2O": [
+                                                    "PH2O", "atm"]}
 
-ColorList = ["Black","Blue","Green","Red","Cyan","Magenta","Yellow"]
+ColorList = ["Black", "Blue", "Green", "Red", "Cyan", "Magenta", "Yellow"]
 
-MarkerTable = {"Point":".","Pixel":"o","Circle":"o","Square":"s","Pentagon":"p","Star":"*","Plus":"+","Vline":"|","Hline":"_","None":""}
+MarkerTable = {
+    "Point": ".",
+    "Pixel": "o",
+    "Circle": "o",
+    "Square": "s",
+    "Pentagon": "p",
+    "Star": "*",
+    "Plus": "+",
+    "Vline": "|",
+    "Hline": "_",
+    "None": ""}
 
-StyleTable = {"Solid":"-","Dashed":"--","Dash-Dot":"-.","Dotted":":"}
+StyleTable = {"Solid": "-", "Dashed": "--", "Dash-Dot": "-.", "Dotted": ":"}
 
-ScaleList = ["Linear","Log","SymLog","Logit"]
+ScaleList = ["Linear", "Log", "SymLog", "Logit"]
