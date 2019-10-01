@@ -138,13 +138,13 @@ class ApplicationWindow(QtWidgets.QWidget):
         else:
             marker = gopem.helper.MarkerTable[marker]
         if len(color) == 0:
-            color = "Black"
+            color = gopem.helper.ColorList[0]
         if len(x_scale) == 0:
-            x_scale = "Linear"
-        if len(x_scale) == 0:
-            y_scale = "Linear"
+            x_scale = gopem.helper.ScaleList[0]
+        if len(y_scale) == 0:
+            y_scale = gopem.helper.ScaleList[0]
         if len(style) == 0:
-            style = "Solid"
+            style = gopem.helper.StyleTable["Solid"]
         else:
             style = gopem.helper.StyleTable[style]
         self.sc.update_plot(

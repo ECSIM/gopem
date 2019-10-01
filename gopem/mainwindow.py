@@ -353,17 +353,22 @@ class MainWindow(QWidget):
             report_flag)  # Test Print Report
         self.edit_name_widget(False)
         self.output = output
-        self.x_ax.clear()
-        self.y_ax.clear()
+        self.color_bar.clear()
         for color in gopem.helper.ColorList:
             self.color_bar.addItem(color)
+        self.marker_bar.clear()
         for marker in sorted(gopem.helper.MarkerTable.keys()):
             self.marker_bar.addItem(marker)
+        self.style_bar.clear()
         for style in sorted(gopem.helper.StyleTable.keys()):
             self.style_bar.addItem(style)
+        self.x_scale.clear()
+        self.y_scale.clear()
         for scale in gopem.helper.ScaleList:
             self.x_scale.addItem(scale)
             self.y_scale.addItem(scale)
+        self.x_ax.clear()
+        self.y_ax.clear()
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
