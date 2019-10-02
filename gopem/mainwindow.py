@@ -206,7 +206,7 @@ class MainWindow(QWidget):
         style_label = QLabel("Style:")
         x_scale_label = QLabel("X-Scale:")
         y_scale_label = QLabel("Y-Scale:")
-        line_width_label = QLabel("Line Width")
+        line_width_label = QLabel("Line Width:")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
