@@ -364,10 +364,10 @@ class MainWindow(QWidget):
         for color in gopem.helper.ColorList:
             self.color_bar.addItem(color)
         self.marker_bar.clear()
-        for marker in sorted(gopem.helper.MarkerTable.keys()):
+        for marker in gopem.helper.MarkerList:
             self.marker_bar.addItem(marker)
         self.style_bar.clear()
-        for style in sorted(gopem.helper.StyleTable.keys()):
+        for style in gopem.helper.StyleList:
             self.style_bar.addItem(style)
         self.x_scale.clear()
         self.y_scale.clear()
