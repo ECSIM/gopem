@@ -12,6 +12,10 @@ Version = 0.2
 
 VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),
                                                  str(OPEM_Version))
+ReportTitle = "Do you want to have a generated report for this analysis ?"
+PrintTitle = "Console print"
+TestTitle = "Use Test Data"
+AnalyzingMessage = "Analyzing ..."
 DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
 VersionMessage = """

@@ -160,7 +160,7 @@ class MainWindow(QWidget):
         :return: None
         """
         if analyse:
-            self.name_version.setText("Analyzing ...")
+            self.name_version.setText(gopem.helper.AnalyzingMessage)
             self.name_version.setStyleSheet("color:red;")
             self.repaint()
         else:
@@ -240,9 +240,8 @@ class MainWindow(QWidget):
         w = QWidget(self)
         resetBtn = QPushButton('Reset')
         analyseBtn = QPushButton('Analyse')
-        self.reportChkBox = QCheckBox(
-            'Do you want to have a generated report for this analysis ?')
-        self.printChkBox = QCheckBox('Console print')
+        self.reportChkBox = QCheckBox(gopem.helper.ReportTitle)
+        self.printChkBox = QCheckBox(gopem.helper.PrintTitle)
         self.printChkBox.setDisabled(True)
         layout_v = QVBoxLayout(self)
         layout = QHBoxLayout()
@@ -277,7 +276,7 @@ class MainWindow(QWidget):
 
         :return: QCheckBox for test data
         """
-        self.test_checkbox = QCheckBox("Use Test Data")
+        self.test_checkbox = QCheckBox(gopem.helper.TestTitle)
         self.test_checkbox.stateChanged.connect(self.test_slt)
         return self.test_checkbox
 
