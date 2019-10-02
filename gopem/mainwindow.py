@@ -85,7 +85,7 @@ class MainWindow(QWidget):
         self.description.setText(Description_Menu[self.menuKey[0]])
         self.des_link.setText('<a href="' +
                               Description_Links[self.menuKey[0]] +
-                              '">Web Link</a>')
+                              '">Document Link</a>')
         self.main.addWidget(self.description)
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
