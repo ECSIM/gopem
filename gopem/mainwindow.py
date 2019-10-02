@@ -40,6 +40,7 @@ class MainWindow(QWidget):
         self.style_bar = QComboBox(self)
         self.x_scale = QComboBox(self)
         self.y_scale = QComboBox(self)
+        self.line_width = QComboBox(self)
         self.config_plot_bar(min_width=140)
 
         self.test_checkbox = QCheckBox()
@@ -106,6 +107,7 @@ class MainWindow(QWidget):
         self.style_bar.setMinimumWidth(min_width)
         self.x_scale.setMinimumWidth(min_width)
         self.y_scale.setMinimumWidth(min_width)
+        self.line_width.setMinimumWidth(min_width)
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
         self.color_bar.currentTextChanged.connect(self.axis_changed)
@@ -113,6 +115,7 @@ class MainWindow(QWidget):
         self.style_bar.currentTextChanged.connect(self.axis_changed)
         self.x_scale.currentTextChanged.connect(self.axis_changed)
         self.y_scale.currentTextChanged.connect(self.axis_changed)
+        self.line_width.currentTextChanged.connect(self.axis_changed)
 
     def location_on_screen(self, x=0, y=0):
         """
@@ -203,6 +206,7 @@ class MainWindow(QWidget):
         style_label = QLabel("Style:")
         x_scale_label = QLabel("X-Scale:")
         y_scale_label = QLabel("Y-Scale:")
+        line_width_label = QLabel("Line Width")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
@@ -222,6 +226,8 @@ class MainWindow(QWidget):
         ll.addWidget(self.marker_bar)
         ll.addWidget(style_label)
         ll.addWidget(self.style_bar)
+        ll.addWidget(line_width_label)
+        ll.addWidget(self.line_width)
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
         l.addWidget(self.h_line())
@@ -368,6 +374,9 @@ class MainWindow(QWidget):
         for scale in gopem.helper.ScaleList:
             self.x_scale.addItem(scale)
             self.y_scale.addItem(scale)
+        self.line_width.clear()
+        for width in gopem.helper.WidthList:
+            self.line_width.addItem(str(width))
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
@@ -382,7 +391,8 @@ class MainWindow(QWidget):
             self.marker_bar.currentText(),
             self.style_bar.currentText(),
             self.x_scale.currentText(),
-            self.y_scale.currentText())
+            self.y_scale.currentText(),
+            self.line_width.currentText())
         if report_flag:
             self.message_box("Report", gopem.helper.ReportMessage)
 
@@ -472,7 +482,8 @@ class MainWindow(QWidget):
             self.marker_bar.currentText(),
             self.style_bar.currentText(),
             self.x_scale.currentText(),
-            self.y_scale.currentText())
+            self.y_scale.currentText(),
+            self.line_width.currentText())
 
     def save_slt(self):
         """

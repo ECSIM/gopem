@@ -96,3 +96,5 @@ MarkerTable = {
 StyleTable = {"Solid": "-", "Dashed": "--", "Dash-Dot": "-.", "Dotted": ":"}
 
 ScaleList = ["Linear", "Log", "SymLog"]
+
+WidthList = list(range(1,11))

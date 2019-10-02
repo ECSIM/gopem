@@ -40,7 +40,8 @@ class MplCanvas(FigureCanvas):
             marker,
             style,
             x_scale,
-            y_scale):
+            y_scale,
+            linewidth):
         """
         Update the data and axis range of the canvas.
 
@@ -65,7 +66,8 @@ class MplCanvas(FigureCanvas):
                 data[y_axis],
                 color=color,
                 marker=marker,
-                linestyle=style)
+                linestyle=style,
+                linewidth=linewidth)
             if y_axis in gopem.helper.UnitTable.keys():
                 title += gopem.helper.UnitTable[y_axis][0] + "~"
                 if gopem.helper.UnitTable[y_axis][1] is not None:
@@ -119,7 +121,8 @@ class ApplicationWindow(QtWidgets.QWidget):
             marker,
             style,
             x_scale,
-            y_scale):
+            y_scale,
+            linewidth):
         """
         Update the plotter data and axis.
 
@@ -133,6 +136,11 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param y_scale: y-axis scale
         :return: None
         """
+        if len(linewidth) == 0:
+            linewidth = 1
+        else:
+            linewidth = int(linewidth)
+
         if len(marker) == 0:
             marker = ""
         else:
@@ -155,7 +163,8 @@ class ApplicationWindow(QtWidgets.QWidget):
             marker,
             style,
             x_scale,
-            y_scale)
+            y_scale,
+            linewidth)
 
     def file_quit(self):
         """
