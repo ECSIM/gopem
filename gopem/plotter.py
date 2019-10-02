@@ -53,6 +53,7 @@ class MplCanvas(FigureCanvas):
         :param style: line style
         :param x_scale: x-axis scale
         :param y_scale: y-axis scale
+        :param linewidth: plot line width
         :return: None
         """
         self.axes.cla()
@@ -134,6 +135,7 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param style: line style
         :param x_scale: x-axis scale
         :param y_scale: y-axis scale
+        :param linewidth: plot line width
         :return: None
         """
         if len(linewidth) == 0:
