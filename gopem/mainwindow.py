@@ -451,7 +451,7 @@ class MainWindow(QWidget):
         self.description.setText(Description_Menu[self.menuKey[index]])
         self.des_link.setText('<a href="' +
                               Description_Links[self.menuKey[index]] +
-                              '">Web Link</a>')
+                              '">Document Link</a>')
         self.selectedMode = index
         self.test_checkbox.setChecked(False)
 
