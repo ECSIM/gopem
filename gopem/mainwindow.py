@@ -41,7 +41,7 @@ class MainWindow(QWidget):
         self.x_scale = QComboBox(self)
         self.y_scale = QComboBox(self)
         self.line_width = QComboBox(self)
-        self.config_plot_bar(min_width=140)
+        self.config_plot_bar(min_width=130)
 
         self.test_checkbox = QCheckBox()
 
