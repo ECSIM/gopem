@@ -1,4 +1,5 @@
 """GOPEM helper."""
+import os
 from opem.Params import Amphlett_InputParams as A
 from opem.Params import Chamberline_InputParams as C
 from opem.Params import Larminiee_InputParams as L
@@ -9,6 +10,10 @@ from opem.Params import Padulles_Hauer_InputParams as PH
 from opem.Params import Version as OPEM_Version
 
 Version = 0.2
+
+ScriptDir = os.path.dirname(os.path.realpath(__file__))
+ParentDir = os.path.abspath(os.path.join(ScriptDir, os.pardir))
+IconPath = os.path.join(ParentDir, "rsrc", "icon.ico")
 
 VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),
                                                  str(OPEM_Version))

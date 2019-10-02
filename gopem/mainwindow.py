@@ -26,9 +26,7 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
-        script_dir = os.path.dirname(os.path.realpath(__file__))
-        parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
-        self.setWindowIcon(QIcon(os.path.join(parent_dir, "rsrc", "icon.ico")))
+        self.setWindowIcon(QIcon(gopem.helper.IconPath))
         self.layout = []
         self.attributes = {}
         self.selectedMode = 0
@@ -139,6 +137,10 @@ class MainWindow(QWidget):
         msg.setTextFormat(Qt.RichText)
         msg.setWindowTitle(title)
         msg.setText(message)
+        try:
+            msg.setWindowIcon(QIcon(gopem.helper.IconPath))
+        except Exception as e:
+            print(str(e))
         msg.exec_()
 
     def get_name_widget(self):
