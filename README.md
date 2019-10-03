@@ -74,8 +74,10 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 
 ### Exe Version (Only Windows)
-- Download [Exe-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.exe)
-- Run `GOPEM.exe`
+- Download [Installer-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.exe) or [Portable-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-Portable-0.2.exe)
+- Run and install
+
+⚠️ The portable build is slower to start
 
 ### DMG Version (MacOS)
 - Download [DMG-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.dmg)
@@ -97,7 +99,7 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 - Dual Core CPU (2.0 Ghz+)
 - 2GB of RAM
 
-Note that it may run on lower end equipment though good performance is not guaranteed.
+⚠️ Note that it may run on lower end equipment though good performance is not guaranteed.
 
 ## Usage
 
