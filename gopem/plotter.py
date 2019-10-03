@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """GOPEM plotter."""
 from __future__ import unicode_literals
 import matplotlib

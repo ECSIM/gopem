@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """GOPEM helper."""
 import os
 import sys

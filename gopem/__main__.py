@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """GOPEM main."""
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
