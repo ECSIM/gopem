@@ -18,7 +18,7 @@ SETUP_ITEMS = [
 INSTALL_ITEMS = [
     "[Version {0}](https://github.com/ecsim/gopem/archive/v{0}.zip)",
     "[Installer-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-{0}.exe)",
-    "[Portable-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-Portable-{0}.exe)"
+    "[Portable-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-Portable-{0}.exe)",
     "[DMG-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-{0}.dmg)"]
 CHANGELOG_ITEMS = [
     "## [{0}]",
