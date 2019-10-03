@@ -23,7 +23,6 @@ CHANGELOG_ITEMS = [
     "## [{0}]",
     "https://github.com/ECSIM/gopem/compare/v{0}...develop",
     "[{0}]:"]
-
 HTML_ITEMS = ["Version {0}"]
 PARAMS_ITEMS = ["Version = {0}"]
 RC_ITEMS = [
@@ -32,13 +31,15 @@ RC_ITEMS = [
     "(u'FileVersion', u'{0}.{1}.{2}.{3}'),",
     "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
+INNO_TIMES = ['#define MyAppVersion "{0}"']
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": INSTALL_ITEMS,
     "CHANGELOG.md": CHANGELOG_ITEMS,
     os.path.join(
         "gopem",
-        "helper.py"): PARAMS_ITEMS}
+        "helper.py"): PARAMS_ITEMS,
+    "GOPEM.iss": INNO_TIMES}
 
 TEST_NUMBER = len(FILES.keys()) + 1
 
