@@ -82,7 +82,9 @@ class MainWindow(QWidget):
         self.printChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.h_line())
-        self.main.addWidget(QLabel("Description:"))
+        model_info_label = QLabel("Model Description:")
+        model_info_label.setFont(QFont("Sans Serif", 12, QFont.Bold))
+        self.main.addWidget(model_info_label)
         self.description.setText(Description_Menu[self.menuKey[0]])
         self.des_link.setText('<a href="' +
                               Description_Links[self.menuKey[0]] +
@@ -155,7 +157,7 @@ class MainWindow(QWidget):
         """
         name = QLabel(gopem.helper.VersionText, self)
         name.setAlignment(Qt.AlignCenter)
-        name.setFont(QFont("Times", 12, QFont.Bold))
+        name.setFont(QFont("Sans Serif", 12, QFont.Bold))
         return name
 
     def edit_name_widget(self, analyse=True):
