@@ -27,6 +27,8 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
+        self.min_width = 0
+        self.min_height = 0
         self.set_screen_size()
         self.setWindowIcon(QIcon(gopem.helper.IconPath))
         self.layout = []
@@ -43,7 +45,7 @@ class MainWindow(QWidget):
         self.x_scale = QComboBox(self)
         self.y_scale = QComboBox(self)
         self.line_width = QComboBox(self)
-        self.config_plot_bar(min_width=130)
+        self.config_plot_bar(ratio=0.1)
 
         self.test_checkbox = QCheckBox()
 
@@ -97,7 +99,7 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
-    def set_screen_size(self,ratio=0.6):
+    def set_screen_size(self,ratio=0.75):
         """
         Set minimum size of main window.
 
@@ -110,19 +112,22 @@ class MainWindow(QWidget):
             screen = QDesktopWidget().screenGeometry(-1)
             width = screen.width()
             height = screen.height()
-            self.setMinimumSize(int(ratio*width),int(ratio*height))
+            self.min_width = int(ratio*width)
+            self.min_height = int(ratio*height)
+            self.setMinimumSize(self.min_width,self.min_height)
         except Exception:
             self.setMinimumSize(width,height)
 
 
 
-    def config_plot_bar(self, min_width=140):
+    def config_plot_bar(self, ratio=0.1):
         """
         Set config for plot setting bar.
 
-        :param min_width: minimum width
+        :param ratio: ration of min size of window
         :return: None
         """
+        min_width = int(self.min_width * ratio)
         self.x_ax.setMinimumWidth(min_width)
         self.y_ax.setMinimumWidth(min_width)
         self.color_bar.setMinimumWidth(min_width)
@@ -224,42 +229,56 @@ class MainWindow(QWidget):
         w = QWidget(self)
         l = QVBoxLayout()
         w.setLayout(l)
-        x_label = QLabel("X-Axis:")
-        y_label = QLabel("Y-Axis:")
-        color_label = QLabel("Color:")
-        color_label.setContentsMargins(0,0,8,0)
-        marker_label = QLabel("Marker:")
-        style_label = QLabel("Style:")
-        style_label.setContentsMargins(0,0,4,0)
-        x_scale_label = QLabel("X-Scale:")
-        y_scale_label = QLabel("Y-Scale:")
-        line_width_label = QLabel("Width:")
+        x_label = QLabel("X-Axis")
+        y_label = QLabel("Y-Axis")
+        color_label = QLabel("Color")
+        marker_label = QLabel("Marker")
+        style_label = QLabel("Style")
+        x_scale_label = QLabel("X-Scale")
+        y_scale_label = QLabel("Y-Scale")
+        line_width_label = QLabel("Width")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
         ll = QHBoxLayout()
-        lll = QHBoxLayout()
-        ll.addWidget(x_label)
-        ll.addWidget(self.x_ax)
-        lll.addWidget(y_label)
-        lll.addWidget(self.y_ax)
-        ll.addWidget(x_scale_label)
-        ll.addWidget(self.x_scale)
-        lll.addWidget(y_scale_label)
-        lll.addWidget(self.y_scale)
-        ll.addWidget(color_label)
-        ll.addWidget(self.color_bar)
-        lll.addWidget(marker_label)
-        lll.addWidget(self.marker_bar)
-        ll.addWidget(style_label)
-        ll.addWidget(self.style_bar)
-        lll.addWidget(line_width_label)
-        lll.addWidget(self.line_width)
-        lll.setAlignment(Qt.AlignLeft)
+
+        vbl1 = QVBoxLayout()
+        vbl1.addWidget(x_label,alignment=Qt.AlignCenter)
+        vbl1.addWidget(self.x_ax,alignment=Qt.AlignCenter)
+        vbl1.addWidget(y_label,alignment=Qt.AlignCenter)
+        vbl1.addWidget(self.y_ax,alignment=Qt.AlignCenter)
+        vbl1.setContentsMargins(0,0,20,0)
+        vbl1.setAlignment(Qt.AlignCenter)
+        vbl1.setAlignment(Qt.AlignHCenter)
+        ll.addLayout(vbl1)
+
+        vbl2 = QVBoxLayout()
+        vbl2.addWidget(x_scale_label,alignment=Qt.AlignCenter)
+        vbl2.addWidget(self.x_scale,alignment=Qt.AlignCenter)
+        vbl2.addWidget(y_scale_label,alignment=Qt.AlignCenter)
+        vbl2.addWidget(self.y_scale,alignment=Qt.AlignCenter)
+        vbl2.setContentsMargins(0, 0, 20, 0)
+        ll.addLayout(vbl2)
+
+        vbl3 = QVBoxLayout()
+        vbl3.addWidget(color_label,alignment=Qt.AlignCenter)
+        vbl3.addWidget(self.color_bar,alignment=Qt.AlignCenter)
+        vbl3.addWidget(marker_label,alignment=Qt.AlignCenter)
+        vbl3.addWidget(self.marker_bar,alignment=Qt.AlignCenter)
+        vbl3.setContentsMargins(0, 0, 20, 0)
+        ll.addLayout(vbl3)
+
+        vbl4 = QVBoxLayout()
+        vbl4.addWidget(style_label,alignment=Qt.AlignCenter)
+        vbl4.addWidget(self.style_bar,alignment=Qt.AlignCenter)
+        vbl4.addWidget(line_width_label,alignment=Qt.AlignCenter)
+        vbl4.addWidget(self.line_width,alignment=Qt.AlignCenter)
+        vbl4.setContentsMargins(0, 0, 20, 0)
+        ll.addLayout(vbl4)
+
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
-        l.addLayout(lll)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
