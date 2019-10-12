@@ -5,7 +5,7 @@ import os
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
-from PyQt5.QtWidgets import QLabel, QPushButton
+from PyQt5.QtWidgets import QLabel, QPushButton, QDesktopWidget
 from PyQt5.QtGui import QIcon, QFont
 from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
 from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
@@ -27,6 +27,7 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.plotter = gopem.plotter.ApplicationWindow(parent=self)
         self.mode = []
+        self.set_screen_size()
         self.setWindowIcon(QIcon(gopem.helper.IconPath))
         self.layout = []
         self.attributes = {}
@@ -95,6 +96,25 @@ class MainWindow(QWidget):
         self.super.addLayout(self.main)
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
+
+    def set_screen_size(self,ratio=0.6):
+        """
+        Set minimum size of main window.
+
+        :param ratio: ratio of screen size
+        :return: None
+        """
+        width = 1000
+        height = 1000
+        try:
+            screen = QDesktopWidget().screenGeometry(-1)
+            width = screen.width()
+            height = screen.height()
+            self.setMinimumSize(int(ratio*width),int(ratio*height))
+        except Exception:
+            self.setMinimumSize(width,height)
+
+
 
     def config_plot_bar(self, min_width=140):
         """
