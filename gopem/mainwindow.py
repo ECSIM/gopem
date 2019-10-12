@@ -182,14 +182,16 @@ class MainWindow(QWidget):
         :return: None
         """
         for i, _ in enumerate(menu):
-            self.mode.append(QScrollArea(self))
+            scroll_area = QScrollArea(self)
+            scroll_area.setMinimumWidth(700)
+            self.mode.append(scroll_area)
             w = QWidget(self.mode[i])
             self.layout.append(QVBoxLayout(self.mode[i]))
             for f in self.get_attr_fields(i):
                 self.layout[i].addLayout(f)
             w.setLayout(self.layout[i])
             self.mode[i].setWidget(w)
-            self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+            self.mode[i].setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
 
     def get_plotter_area(self):
         """
@@ -305,14 +307,16 @@ class MainWindow(QWidget):
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
         name = self.menuKey[mode]
         self.attributes[name] = {}
-        for item in sorted(list(input_param.keys())):
+        inputs_list = list(input_param.keys())
+        for item in sorted(inputs_list):
             field = QHBoxLayout()
             label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
             field.addWidget(label, alignment=Qt.AlignLeft)
             self.attributes[name][item] = QDoubleSpinBox(self)
             self.attributes[name][item].setRange(0, 100000)
-            self.attributes[name][item].setMinimumSize(200, 20)
+            self.attributes[name][item].setMinimumSize(180, 20)
             self.attributes[name][item].setDecimals(10)
+            self.attributes[name][item].setAlignment(Qt.AlignLeft)
             field.addWidget(
                 self.attributes[name][item],
                 alignment=Qt.AlignRight)
