@@ -82,6 +82,7 @@ class MainWindow(QWidget):
             self.main.addWidget(mode)
 
         self.reportChkBox = QCheckBox()
+        self.transChkBox = QCheckBox()
         self.printChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.h_line())
@@ -239,6 +240,7 @@ class MainWindow(QWidget):
         line_width_label = QLabel("Width")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
+        self.transChkBox = QCheckBox("Transparent")
         saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
         ll = QHBoxLayout()
@@ -279,6 +281,7 @@ class MainWindow(QWidget):
 
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
+        l.addWidget(self.transChkBox)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
@@ -374,6 +377,7 @@ class MainWindow(QWidget):
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
+        self.transChkBox.setChecked(False)
         self.printChkBox.setChecked(False)
         self.printChkBox.setDisabled(True)
         self.x_ax.clear()
@@ -542,12 +546,13 @@ class MainWindow(QWidget):
 
         :return: None
         """
+        trans_flag = self.transChkBox.isChecked()
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
         filename, _ = QFileDialog.getSaveFileName(
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
-            self.plotter.sc.save_fig(filename)
+            self.plotter.sc.save_fig(filename,trans_flag)
             self.message_box("Save Plot", gopem.helper.PlotMessage)
 
     def check_update(self):
