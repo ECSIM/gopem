@@ -85,6 +85,7 @@ class MainWindow(QWidget):
 
         self.reportChkBox = QCheckBox()
         self.transChkBox = QCheckBox()
+        self.saveBtn = QPushButton()
         self.printChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.h_line())
@@ -246,10 +247,12 @@ class MainWindow(QWidget):
         line_width_label = QLabel("Width")
         font_title_label = QLabel("Title Font")
         font_axes_label = QLabel("Axes Font")
-        saveBtn = QPushButton('Save Plot')
+        self.saveBtn = QPushButton('Save Plot')
+        self.saveBtn.setEnabled(False)
         checkBtn = QPushButton('Check Update')
-        self.transChkBox = QCheckBox("Transparent")
-        saveBtn.clicked.connect(self.save_slt)
+        self.transChkBox = QCheckBox("Transparent Plot")
+        self.transChkBox.setEnabled(False)
+        self.saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
         ll = QHBoxLayout()
 
@@ -303,7 +306,7 @@ class MainWindow(QWidget):
         l.addWidget(self.h_line())
         llll = QHBoxLayout()
         llll.addWidget(checkBtn)
-        llll.addWidget(saveBtn)
+        llll.addWidget(self.saveBtn)
         l.addLayout(llll)
         return w
 
@@ -407,6 +410,8 @@ class MainWindow(QWidget):
         self.font_axes.clear()
         self.font_title.clear()
         self.plotter.clear_plot()
+        self.saveBtn.setEnabled(False)
+        self.transChkBox.setEnabled(False)
 
     def analyze(self, menu, attributes):
         """
@@ -476,6 +481,8 @@ class MainWindow(QWidget):
             self.line_width.currentText(),
             self.font_title.currentText(),
             self.font_axes.currentText())
+        self.saveBtn.setEnabled(True)
+        self.transChkBox.setEnabled(True)
         if report_flag:
             self.message_box("Report", gopem.helper.ReportMessage)
 
