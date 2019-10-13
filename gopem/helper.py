@@ -106,3 +106,5 @@ StyleList.insert(0, StyleList.pop(StyleList.index("Solid")))
 
 ScaleList = ["Linear", "Log"]
 WidthList = list(range(1, 11))
+
+FontSizeList = list(range(1,55))

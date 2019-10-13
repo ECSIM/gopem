@@ -45,6 +45,8 @@ class MainWindow(QWidget):
         self.x_scale = QComboBox(self)
         self.y_scale = QComboBox(self)
         self.line_width = QComboBox(self)
+        self.font_title = QComboBox(self)
+        self.font_axes = QComboBox(self)
         self.config_plot_bar(ratio=0.12)
 
         self.test_checkbox = QCheckBox()
@@ -137,6 +139,8 @@ class MainWindow(QWidget):
         self.x_scale.setMinimumWidth(min_width)
         self.y_scale.setMinimumWidth(min_width)
         self.line_width.setMinimumWidth(min_width)
+        self.font_axes.setMinimumWidth(min_width)
+        self.font_title.setMinimumWidth(min_width)
         self.x_ax.currentTextChanged.connect(self.axis_changed)
         self.y_ax.currentTextChanged.connect(self.axis_changed)
         self.color_bar.currentTextChanged.connect(self.axis_changed)
@@ -145,6 +149,8 @@ class MainWindow(QWidget):
         self.x_scale.currentTextChanged.connect(self.axis_changed)
         self.y_scale.currentTextChanged.connect(self.axis_changed)
         self.line_width.currentTextChanged.connect(self.axis_changed)
+        self.font_axes.currentTextChanged.connect(self.axis_changed)
+        self.font_title.currentTextChanged.connect(self.axis_changed)
 
     def location_on_screen(self, x=0, y=0):
         """
@@ -238,6 +244,8 @@ class MainWindow(QWidget):
         x_scale_label = QLabel("X-Scale")
         y_scale_label = QLabel("Y-Scale")
         line_width_label = QLabel("Width")
+        font_title_label = QLabel("Title Font")
+        font_axes_label = QLabel("Axes Font")
         saveBtn = QPushButton('Save Plot')
         checkBtn = QPushButton('Check Update')
         self.transChkBox = QCheckBox("Transparent")
@@ -279,12 +287,20 @@ class MainWindow(QWidget):
         vbl4.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl4)
 
+        vbl5 = QVBoxLayout()
+        vbl5.addWidget(font_axes_label,alignment=Qt.AlignCenter)
+        vbl5.addWidget(self.font_axes,alignment=Qt.AlignCenter)
+        vbl5.addWidget(font_title_label,alignment=Qt.AlignCenter)
+        vbl5.addWidget(self.font_title,alignment=Qt.AlignCenter)
+        vbl5.setContentsMargins(0, 0, 20, 0)
+        ll.addLayout(vbl5)
+
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
-        l.addWidget(self.transChkBox)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
+        l.addWidget(self.transChkBox)
         llll = QHBoxLayout()
         llll.addWidget(checkBtn)
         llll.addWidget(saveBtn)
@@ -433,6 +449,13 @@ class MainWindow(QWidget):
         self.line_width.clear()
         for width in gopem.helper.WidthList:
             self.line_width.addItem(str(width))
+        self.font_title.clear()
+        self.font_axes.clear()
+        for size in gopem.helper.FontSizeList:
+            self.font_title.addItem(str(size))
+            self.font_axes.addItem(str(size))
+        self.font_title.setCurrentIndex(19)
+        self.font_axes.setCurrentIndex(16)
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
@@ -448,7 +471,9 @@ class MainWindow(QWidget):
             self.style_bar.currentText(),
             self.x_scale.currentText(),
             self.y_scale.currentText(),
-            self.line_width.currentText())
+            self.line_width.currentText(),
+            self.font_title.currentText(),
+            self.font_axes.currentText())
         if report_flag:
             self.message_box("Report", gopem.helper.ReportMessage)
 
@@ -539,7 +564,9 @@ class MainWindow(QWidget):
             self.style_bar.currentText(),
             self.x_scale.currentText(),
             self.y_scale.currentText(),
-            self.line_width.currentText())
+            self.line_width.currentText(),
+            self.font_title.currentText(),
+            self.font_axes.currentText())
 
     def save_slt(self):
         """

@@ -42,7 +42,9 @@ class MplCanvas(FigureCanvas):
             style,
             x_scale,
             y_scale,
-            linewidth):
+            linewidth,
+            font_title,
+            font_axes):
         """
         Update the data and axis range of the canvas.
 
@@ -77,11 +79,11 @@ class MplCanvas(FigureCanvas):
             if x_axis in gopem.helper.UnitTable.keys():
                 if len(title) != 0:
                     title += gopem.helper.UnitTable[x_axis][0]
-                    self.axes.set_title(title, fontsize=21)
+                    self.axes.set_title(title, fontsize=font_title)
                 if gopem.helper.UnitTable[x_axis][1] is not None:
                     x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
-            self.axes.set_xlabel(x_axis + x_unit, fontsize=14)
-            self.axes.set_ylabel(y_axis + y_unit, fontsize=14)
+            self.axes.set_xlabel(x_axis + x_unit, fontsize=font_axes)
+            self.axes.set_ylabel(y_axis + y_unit, fontsize=font_axes)
             self.axes.set_yscale(y_scale)
             self.axes.set_xscale(x_scale)
 
@@ -109,7 +111,6 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param kwargs: the dictionary of keywords
         """
         super().__init__(*args, **kwargs)
-        self.setMinimumSize(400, 400)
         l = QtWidgets.QVBoxLayout(self)
         self.sc = MplCanvas(self, width=20, height=20, dpi=100)
 
@@ -125,7 +126,9 @@ class ApplicationWindow(QtWidgets.QWidget):
             style,
             x_scale,
             y_scale,
-            linewidth):
+            linewidth,
+            font_title,
+            font_axes):
         """
         Update the plotter data and axis.
 
@@ -140,6 +143,16 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param linewidth: plot line width
         :return: None
         """
+        if len(font_title) == 0 :
+            font_title = 20
+        else:
+            font_title = int(font_title)
+
+        if len(font_axes) == 0 :
+            font_axes = 17
+        else:
+            font_axes = int(font_axes)
+
         if len(linewidth) == 0:
             linewidth = 1
         else:
@@ -168,7 +181,9 @@ class ApplicationWindow(QtWidgets.QWidget):
             style,
             x_scale,
             y_scale,
-            linewidth)
+            linewidth,
+            font_title,
+            font_axes)
 
     def file_quit(self):
         """
