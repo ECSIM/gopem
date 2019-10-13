@@ -88,6 +88,7 @@ class MplCanvas(FigureCanvas):
             self.axes.set_ylabel(y_axis + y_unit, fontsize=font_axes)
             self.axes.set_yscale(y_scale)
             self.axes.set_xscale(x_scale)
+            self.axes.tick_params(labelsize=font_axes)
 
         self.draw()
 
