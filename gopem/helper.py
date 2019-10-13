@@ -104,5 +104,5 @@ StyleTable = {"Solid": "-", "Dashed": "--", "Dash-Dot": "-.", "Dotted": ":"}
 StyleList = list(sorted(StyleTable.keys()))
 StyleList.insert(0, StyleList.pop(StyleList.index("Solid")))
 
-ScaleList = ["Linear", "Log", "SymLog"]
+ScaleList = ["Linear", "Log"]
 WidthList = list(range(1, 11))
