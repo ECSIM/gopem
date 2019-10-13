@@ -404,6 +404,8 @@ class MainWindow(QWidget):
         self.x_scale.clear()
         self.y_scale.clear()
         self.line_width.clear()
+        self.font_axes.clear()
+        self.font_title.clear()
         self.plotter.clear_plot()
 
     def analyze(self, menu, attributes):
