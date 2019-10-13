@@ -300,10 +300,10 @@ class MainWindow(QWidget):
 
         ll.setAlignment(Qt.AlignLeft)
         l.addLayout(ll)
-        l.addWidget(self.transChkBox)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
         l.addWidget(self.h_line())
+        l.addWidget(self.transChkBox)
         llll = QHBoxLayout()
         llll.addWidget(checkBtn)
         llll.addWidget(self.saveBtn)
