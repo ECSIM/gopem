@@ -45,7 +45,7 @@ class MainWindow(QWidget):
         self.x_scale = QComboBox(self)
         self.y_scale = QComboBox(self)
         self.line_width = QComboBox(self)
-        self.config_plot_bar(ratio=0.1)
+        self.config_plot_bar(ratio=0.12)
 
         self.test_checkbox = QCheckBox()
 
@@ -99,7 +99,7 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
-    def set_screen_size(self,ratio=0.75):
+    def set_screen_size(self,ratio=0.85):
         """
         Set minimum size of main window.
 
