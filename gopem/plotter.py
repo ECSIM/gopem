@@ -57,6 +57,8 @@ class MplCanvas(FigureCanvas):
         :param x_scale: x-axis scale
         :param y_scale: y-axis scale
         :param linewidth: plot line width
+        :param font_title: title font size
+        :param font_axes: axes labels font size
         :return: None
         """
         self.axes.cla()
@@ -141,6 +143,8 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param x_scale: x-axis scale
         :param y_scale: y-axis scale
         :param linewidth: plot line width
+        :param font_title: title font size
+        :param font_axes: axes labels font size
         :return: None
         """
         if len(font_title) == 0 :
