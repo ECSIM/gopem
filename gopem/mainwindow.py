@@ -47,7 +47,7 @@ class MainWindow(QWidget):
         self.line_width = QComboBox(self)
         self.font_title = QComboBox(self)
         self.font_axes = QComboBox(self)
-        self.config_plot_bar(ratio=0.12)
+        self.config_plot_bar(ratio=0.1)
 
         self.test_checkbox = QCheckBox()
 
