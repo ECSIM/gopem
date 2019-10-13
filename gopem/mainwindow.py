@@ -387,6 +387,7 @@ class MainWindow(QWidget):
         self.style_bar.clear()
         self.x_scale.clear()
         self.y_scale.clear()
+        self.line_width.clear()
         self.plotter.clear_plot()
 
     def analyze(self, menu, attributes):
