@@ -149,12 +149,12 @@ class ApplicationWindow(QtWidgets.QWidget):
         :return: None
         """
         if len(font_title) == 0 :
-            font_title = 20
+            font_title = gopem.helper.TitleFontDefault
         else:
             font_title = int(font_title)
 
         if len(font_axes) == 0 :
-            font_axes = 17
+            font_axes = gopem.helper.AxesFontDefault
         else:
             font_axes = int(font_axes)
 

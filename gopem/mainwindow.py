@@ -394,6 +394,8 @@ class MainWindow(QWidget):
         """
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
+        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
+        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
         self.transChkBox.setChecked(False)
@@ -461,8 +463,8 @@ class MainWindow(QWidget):
         for size in gopem.helper.FontSizeList:
             self.font_title.addItem(str(size))
             self.font_axes.addItem(str(size))
-        self.font_title.setCurrentIndex(19)
-        self.font_axes.setCurrentIndex(16)
+        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
+        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
