@@ -32,6 +32,7 @@ if __name__ == "__main__":
         print(str(e))
     app = QApplication(sys.argv)
     a = MainWindow()
+    a.showMaximized()
     a.location_on_screen()
     if len(sys.argv) > 1 and sys.argv[1] == "--test" and app is not None:
         sys.exit(0)

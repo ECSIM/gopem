@@ -29,7 +29,7 @@ class MainWindow(QWidget):
         self.mode = []
         self.min_width = 0
         self.min_height = 0
-        self.set_screen_size()
+        self.set_screen_size(ratio=0.9)
         self.setWindowIcon(QIcon(gopem.helper.IconPath))
         self.layout = []
         self.attributes = {}
@@ -47,7 +47,7 @@ class MainWindow(QWidget):
         self.line_width = QComboBox(self)
         self.font_title = QComboBox(self)
         self.font_axes = QComboBox(self)
-        self.config_plot_bar(ratio=0.12)
+        self.config_plot_bar(ratio=0.08)
 
         self.test_checkbox = QCheckBox()
 
@@ -298,7 +298,7 @@ class MainWindow(QWidget):
         vbl5.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl5)
 
-        ll.setAlignment(Qt.AlignLeft)
+        ll.setAlignment(Qt.AlignCenter)
         l.addLayout(ll)
         l.addWidget(self.h_line())
         l.addWidget(self.plotter)
