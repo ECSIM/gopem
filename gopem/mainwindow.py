@@ -250,7 +250,7 @@ class MainWindow(QWidget):
         self.saveBtn = QPushButton('Save Plot')
         self.saveBtn.setEnabled(False)
         checkBtn = QPushButton('Check Update')
-        self.transChkBox = QCheckBox("Transparent Plot")
+        self.transChkBox = QCheckBox("Transparent Mode")
         self.transChkBox.setEnabled(False)
         self.saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
