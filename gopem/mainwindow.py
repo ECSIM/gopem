@@ -169,6 +169,7 @@ class MainWindow(QWidget):
 
         :param title: title of window
         :param message: message text
+        :param message_type: type of message
         :return: None
         """
         msg = QMessageBox()
