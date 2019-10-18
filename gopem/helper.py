@@ -57,7 +57,7 @@ UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + \
 
 UpdateMessage3 = "Update check failed!\n" + VersionMessage + "\n"
 
-ReportMessage = "Report has been saved successfully in current folder!"
+ReportMessage = "Report has been saved successfully in : <br/>"
 PlotMessage = "Plot has been saved successfully!"
 
 InputParam = {

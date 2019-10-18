@@ -434,6 +434,16 @@ class MainWindow(QWidget):
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
         self.edit_name_widget(True)
+        if report_flag:
+            options = QFileDialog.Options()
+            folder_dir = str(QFileDialog.getExistingDirectory(self, "Select Directory",options=options))
+            try:
+                if folder_dir:
+                    os.chdir(folder_dir)
+                else:
+                    report_flag = False
+            except Exception:
+                report_flag = False
         output = menu(
             input_attr,
             True,
@@ -486,7 +496,7 @@ class MainWindow(QWidget):
         self.saveBtn.setEnabled(True)
         self.transChkBox.setEnabled(True)
         if report_flag:
-            self.message_box("Report", gopem.helper.ReportMessage)
+            self.message_box("Report", gopem.helper.ReportMessage+folder_dir)
 
     def analyse_slt(self):
         """
