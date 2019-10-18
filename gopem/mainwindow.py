@@ -415,6 +415,48 @@ class MainWindow(QWidget):
         self.saveBtn.setEnabled(False)
         self.transChkBox.setEnabled(False)
 
+    def plot_bar_update(self, output):
+        """
+        Update plot bar.
+
+        :param output: output of model analyze
+        :return: None
+        """
+        self.edit_name_widget(False)
+        self.output = output
+        self.color_bar.clear()
+        for color in gopem.helper.ColorList:
+            self.color_bar.addItem(color)
+        self.marker_bar.clear()
+        for marker in gopem.helper.MarkerList:
+            self.marker_bar.addItem(marker)
+        self.style_bar.clear()
+        for style in gopem.helper.StyleList:
+            self.style_bar.addItem(style)
+        self.x_scale.clear()
+        self.y_scale.clear()
+        for scale in gopem.helper.ScaleList:
+            self.x_scale.addItem(scale)
+            self.y_scale.addItem(scale)
+        self.line_width.clear()
+        for width in gopem.helper.WidthList:
+            self.line_width.addItem(str(width))
+        self.font_title.clear()
+        self.font_axes.clear()
+        for size in gopem.helper.FontSizeList:
+            self.font_title.addItem(str(size))
+            self.font_axes.addItem(str(size))
+        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
+        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
+        self.x_ax.clear()
+        self.y_ax.clear()
+        for k in output.keys():
+            if isinstance(output[k], list):
+                self.x_ax.addItem(str(k))
+                self.y_ax.addItem(str(k))
+        self.saveBtn.setEnabled(True)
+        self.transChkBox.setEnabled(True)
+
     def analyze(self, menu, attributes):
         """
         Start an analysis by the selected model and given attributes values.
@@ -435,7 +477,6 @@ class MainWindow(QWidget):
         input_attr = {"Name": name}
         for k in self.attributes[name].keys():
             input_attr[k] = self.attributes[name][k].value()
-        self.edit_name_widget(True)
         if report_flag:
             options = QFileDialog.Options()
             folder_dir = str(QFileDialog.getExistingDirectory(self, "Select Directory",options=options))
@@ -449,43 +490,13 @@ class MainWindow(QWidget):
                 report_error_flag = True
                 report_flag = False
         if not report_cancel_flag:
+            self.edit_name_widget(True)
             output = menu(
                 input_attr,
                 True,
                 print_flag,
                 report_flag)  # Test Print Report
-            self.edit_name_widget(False)
-            self.output = output
-            self.color_bar.clear()
-            for color in gopem.helper.ColorList:
-                self.color_bar.addItem(color)
-            self.marker_bar.clear()
-            for marker in gopem.helper.MarkerList:
-                self.marker_bar.addItem(marker)
-            self.style_bar.clear()
-            for style in gopem.helper.StyleList:
-                self.style_bar.addItem(style)
-            self.x_scale.clear()
-            self.y_scale.clear()
-            for scale in gopem.helper.ScaleList:
-                self.x_scale.addItem(scale)
-                self.y_scale.addItem(scale)
-            self.line_width.clear()
-            for width in gopem.helper.WidthList:
-                self.line_width.addItem(str(width))
-            self.font_title.clear()
-            self.font_axes.clear()
-            for size in gopem.helper.FontSizeList:
-                self.font_title.addItem(str(size))
-                self.font_axes.addItem(str(size))
-            self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
-            self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
-            self.x_ax.clear()
-            self.y_ax.clear()
-            for k in output.keys():
-                if isinstance(output[k], list):
-                    self.x_ax.addItem(str(k))
-                    self.y_ax.addItem(str(k))
+            self.plot_bar_update(output)
             self.plotter.update_plotter_data(
                 output,
                 self.x_ax.currentText(),
@@ -498,8 +509,6 @@ class MainWindow(QWidget):
                 self.line_width.currentText(),
                 self.font_title.currentText(),
                 self.font_axes.currentText())
-            self.saveBtn.setEnabled(True)
-            self.transChkBox.setEnabled(True)
             if report_flag:
                 self.message_box("Save Report", gopem.helper.ReportMessage)
             elif report_error_flag:
