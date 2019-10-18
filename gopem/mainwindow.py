@@ -496,7 +496,7 @@ class MainWindow(QWidget):
         self.saveBtn.setEnabled(True)
         self.transChkBox.setEnabled(True)
         if report_flag:
-            self.message_box("Report", gopem.helper.ReportMessage+folder_dir)
+            self.message_box("Report", gopem.helper.ReportMessage)
 
     def analyse_slt(self):
         """
