@@ -108,5 +108,5 @@ ScaleList = ["Linear", "Log"]
 WidthList = list(range(1, 11))
 
 FontSizeList = list(range(1,56))
-TitleFontDefault = 20
-AxesFontDefault = 17
+TitleFontDefault = 15
+AxesFontDefault = 11
