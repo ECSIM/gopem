@@ -163,7 +163,7 @@ class MainWindow(QWidget):
         """
         self.move(x, y)
 
-    def message_box(self, title, message):
+    def message_box(self, title, message, message_type=QMessageBox.Information):
         """
         Show message box.
 
@@ -172,7 +172,7 @@ class MainWindow(QWidget):
         :return: None
         """
         msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
+        msg.setIcon(message_type)
         msg.setTextFormat(Qt.RichText)
         msg.setWindowTitle(title)
         msg.setText(message)
@@ -426,6 +426,8 @@ class MainWindow(QWidget):
         temp = {}
         report_flag = self.reportChkBox.isChecked()
         print_flag = self.printChkBox.isChecked()
+        report_error_flag = False
+        report_cancel_flag = False
         for key, value in attributes.items():
             temp[key] = value.value()
 
@@ -442,61 +444,66 @@ class MainWindow(QWidget):
                     os.chdir(folder_dir)
                 else:
                     report_flag = False
+                    report_cancel_flag = True
             except Exception:
+                report_error_flag = True
                 report_flag = False
-        output = menu(
-            input_attr,
-            True,
-            print_flag,
-            report_flag)  # Test Print Report
-        self.edit_name_widget(False)
-        self.output = output
-        self.color_bar.clear()
-        for color in gopem.helper.ColorList:
-            self.color_bar.addItem(color)
-        self.marker_bar.clear()
-        for marker in gopem.helper.MarkerList:
-            self.marker_bar.addItem(marker)
-        self.style_bar.clear()
-        for style in gopem.helper.StyleList:
-            self.style_bar.addItem(style)
-        self.x_scale.clear()
-        self.y_scale.clear()
-        for scale in gopem.helper.ScaleList:
-            self.x_scale.addItem(scale)
-            self.y_scale.addItem(scale)
-        self.line_width.clear()
-        for width in gopem.helper.WidthList:
-            self.line_width.addItem(str(width))
-        self.font_title.clear()
-        self.font_axes.clear()
-        for size in gopem.helper.FontSizeList:
-            self.font_title.addItem(str(size))
-            self.font_axes.addItem(str(size))
-        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
-        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
-        self.x_ax.clear()
-        self.y_ax.clear()
-        for k in output.keys():
-            if isinstance(output[k], list):
-                self.x_ax.addItem(str(k))
-                self.y_ax.addItem(str(k))
-        self.plotter.update_plotter_data(
-            output,
-            self.x_ax.currentText(),
-            self.y_ax.currentText(),
-            self.color_bar.currentText(),
-            self.marker_bar.currentText(),
-            self.style_bar.currentText(),
-            self.x_scale.currentText(),
-            self.y_scale.currentText(),
-            self.line_width.currentText(),
-            self.font_title.currentText(),
-            self.font_axes.currentText())
-        self.saveBtn.setEnabled(True)
-        self.transChkBox.setEnabled(True)
-        if report_flag:
-            self.message_box("Report", gopem.helper.ReportMessage)
+        if not report_cancel_flag:
+            output = menu(
+                input_attr,
+                True,
+                print_flag,
+                report_flag)  # Test Print Report
+            self.edit_name_widget(False)
+            self.output = output
+            self.color_bar.clear()
+            for color in gopem.helper.ColorList:
+                self.color_bar.addItem(color)
+            self.marker_bar.clear()
+            for marker in gopem.helper.MarkerList:
+                self.marker_bar.addItem(marker)
+            self.style_bar.clear()
+            for style in gopem.helper.StyleList:
+                self.style_bar.addItem(style)
+            self.x_scale.clear()
+            self.y_scale.clear()
+            for scale in gopem.helper.ScaleList:
+                self.x_scale.addItem(scale)
+                self.y_scale.addItem(scale)
+            self.line_width.clear()
+            for width in gopem.helper.WidthList:
+                self.line_width.addItem(str(width))
+            self.font_title.clear()
+            self.font_axes.clear()
+            for size in gopem.helper.FontSizeList:
+                self.font_title.addItem(str(size))
+                self.font_axes.addItem(str(size))
+            self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
+            self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
+            self.x_ax.clear()
+            self.y_ax.clear()
+            for k in output.keys():
+                if isinstance(output[k], list):
+                    self.x_ax.addItem(str(k))
+                    self.y_ax.addItem(str(k))
+            self.plotter.update_plotter_data(
+                output,
+                self.x_ax.currentText(),
+                self.y_ax.currentText(),
+                self.color_bar.currentText(),
+                self.marker_bar.currentText(),
+                self.style_bar.currentText(),
+                self.x_scale.currentText(),
+                self.y_scale.currentText(),
+                self.line_width.currentText(),
+                self.font_title.currentText(),
+                self.font_axes.currentText())
+            self.saveBtn.setEnabled(True)
+            self.transChkBox.setEnabled(True)
+            if report_flag:
+                self.message_box("Save Report", gopem.helper.ReportMessage)
+            elif report_error_flag:
+                self.message_box("Save Report Failure", gopem.helper.ReportMessage2,QMessageBox.Critical)
 
     def analyse_slt(self):
         """
@@ -600,8 +607,11 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
-            self.plotter.sc.save_fig(filename,trans_flag)
-            self.message_box("Save Plot", gopem.helper.PlotMessage)
+            try:
+                self.plotter.sc.save_fig(filename,trans_flag)
+                self.message_box("Save Plot", gopem.helper.PlotMessage)
+            except Exception:
+                self.message_box("Save Plot Failure", gopem.helper.PlotMessage2,QMessageBox.Critical)
 
     def check_update(self):
         """

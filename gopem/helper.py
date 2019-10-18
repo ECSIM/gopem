@@ -58,7 +58,10 @@ UpdateMessage2 = "A newer version of the GOPEM is available to download.\n" + \
 UpdateMessage3 = "Update check failed!\n" + VersionMessage + "\n"
 
 ReportMessage = "Report has been saved successfully!"
+ReportMessage2 = "Failed to save report!"
+
 PlotMessage = "Plot has been saved successfully!"
+PlotMessage2 = "Failed to save plot!"
 
 InputParam = {
     "Amphlett_Analysis (Static)": A,
