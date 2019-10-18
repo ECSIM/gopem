@@ -597,7 +597,6 @@ class MainWindow(QWidget):
         """
         trans_flag = self.transChkBox.isChecked()
         options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
         filename, _ = QFileDialog.getSaveFileName(
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
