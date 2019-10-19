@@ -47,9 +47,13 @@ class MainWindow(QWidget):
         self.line_width = QComboBox(self)
         self.font_title = QComboBox(self)
         self.font_axes = QComboBox(self)
-        self.last_setting = {self.color_bar:gopem.helper.ColorDefault,self.marker_bar:gopem.helper.MarkerDefault,self.style_bar:gopem.helper.StyleDefault,self.line_width:gopem.helper.LineWidthDefault,
-                             self.font_axes:gopem.helper.AxesFontDefault,
-                             self.font_title:gopem.helper.TitleFontDefault}
+        self.last_setting = {
+            self.color_bar: gopem.helper.ColorDefault,
+            self.marker_bar: gopem.helper.MarkerDefault,
+            self.style_bar: gopem.helper.StyleDefault,
+            self.line_width: gopem.helper.LineWidthDefault,
+            self.font_axes: gopem.helper.AxesFontDefault,
+            self.font_title: gopem.helper.TitleFontDefault}
         self.config_plot_bar(ratio=0.08)
 
         self.test_checkbox = QCheckBox()
@@ -106,7 +110,7 @@ class MainWindow(QWidget):
         self.super.addWidget(self.v_line())
         self.super.addWidget(self.get_plotter_area())
 
-    def set_screen_size(self,ratio=0.85):
+    def set_screen_size(self, ratio=0.85):
         """
         Set minimum size of main window.
 
@@ -119,13 +123,11 @@ class MainWindow(QWidget):
             screen = QDesktopWidget().screenGeometry(-1)
             width = screen.width()
             height = screen.height()
-            self.min_width = int(ratio*width)
-            self.min_height = int(ratio*height)
-            self.setMinimumSize(self.min_width,self.min_height)
+            self.min_width = int(ratio * width)
+            self.min_height = int(ratio * height)
+            self.setMinimumSize(self.min_width, self.min_height)
         except Exception:
-            self.setMinimumSize(width,height)
-
-
+            self.setMinimumSize(width, height)
 
     def config_plot_bar(self, ratio=0.1):
         """
@@ -166,7 +168,11 @@ class MainWindow(QWidget):
         """
         self.move(x, y)
 
-    def message_box(self, title, message, message_type=QMessageBox.Information):
+    def message_box(
+            self,
+            title,
+            message,
+            message_type=QMessageBox.Information):
         """
         Show message box.
 
@@ -261,44 +267,44 @@ class MainWindow(QWidget):
         ll = QHBoxLayout()
 
         vbl1 = QVBoxLayout()
-        vbl1.addWidget(x_label,alignment=Qt.AlignCenter)
-        vbl1.addWidget(self.x_ax,alignment=Qt.AlignCenter)
-        vbl1.addWidget(y_label,alignment=Qt.AlignCenter)
-        vbl1.addWidget(self.y_ax,alignment=Qt.AlignCenter)
-        vbl1.setContentsMargins(0,0,20,0)
+        vbl1.addWidget(x_label, alignment=Qt.AlignCenter)
+        vbl1.addWidget(self.x_ax, alignment=Qt.AlignCenter)
+        vbl1.addWidget(y_label, alignment=Qt.AlignCenter)
+        vbl1.addWidget(self.y_ax, alignment=Qt.AlignCenter)
+        vbl1.setContentsMargins(0, 0, 20, 0)
         vbl1.setAlignment(Qt.AlignCenter)
         vbl1.setAlignment(Qt.AlignHCenter)
         ll.addLayout(vbl1)
 
         vbl2 = QVBoxLayout()
-        vbl2.addWidget(x_scale_label,alignment=Qt.AlignCenter)
-        vbl2.addWidget(self.x_scale,alignment=Qt.AlignCenter)
-        vbl2.addWidget(y_scale_label,alignment=Qt.AlignCenter)
-        vbl2.addWidget(self.y_scale,alignment=Qt.AlignCenter)
+        vbl2.addWidget(x_scale_label, alignment=Qt.AlignCenter)
+        vbl2.addWidget(self.x_scale, alignment=Qt.AlignCenter)
+        vbl2.addWidget(y_scale_label, alignment=Qt.AlignCenter)
+        vbl2.addWidget(self.y_scale, alignment=Qt.AlignCenter)
         vbl2.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl2)
 
         vbl3 = QVBoxLayout()
-        vbl3.addWidget(color_label,alignment=Qt.AlignCenter)
-        vbl3.addWidget(self.color_bar,alignment=Qt.AlignCenter)
-        vbl3.addWidget(marker_label,alignment=Qt.AlignCenter)
-        vbl3.addWidget(self.marker_bar,alignment=Qt.AlignCenter)
+        vbl3.addWidget(color_label, alignment=Qt.AlignCenter)
+        vbl3.addWidget(self.color_bar, alignment=Qt.AlignCenter)
+        vbl3.addWidget(marker_label, alignment=Qt.AlignCenter)
+        vbl3.addWidget(self.marker_bar, alignment=Qt.AlignCenter)
         vbl3.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl3)
 
         vbl4 = QVBoxLayout()
-        vbl4.addWidget(style_label,alignment=Qt.AlignCenter)
-        vbl4.addWidget(self.style_bar,alignment=Qt.AlignCenter)
-        vbl4.addWidget(line_width_label,alignment=Qt.AlignCenter)
-        vbl4.addWidget(self.line_width,alignment=Qt.AlignCenter)
+        vbl4.addWidget(style_label, alignment=Qt.AlignCenter)
+        vbl4.addWidget(self.style_bar, alignment=Qt.AlignCenter)
+        vbl4.addWidget(line_width_label, alignment=Qt.AlignCenter)
+        vbl4.addWidget(self.line_width, alignment=Qt.AlignCenter)
         vbl4.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl4)
 
         vbl5 = QVBoxLayout()
-        vbl5.addWidget(font_axes_label,alignment=Qt.AlignCenter)
-        vbl5.addWidget(self.font_axes,alignment=Qt.AlignCenter)
-        vbl5.addWidget(font_title_label,alignment=Qt.AlignCenter)
-        vbl5.addWidget(self.font_title,alignment=Qt.AlignCenter)
+        vbl5.addWidget(font_axes_label, alignment=Qt.AlignCenter)
+        vbl5.addWidget(self.font_axes, alignment=Qt.AlignCenter)
+        vbl5.addWidget(font_title_label, alignment=Qt.AlignCenter)
+        vbl5.addWidget(self.font_title, alignment=Qt.AlignCenter)
         vbl5.setContentsMargins(0, 0, 20, 0)
         ll.addLayout(vbl5)
 
@@ -491,7 +497,11 @@ class MainWindow(QWidget):
             input_attr[k] = self.attributes[name][k].value()
         if report_flag:
             options = QFileDialog.Options()
-            folder_dir = str(QFileDialog.getExistingDirectory(self, "Select Directory",options=options))
+            folder_dir = str(
+                QFileDialog.getExistingDirectory(
+                    self,
+                    "Select Directory",
+                    options=options))
             try:
                 if folder_dir:
                     os.chdir(folder_dir)
@@ -524,7 +534,10 @@ class MainWindow(QWidget):
             if report_flag:
                 self.message_box("Save Report", gopem.helper.ReportMessage)
             elif report_error_flag:
-                self.message_box("Save Report Failure", gopem.helper.ReportMessage2,QMessageBox.Critical)
+                self.message_box(
+                    "Save Report Failure",
+                    gopem.helper.ReportMessage2,
+                    QMessageBox.Critical)
 
     def analyse_slt(self):
         """
@@ -629,10 +642,13 @@ class MainWindow(QWidget):
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             try:
-                self.plotter.sc.save_fig(filename,trans_flag)
+                self.plotter.sc.save_fig(filename, trans_flag)
                 self.message_box("Save Plot", gopem.helper.PlotMessage)
             except Exception:
-                self.message_box("Save Plot Failure", gopem.helper.PlotMessage2,QMessageBox.Critical)
+                self.message_box(
+                    "Save Plot Failure",
+                    gopem.helper.PlotMessage2,
+                    QMessageBox.Critical)
 
     def check_update(self):
         """

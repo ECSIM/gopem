@@ -16,7 +16,7 @@ Version = 0.2
 ScriptDir = os.path.dirname(os.path.realpath(__file__))
 ParentDir = os.path.abspath(os.path.join(ScriptDir, os.pardir))
 if not hasattr(sys, "frozen"):
-    IconPath = os.path.join(ParentDir,"rsrc","icon.ico")
+    IconPath = os.path.join(ParentDir, "rsrc", "icon.ico")
 else:
     IconPath = os.path.join(sys.prefix, "icon.ico")
 
@@ -110,7 +110,7 @@ StyleList.insert(0, StyleList.pop(StyleList.index("Solid")))
 ScaleList = ["Linear", "Log"]
 WidthList = list(range(1, 11))
 
-FontSizeList = list(range(1,56))
+FontSizeList = list(range(1, 56))
 TitleFontDefault = 15
 AxesFontDefault = 11
 ColorDefault = "Black"

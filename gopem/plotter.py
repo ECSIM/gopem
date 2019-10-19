@@ -92,7 +92,7 @@ class MplCanvas(FigureCanvas):
 
         self.draw()
 
-    def save_fig(self, filename,transparent):
+    def save_fig(self, filename, transparent):
         """
         Save figure.
 
@@ -148,12 +148,12 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param font_axes: axes labels font size
         :return: None
         """
-        if len(font_title) == 0 :
+        if len(font_title) == 0:
             font_title = gopem.helper.TitleFontDefault
         else:
             font_title = int(font_title)
 
-        if len(font_axes) == 0 :
+        if len(font_axes) == 0:
             font_axes = gopem.helper.AxesFontDefault
         else:
             font_axes = int(font_axes)
