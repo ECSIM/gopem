@@ -47,7 +47,9 @@ class MainWindow(QWidget):
         self.line_width = QComboBox(self)
         self.font_title = QComboBox(self)
         self.font_axes = QComboBox(self)
-        self.last_setting = {self.color_bar:"Black",self.marker_bar:"None",self.style_bar:"Solid",self.line_width:1,self.font_axes:gopem.helper.AxesFontDefault,self.font_title:gopem.helper.TitleFontDefault}
+        self.last_setting = {self.color_bar:gopem.helper.ColorDefault,self.marker_bar:gopem.helper.MarkerDefault,self.style_bar:gopem.helper.StyleDefault,self.line_width:gopem.helper.LineWidthDefault,
+                             self.font_axes:gopem.helper.AxesFontDefault,
+                             self.font_title:gopem.helper.TitleFontDefault}
         self.config_plot_bar(ratio=0.08)
 
         self.test_checkbox = QCheckBox()
@@ -397,8 +399,6 @@ class MainWindow(QWidget):
         self.save_last_setting()
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
-        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
-        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
         self.transChkBox.setChecked(False)
@@ -449,8 +449,6 @@ class MainWindow(QWidget):
         for size in gopem.helper.FontSizeList:
             self.font_title.addItem(str(size))
             self.font_axes.addItem(str(size))
-        self.font_title.setCurrentIndex(gopem.helper.TitleFontDefault - 1)
-        self.font_axes.setCurrentIndex(gopem.helper.AxesFontDefault - 1)
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():

@@ -113,3 +113,7 @@ WidthList = list(range(1, 11))
 FontSizeList = list(range(1,56))
 TitleFontDefault = 15
 AxesFontDefault = 11
+ColorDefault = "Black"
+MarkerDefault = "None"
+StyleDefault = "Solid"
+LineWidthDefault = 1
