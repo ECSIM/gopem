@@ -101,7 +101,8 @@ class MainWindow(QWidget):
         model_info_label.setFont(QFont("Sans Serif", 12, QFont.Bold))
         self.main.addWidget(model_info_label)
         self.description.setText(Description_Menu[self.menuKey[0]])
-        self.des_link.setText(gopem.helper.DocumentLink.format(Description_Links[self.menuKey[0]]))
+        self.des_link.setText(gopem.helper.DocumentLink.format(
+            Description_Links[self.menuKey[0]]))
         self.main.addWidget(self.description)
         self.main.addWidget(self.des_link)
         self.setLayout(self.super)
@@ -599,7 +600,8 @@ class MainWindow(QWidget):
             m.setVisible(False)
         self.mode[index].setVisible(True)
         self.description.setText(Description_Menu[self.menuKey[index]])
-        self.des_link.setText(gopem.helper.DocumentLink.format(Description_Links[self.menuKey[index]]))
+        self.des_link.setText(gopem.helper.DocumentLink.format(
+            Description_Links[self.menuKey[index]]))
         self.selectedMode = index
         self.test_checkbox.setChecked(False)
 
