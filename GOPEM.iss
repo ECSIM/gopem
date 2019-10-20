@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "GOPEM"
-#define MyAppVersion "0.2"
+#define MyAppVersion "0.5"
 #define MyAppPublisher "ECSIM"
 #define MyAppURL "https://www.ecsim.ir/"
 #define MyAppExeName "GOPEM.exe"

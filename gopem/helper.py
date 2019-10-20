@@ -11,7 +11,7 @@ from opem.Params import Padulles_Amphlett_InputParams as PA
 from opem.Params import Padulles_Hauer_InputParams as PH
 from opem.Params import Version as OPEM_Version
 
-Version = 0.2
+Version = 0.5
 
 ScriptDir = os.path.dirname(os.path.realpath(__file__))
 ParentDir = os.path.abspath(os.path.join(ScriptDir, os.pardir))

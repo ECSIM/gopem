@@ -58,7 +58,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Download and install [Python3.x](https://www.python.org/downloads/) (>=3.6)
 	- [x] Select `Add to PATH` option
 	- [x] Select `Install pip` option
-- Download [Version 0.2](https://github.com/ecsim/gopem/archive/v0.2.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
+- Download [Version 0.5](https://github.com/ecsim/gopem/archive/v0.5.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
 - Run `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - Run `python3 setup.py install` or `python setup.py install` (Need root access)				
 
@@ -74,13 +74,13 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 
 ### Exe Version (Only Windows)
-- Download [Installer-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.exe) or [Portable-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-Portable-0.2.exe)
+- Download [Installer-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-0.5.exe) or [Portable-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-Portable-0.5.exe)
 - Run and install
 
 ⚠️ The portable build is slower to start
 
 ### DMG Version (MacOS)
-- Download [DMG-Version 0.2](https://github.com/ECSIM/gopem/releases/download/v0.2/GOPEM-0.2.dmg)
+- Download [DMG-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-0.5.dmg)
 - Open DMG file
 - Copy `GOPEM` into your system
 - Run `GOPEM`
