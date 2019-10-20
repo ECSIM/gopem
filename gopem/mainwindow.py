@@ -47,6 +47,11 @@ class MainWindow(QWidget):
         self.line_width = QComboBox(self)
         self.font_title = QComboBox(self)
         self.font_axes = QComboBox(self)
+        self.reportChkBox = QCheckBox()
+        self.transChkBox = QCheckBox()
+        self.saveBtn = QPushButton()
+        self.printChkBox = QCheckBox()
+        self.test_checkbox = QCheckBox()
         self.last_setting = {
             self.color_bar: gopem.helper.ColorDefault,
             self.marker_bar: gopem.helper.MarkerDefault,
@@ -55,9 +60,7 @@ class MainWindow(QWidget):
             self.font_axes: gopem.helper.AxesFontDefault,
             self.font_title: gopem.helper.TitleFontDefault}
         self.config_plot_bar(ratio=0.08)
-
-        self.test_checkbox = QCheckBox()
-
+        self.plot_bar_switch(False)
         self.description = QLabel()
         self.des_link = QLabel()
         self.des_link.setTextFormat(Qt.RichText)
@@ -90,11 +93,6 @@ class MainWindow(QWidget):
         self.main.addLayout(lay_0)
         for mode in self.mode:
             self.main.addWidget(mode)
-
-        self.reportChkBox = QCheckBox()
-        self.transChkBox = QCheckBox()
-        self.saveBtn = QPushButton()
-        self.printChkBox = QCheckBox()
         self.main.addWidget(self.get_button_widget())
         self.main.addWidget(self.h_line())
         model_info_label = QLabel("Model Description:")
@@ -136,6 +134,30 @@ class MainWindow(QWidget):
         :param ratio: ration of min size of window
         :return: None
         """
+        self.color_bar.clear()
+        for color in gopem.helper.ColorList:
+            self.color_bar.addItem(color)
+        self.marker_bar.clear()
+        for marker in gopem.helper.MarkerList:
+            self.marker_bar.addItem(marker)
+        self.style_bar.clear()
+        for style in gopem.helper.StyleList:
+            self.style_bar.addItem(style)
+        self.x_scale.clear()
+        self.y_scale.clear()
+        for scale in gopem.helper.ScaleList:
+            self.x_scale.addItem(scale)
+            self.y_scale.addItem(scale)
+        self.line_width.clear()
+        for width in gopem.helper.WidthList:
+            self.line_width.addItem(str(width))
+        self.font_title.clear()
+        self.font_axes.clear()
+        for size in gopem.helper.FontSizeList:
+            self.font_title.addItem(str(size))
+            self.font_axes.addItem(str(size))
+        for item in self.last_setting.keys():
+            item.setCurrentText(str(self.last_setting[item]))
         min_width = int(self.min_width * ratio)
         self.x_ax.setMinimumWidth(min_width)
         self.y_ax.setMinimumWidth(min_width)
@@ -157,6 +179,26 @@ class MainWindow(QWidget):
         self.line_width.currentTextChanged.connect(self.axis_changed)
         self.font_axes.currentTextChanged.connect(self.axis_changed)
         self.font_title.currentTextChanged.connect(self.axis_changed)
+
+    def plot_bar_switch(self,active=True):
+        """
+        Enbale/Disable plot bar.
+
+        :param active: active flag
+        :return: None
+        """
+        self.x_ax.setEnabled(active)
+        self.y_ax.setEnabled(active)
+        self.color_bar.setEnabled(active)
+        self.marker_bar.setEnabled(active)
+        self.style_bar.setEnabled(active)
+        self.x_scale.setEnabled(active)
+        self.y_scale.setEnabled(active)
+        self.line_width.setEnabled(active)
+        self.font_axes.setEnabled(active)
+        self.font_title.setEnabled(active)
+        self.saveBtn.setEnabled(active)
+        self.transChkBox.setEnabled(active)
 
     def location_on_screen(self, x=0, y=0):
         """
@@ -402,7 +444,6 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        self.save_last_setting()
         for k in self.attributes[self.menuKey[self.selectedMode]].keys():
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         self.reportChkBox.setChecked(False)
@@ -411,69 +452,25 @@ class MainWindow(QWidget):
         self.printChkBox.setDisabled(True)
         self.x_ax.clear()
         self.y_ax.clear()
-        self.color_bar.clear()
-        self.marker_bar.clear()
-        self.style_bar.clear()
-        self.x_scale.clear()
-        self.y_scale.clear()
-        self.line_width.clear()
-        self.font_axes.clear()
-        self.font_title.clear()
+        self.plot_bar_switch(False)
         self.plotter.clear_plot()
         self.saveBtn.setEnabled(False)
         self.transChkBox.setEnabled(False)
 
-    def plot_bar_update(self, output):
+    def output_update(self, output):
         """
-        Update plot bar.
+        Update x_ax and y_ax.
 
         :param output: output of model analyze
         :return: None
         """
         self.output = output
-        self.color_bar.clear()
-        for color in gopem.helper.ColorList:
-            self.color_bar.addItem(color)
-        self.marker_bar.clear()
-        for marker in gopem.helper.MarkerList:
-            self.marker_bar.addItem(marker)
-        self.style_bar.clear()
-        for style in gopem.helper.StyleList:
-            self.style_bar.addItem(style)
-        self.x_scale.clear()
-        self.y_scale.clear()
-        for scale in gopem.helper.ScaleList:
-            self.x_scale.addItem(scale)
-            self.y_scale.addItem(scale)
-        self.line_width.clear()
-        for width in gopem.helper.WidthList:
-            self.line_width.addItem(str(width))
-        self.font_title.clear()
-        self.font_axes.clear()
-        for size in gopem.helper.FontSizeList:
-            self.font_title.addItem(str(size))
-            self.font_axes.addItem(str(size))
         self.x_ax.clear()
         self.y_ax.clear()
         for k in output.keys():
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
-        for item in self.last_setting.keys():
-            item.setCurrentText(str(self.last_setting[item]))
-        self.saveBtn.setEnabled(True)
-        self.transChkBox.setEnabled(True)
-
-    def save_last_setting(self):
-        """
-        Save last setting.
-
-        :return: None
-        """
-        for item in self.last_setting.keys():
-            item_value = item.currentText()
-            if len(item_value) != 0:
-                self.last_setting[item] = item_value
 
     def analyze(self, menu, attributes):
         """
@@ -519,7 +516,8 @@ class MainWindow(QWidget):
                 print_flag,
                 report_flag)  # Test Print Report
             if len(output) > 2:
-                self.plot_bar_update(output)
+                self.output_update(output)
+                self.plot_bar_switch(True)
                 self.plotter.update_plotter_data(
                     output,
                     self.x_ax.currentText(),
