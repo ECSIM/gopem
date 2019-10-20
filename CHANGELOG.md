@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Menu bug in `Windows` fixed
 - Padulles-Amphlett model default test case bug fixed
 - Docstrings modified
-- Report save modified
+- Report default location bug fixed
 - Icon bug fixed
 ## [0.1] - 2018-9-10
 ### Added
