@@ -79,7 +79,7 @@ class MplCanvas(FigureCanvas):
                 if gopem.helper.UnitTable[y_axis][1] is not None:
                     y_unit = "({0})".format(gopem.helper.UnitTable[y_axis][1])
             if x_axis in gopem.helper.UnitTable.keys():
-                if len(title) != 0:
+                if title:
                     title += gopem.helper.UnitTable[x_axis][0]
                     self.axes.set_title(title, fontsize=font_title)
                 if gopem.helper.UnitTable[x_axis][1] is not None:
@@ -148,32 +148,32 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param font_axes: axes labels font size
         :return: None
         """
-        if len(font_title) == 0:
+        if not font_title:
             font_title = gopem.helper.TitleFontDefault
         else:
             font_title = int(font_title)
 
-        if len(font_axes) == 0:
+        if not font_axes:
             font_axes = gopem.helper.AxesFontDefault
         else:
             font_axes = int(font_axes)
 
-        if len(linewidth) == 0:
+        if not linewidth:
             linewidth = 1
         else:
             linewidth = int(linewidth)
 
-        if len(marker) == 0:
+        if not marker:
             marker = ""
         else:
             marker = gopem.helper.MarkerTable[marker]
-        if len(color) == 0:
+        if not color:
             color = gopem.helper.ColorList[0]
-        if len(x_scale) == 0:
+        if not x_scale:
             x_scale = gopem.helper.ScaleList[0]
-        if len(y_scale) == 0:
+        if not y_scale:
             y_scale = gopem.helper.ScaleList[0]
-        if len(style) == 0:
+        if not style:
             style = gopem.helper.StyleTable["Solid"]
         else:
             style = gopem.helper.StyleTable[style]
