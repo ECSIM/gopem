@@ -180,7 +180,7 @@ class MainWindow(QWidget):
         self.font_axes.currentTextChanged.connect(self.axis_changed)
         self.font_title.currentTextChanged.connect(self.axis_changed)
 
-    def plot_bar_switch(self,active=True):
+    def plot_bar_switch(self, active=True):
         """
         Enbale/Disable plot bar.
 
