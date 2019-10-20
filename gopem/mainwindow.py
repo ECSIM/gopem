@@ -406,7 +406,6 @@ class MainWindow(QWidget):
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
-        self.transChkBox.setChecked(False)
         self.printChkBox.setChecked(False)
         self.printChkBox.setDisabled(True)
         self.x_ax.clear()
