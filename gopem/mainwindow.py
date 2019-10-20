@@ -472,7 +472,9 @@ class MainWindow(QWidget):
         :return: None
         """
         for item in self.last_setting.keys():
-            self.last_setting[item] = item.currentText()
+            item_value = item.currentText()
+            if len(item_value)!=0:
+                self.last_setting[item] = item_value
 
     def analyze(self, menu, attributes):
         """
