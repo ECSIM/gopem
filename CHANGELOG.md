@@ -13,7 +13,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `PULL_REQUEST_TEMPLATE.md`
 - `build_exe.bat`
 - `build_unix.sh`
+- `GOPEM.iss`
+- Check update button
+- Save plot button
 - Report generating controller
+- Console print controller
 - PyPI package
 ### Changed
 - `CONTRIBUTING.md` modified
@@ -22,7 +26,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Menu bug in `Windows` fixed
 - Padulles-Amphlett model default test case bug fixed
 - Docstrings modified
-- Default location bug fixed
+- Report save modified
+- Icon bug fixed
 ## [0.1] - 2018-9-10
 ### Added
 - GUI and plotter
