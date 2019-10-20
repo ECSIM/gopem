@@ -49,6 +49,7 @@ When you want to use this software in your research projects and reports, we app
 <br/>
 <a href="http://www.ecsim.ir/opem/OPEM.bib">BibTeX Link</a>
 """
+DocumentLink = '<a href="{0}">Document Link</a>'
 UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
 
 
