@@ -14,7 +14,7 @@ from opem.Dynamic.Padulles1 import Dynamic_Analysis as Padulles1_Analysis
 from opem.Dynamic.Padulles2 import Dynamic_Analysis as Padulles2_Analysis
 from opem.Dynamic.Padulles_Hauer import Dynamic_Analysis as Padulles_Hauer_Analysis
 from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett_Analysis
-from opem.Params import Version, Description_Menu, Description_Links, Vectors
+from opem.Params import Description_Menu, Description_Links, Vectors
 import gopem.helper
 import gopem.plotter
 
@@ -168,8 +168,8 @@ class MainWindow(QWidget):
         """
         self.move(x, y)
 
+    @staticmethod
     def message_box(
-            self,
             title,
             message,
             message_type=QMessageBox.Information):
