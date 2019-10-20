@@ -473,7 +473,7 @@ class MainWindow(QWidget):
         """
         for item in self.last_setting.keys():
             item_value = item.currentText()
-            if len(item_value)!=0:
+            if len(item_value) != 0:
                 self.last_setting[item] = item_value
 
     def analyze(self, menu, attributes):
@@ -519,7 +519,7 @@ class MainWindow(QWidget):
                 True,
                 print_flag,
                 report_flag)  # Test Print Report
-            if len(output)>2:
+            if len(output) > 2:
                 self.plot_bar_update(output)
                 self.plotter.update_plotter_data(
                     output,
@@ -543,7 +543,10 @@ class MainWindow(QWidget):
                         QMessageBox.Critical)
             else:
                 self.edit_name_widget(False)
-                self.message_box("Simulation Failure",gopem.helper.SimulationMessage,QMessageBox.Critical)
+                self.message_box(
+                    "Simulation Failure",
+                    gopem.helper.SimulationMessage,
+                    QMessageBox.Critical)
 
     def analyse_slt(self):
         """
