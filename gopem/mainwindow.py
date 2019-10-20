@@ -431,7 +431,6 @@ class MainWindow(QWidget):
         :param output: output of model analyze
         :return: None
         """
-        self.edit_name_widget(False)
         self.output = output
         self.color_bar.clear()
         for color in gopem.helper.ColorList:
@@ -518,26 +517,31 @@ class MainWindow(QWidget):
                 True,
                 print_flag,
                 report_flag)  # Test Print Report
-            self.plot_bar_update(output)
-            self.plotter.update_plotter_data(
-                output,
-                self.x_ax.currentText(),
-                self.y_ax.currentText(),
-                self.color_bar.currentText(),
-                self.marker_bar.currentText(),
-                self.style_bar.currentText(),
-                self.x_scale.currentText(),
-                self.y_scale.currentText(),
-                self.line_width.currentText(),
-                self.font_title.currentText(),
-                self.font_axes.currentText())
-            if report_flag:
-                self.message_box("Save Report", gopem.helper.ReportMessage)
-            elif report_error_flag:
-                self.message_box(
-                    "Save Report Failure",
-                    gopem.helper.ReportMessage2,
-                    QMessageBox.Critical)
+            if len(output)>2:
+                self.plot_bar_update(output)
+                self.plotter.update_plotter_data(
+                    output,
+                    self.x_ax.currentText(),
+                    self.y_ax.currentText(),
+                    self.color_bar.currentText(),
+                    self.marker_bar.currentText(),
+                    self.style_bar.currentText(),
+                    self.x_scale.currentText(),
+                    self.y_scale.currentText(),
+                    self.line_width.currentText(),
+                    self.font_title.currentText(),
+                    self.font_axes.currentText())
+                self.edit_name_widget(False)
+                if report_flag:
+                    self.message_box("Save Report", gopem.helper.ReportMessage)
+                elif report_error_flag:
+                    self.message_box(
+                        "Save Report Failure",
+                        gopem.helper.ReportMessage2,
+                        QMessageBox.Critical)
+            else:
+                self.edit_name_widget(False)
+                self.message_box("Simulation Failure",gopem.helper.SimulationMessage,QMessageBox.Critical)
 
     def analyse_slt(self):
         """

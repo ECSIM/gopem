@@ -62,6 +62,7 @@ ReportMessage2 = "Failed to save report!"
 
 PlotMessage = "Plot has been saved successfully!"
 PlotMessage2 = "Failed to save plot!"
+SimulationMessage = "Simulation failed!<br/>Check your inputs"
 
 InputParam = {
     "Amphlett_Analysis (Static)": A,
