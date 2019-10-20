@@ -52,7 +52,7 @@ class MainWindow(QWidget):
         self.saveBtn = QPushButton()
         self.printChkBox = QCheckBox()
         self.test_checkbox = QCheckBox()
-        self.last_setting = {
+        self.default_setting = {
             self.color_bar: gopem.helper.ColorDefault,
             self.marker_bar: gopem.helper.MarkerDefault,
             self.style_bar: gopem.helper.StyleDefault,
@@ -156,8 +156,8 @@ class MainWindow(QWidget):
         for size in gopem.helper.FontSizeList:
             self.font_title.addItem(str(size))
             self.font_axes.addItem(str(size))
-        for item in self.last_setting.keys():
-            item.setCurrentText(str(self.last_setting[item]))
+        for item in self.default_setting.keys():
+            item.setCurrentText(str(self.default_setting[item]))
         min_width = int(self.min_width * ratio)
         self.x_ax.setMinimumWidth(min_width)
         self.y_ax.setMinimumWidth(min_width)
