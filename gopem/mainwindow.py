@@ -59,7 +59,7 @@ class MainWindow(QWidget):
             self.line_width: gopem.helper.LineWidthDefault,
             self.font_axes: gopem.helper.AxesFontDefault,
             self.font_title: gopem.helper.TitleFontDefault}
-        self.config_plot_bar(ratio=0.08)
+        self.plot_bar_config(ratio=0.08)
         self.plot_bar_switch(False)
         self.description = QLabel()
         self.des_link = QLabel()
@@ -127,7 +127,7 @@ class MainWindow(QWidget):
         except Exception:
             self.setMinimumSize(width, height)
 
-    def config_plot_bar(self, ratio=0.1):
+    def plot_bar_config(self, ratio=0.1):
         """
         Set config for plot setting bar.
 
