@@ -27,6 +27,15 @@ exe = EXE(pyz,
 		  version="rsrc/Version.rc",
           console=True )
 
+coll = COLLECT(exe,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
+		  strip=False,
+          upx=True,
+		  name='GOPEM')
+
+		  
 exe2 = EXE(pyz,
 		  a.scripts,
 		  a.binaries,
@@ -36,14 +45,9 @@ exe2 = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
+		  runtime_tmpdir=None,
 		  icon='rsrc/icon.ico',
 		  version="rsrc/Version.rc",
           console=True )
 
-coll = COLLECT(exe,
-          a.binaries,
-          a.zipfiles,
-          a.datas,
-		  strip=False,
-          upx=True,
-		  name='GOPEM')
+
