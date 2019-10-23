@@ -5,7 +5,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         pyinstaller -y --clean --windowed GOPEM.spec
 	pushd dist
-	hdiutil create ./GOpem.dmg -srcfolder GOPEM -ov
+	hdiutil create ./GOPEM.dmg -srcfolder GOPEM -ov
 	popd
 elif [[ "$OSTYPE" == "cygwin" ]]; then
         echo "You are usign $OSTYPE, that means you are using windows OS, so please run build_exe.bat instead."
