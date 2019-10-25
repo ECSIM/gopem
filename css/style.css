@@ -65,6 +65,10 @@ li {
     width: 500px;
     opacity: 0.7;
 }
+.GOPEM_image{
+    height: 600px;
+    width: 800px;
+}
 
 .moduland{
     color: red;
@@ -327,6 +331,10 @@ button {
     .OPEM_image{
     width: 90%;
     height: 50%;
+}
+    .GOPEM_image{
+    width: 90%;
+    height: 40%;
 }
 
 .help {
