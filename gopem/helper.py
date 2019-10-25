@@ -26,7 +26,7 @@ ReportTitle = "Do you want to have a generated report for this analysis ?"
 PrintTitle = "Console print"
 TestTitle = "Use Test Data"
 AnalyzingMessage = "Analyzing ..."
-DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
+DownloadLink = '<a href="https://www.ecsim.ir/gopem/">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/gopem/update.html"
 VersionMessage = """
 <br/>
