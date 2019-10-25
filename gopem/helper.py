@@ -27,7 +27,7 @@ PrintTitle = "Console print"
 TestTitle = "Use Test Data"
 AnalyzingMessage = "Analyzing ..."
 DownloadLink = '<a href="https://github.com/ECSIM/gopem/releases/download/v{1}/GOPEM-{1}.exe">Download</a>'
-UpdateUrl = "http://www.ecsim.ir/opem/gopem_update.html"
+UpdateUrl = "http://www.ecsim.ir/gopem/update.html"
 VersionMessage = """
 <br/>
 <br/>
