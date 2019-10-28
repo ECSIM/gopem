@@ -1,8 +1,8 @@
-art==3.7
+art==4.1
 requests==2.22.0
-matplotlib==3.1.0
-opem==1.0
-PyQt5==5.12.2
+matplotlib==3.1.1
+opem==1.1
+PyQt5==5.13.1
 setuptools>=40.8.3
 bandit>=1.5.1
 vulture>=1.0

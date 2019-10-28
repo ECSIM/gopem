@@ -4,11 +4,12 @@ import os
 import sys
 import codecs
 Failed = 0
-VERSION = "0.2"
+VERSION = "0.5"
 
 VERSION_1 = VERSION.split(".")[0]
-VERSION_2 = str(int(float(VERSION)*10 - int(VERSION_1)*10))
-VERSION_3 = str(int(float(VERSION)*100 - int(VERSION_1)*100 - int(VERSION_2)*10))
+VERSION_2 = str(int(float(VERSION) * 10 - int(VERSION_1) * 10))
+VERSION_3 = str(int(float(VERSION) * 100 - int(VERSION_1)
+                    * 100 - int(VERSION_2) * 10))
 VERSION_4 = "0"
 
 SETUP_ITEMS = [
@@ -16,20 +17,32 @@ SETUP_ITEMS = [
     'https://github.com/ecsim/gopem/tarball/v{0}']
 INSTALL_ITEMS = [
     "[Version {0}](https://github.com/ecsim/gopem/archive/v{0}.zip)",
-    "[Exe-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-{0}.exe)",
+    "[Installer-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-{0}.exe)",
+    "[Portable-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-Portable-{0}.exe)",
     "[DMG-Version {0}](https://github.com/ECSIM/gopem/releases/download/v{0}/GOPEM-{0}.dmg)"]
 CHANGELOG_ITEMS = [
     "## [{0}]",
     "https://github.com/ECSIM/gopem/compare/v{0}...develop",
     "[{0}]:"]
-
 HTML_ITEMS = ["Version {0}"]
 PARAMS_ITEMS = ["Version = {0}"]
-RC_ITEMS =["filevers=({0}, {1}, {2}, {3})","prodvers=({0}, {1}, {2}, {3})","(u'FileVersion', u'{0}.{1}.{2}.{3}'),","(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
+RC_ITEMS = [
+    "filevers=({0}, {1}, {2}, {3})",
+    "prodvers=({0}, {1}, {2}, {3})",
+    "(u'FileVersion', u'{0}.{1}.{2}.{3}'),",
+    "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
-FILES = {"setup.py": SETUP_ITEMS, "README.md": INSTALL_ITEMS, "CHANGELOG.md": CHANGELOG_ITEMS, os.path.join("gopem", "helper.py"): PARAMS_ITEMS}
+INNO_TIMES = ['#define MyAppVersion "{0}"']
+FILES = {
+    "setup.py": SETUP_ITEMS,
+    "README.md": INSTALL_ITEMS,
+    "CHANGELOG.md": CHANGELOG_ITEMS,
+    os.path.join(
+        "gopem",
+        "helper.py"): PARAMS_ITEMS,
+    "GOPEM.iss": INNO_TIMES}
 
-TEST_NUMBER = len(FILES.keys()) +1
+TEST_NUMBER = len(FILES.keys()) + 1
 
 
 def print_result(failed=False):
@@ -62,9 +75,20 @@ if __name__ == "__main__":
             Failed += 1
             print("Error in " + file_name + "\n" + "Message : " + str(e))
     try:
-        file_content = codecs.open(os.path.join("rsrc","Version.rc"), "r", "utf-8", 'ignore').read()
+        file_content = codecs.open(
+            os.path.join(
+                "rsrc",
+                "Version.rc"),
+            "r",
+            "utf-8",
+            'ignore').read()
         for test_item in RC_ITEMS:
-            if file_content.find(test_item.format(VERSION_1,VERSION_2,VERSION_3,VERSION_4)) == -1:
+            if file_content.find(
+                test_item.format(
+                    VERSION_1,
+                    VERSION_2,
+                    VERSION_3,
+                    VERSION_4)) == -1:
                 print("Incorrect version tag in " + "Version.rc")
                 Failed += 1
                 break
