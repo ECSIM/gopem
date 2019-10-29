@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   python3.6-dev \
   python3-pip \
-  xvfb
+  xvfb \
   sudo \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
