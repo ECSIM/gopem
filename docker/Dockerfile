@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   python3.6-dev \
   python3-pip \
-  xvfb \
   sudo \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -25,14 +24,7 @@ RUN usermod -a -G sudo user
 RUN python3.6 -m pip install pip --upgrade
 RUN python3.6 -m pip install gopem
 
-RUN Xvfb :1 -screen 0 1024x768x16 &> xvfb.log  &
-RUN ps aux | grep X
-RUN DISPLAY=:1.0
-RUN export DISPLAY
-RUN QT_QPA_PLATFORM=offscreen
-
 USER user
 WORKDIR /home/user
-RUN python3.6 -m gopem --test
 
 ENTRYPOINT /bin/bash
