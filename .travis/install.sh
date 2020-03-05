@@ -9,7 +9,7 @@
 	 PYTHON_COMMAND=python3
 	 PIP_COMMAND=pip3
  fi
-  
+ $PIP_COMMAND install -U pip 
  $PIP_COMMAND install -r requirements.txt
  $PYTHON_COMMAND setup.py install
  $PYTHON_COMMAND -m gopem --test
