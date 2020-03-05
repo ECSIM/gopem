@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Test system modified
+- Logo updated
+- Icon updated
 ## [0.5] - 2019-10-28
 ### Added
 - `version_check.py`
