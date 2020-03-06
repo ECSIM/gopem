@@ -10,6 +10,6 @@
 
 #### Python Version
 
-#### OPEM Version
+#### OPEM Version (Use : `opem.__version__`)
 
-#### GOPEM Version
+#### GOPEM Version (Use : `gopem.__version__`)
