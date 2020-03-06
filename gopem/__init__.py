@@ -3,3 +3,5 @@
 import gopem.helper
 import gopem.mainwindow
 import gopem.plotter
+
+__version__ = str(gopem.helper.Version)
