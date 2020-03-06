@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/logo.png" width=250px height=250px>
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/logo.png" width=300px height=250px>
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
