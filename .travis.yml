@@ -6,6 +6,13 @@ matrix:
     include:
         - os: linux
           sudo: required
+          python: 3.8
+          dist: xenial
+          services:
+              - xvfb
+              
+        - os: linux
+          sudo: required
           python: 3.7
           dist: xenial
           services:
