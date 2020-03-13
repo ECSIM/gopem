@@ -6,7 +6,7 @@ echo "-----"
 echo "-----"
 pip3 install -r requirements.txt
 python3 setup.py install
-pip3 install PyInstaller>=3.3
+pip3 install "PyInstaller>=3.3"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         pyinstaller -y --clean --windowed GOPEM.spec
 elif [[ "$OSTYPE" == "darwin"* ]]; then
