@@ -8,8 +8,7 @@ echo Your Python Version : %py_version%
 echo Recommended Python Version : ^>= 3.5
 echo -----
 echo -----
-python -m pip install -r requirements.txt
+python -m pip install -r build-requirements.txt
 python setup.py install
-python -m pip install "PyInstaller>=3.3"
 python -m PyInstaller GOPEM.spec
 pause

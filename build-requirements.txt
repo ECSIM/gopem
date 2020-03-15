@@ -1,0 +1,6 @@
+requests==2.22.0
+matplotlib==3.1.1
+opem==1.2
+PyQt5==5.13.1
+setuptools==40.8.3
+PyInstaller==3.3
