@@ -198,11 +198,10 @@ class ApplicationWindow(QtWidgets.QWidget):
         """
         self.close()
 
-    def close_event(self, ce):
+    def close_event(self):
         """
         Slot for close event trigger.
 
-        :param ce: close event
         :return: None
         """
         self.file_quit()

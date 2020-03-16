@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/ECSIM/opem/raw/master/otherfile/logo.png" width=250px height=250px>
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/logo.png" width=300px height=250px>
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
@@ -59,7 +59,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Download and install [Python3.x](https://www.python.org/downloads/) (>=3.6)
 	- [x] Select `Add to PATH` option
 	- [x] Select `Install pip` option
-- Download [Version 0.5](https://github.com/ecsim/gopem/archive/v0.5.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
+- Download [Version 0.6](https://github.com/ecsim/gopem/archive/v0.6.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
 - Run `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - Run `python3 setup.py install` or `python setup.py install` (Need root access)				
 
@@ -83,13 +83,13 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 
 ### Exe Version (Only Windows)
-- Download [Installer-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-0.5.exe) or [Portable-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-Portable-0.5.exe)
+- Download [Installer-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-0.6.exe) or [Portable-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-Portable-0.6.exe)
 - Run and install
 
 ⚠️ The portable build is slower to start
 
 ### DMG Version (MacOS)
-- Download [DMG-Version 0.5](https://github.com/ECSIM/gopem/releases/download/v0.5/GOPEM-0.5.dmg)
+- Download [DMG-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-0.6.dmg)
 - Open DMG file
 - Copy `GOPEM` into your system
 - Run `GOPEM`
@@ -114,13 +114,13 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 
 <div align="center">
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/GOPEM.gif">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/GOPEM.gif">
 <p>GIF</p>
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/SS1.png">
 <p>Screenshot 1</p>
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/SS2.png">
 <p>Screenshot 2</p>
 
 </div>	
@@ -206,18 +206,6 @@ Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)
 
 ## Donate to our project
 								
-<h3>Bitcoin :</h3>					
+If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .
 
-```12Xm1qL4MXYWiY9sRMoa3VpfTfw6su3vNq```			
-
-
-
-<h3>Payping (For Iranian citizens) :</h3>
-
-<a href="http://www.payping.net/sepandhaghighi" target="__blank"><img src="http://www.qpage.ir/images/payping.png" height=100px width=100px></a>	
-
-
-<h3>Say Thanks! </h3>
-
-
-<a href="https://saythanks.io/to/ecsim"><img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg"></a>
+<a href="https://www.ecsim.ir/opem/donate.html" target="_blank"><img src="http://www.ecsim.ir/images/Donate-Button.png" height="90px" width="270px" alt="OPEM Donation"></a>
