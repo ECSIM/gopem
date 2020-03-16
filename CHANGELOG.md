@@ -17,8 +17,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `ISSUE_TEMPLATE.md` updated
 - `setup.py` modified
 - `README.md` modified
-- `build_exe.bat`
-- `build_unix.sh`
+- `build_exe.bat` modified
+- `build_unix.sh` modified
 ## [0.5] - 2019-10-28
 ### Added
 - `version_check.py`
