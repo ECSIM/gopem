@@ -32,7 +32,7 @@ RC_ITEMS = [
     "(u'FileVersion', u'{0}.{1}.{2}.{3}'),",
     "(u'ProductVersion', u'{0}, {1}, {2}, {3}')"]
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
-INNO_TIMES = ['#define MyAppVersion "{0}"']
+INNO_ITEMS = ['#define MyAppVersion "{0}"']
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": INSTALL_ITEMS,
@@ -40,7 +40,7 @@ FILES = {
     os.path.join(
         "gopem",
         "helper.py"): PARAMS_ITEMS,
-    "GOPEM.iss": INNO_TIMES}
+    "GOPEM.iss": INNO_ITEMS}
 
 TEST_NUMBER = len(FILES.keys()) + 1
 
