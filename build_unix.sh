@@ -4,7 +4,12 @@ echo "Your Python Version : $py_version"
 echo "Recommended Python Version : >= 3.5"
 echo "-----"
 echo "-----"
-pip3 install -r rsrc/build-requirements.txt
+pip3 install "requests==2.22.0"
+pip3 install "matplotlib==3.1.1"
+pip3 install "opem==1.2"
+pip3 install "PyQt5==5.13.1"
+pip3 install "setuptools==40.9.0"
+pip3 install "PyInstaller==3.4"
 python3 setup.py install
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         pyinstaller -y --clean --windowed GOPEM.spec
