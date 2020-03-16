@@ -5,9 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-## [0.6] - 2020-03-13
+## [0.6] - 2020-03-16
 ### Added
 - `__version__` variable
+- `build-requirements.txt`
 ### Changed
 - Test system modified
 - `dev-requirements.txt` modified
@@ -16,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Icon updated
 - `ISSUE_TEMPLATE.md` updated
 - `setup.py` modified
+- `README.md` modified
 ## [0.5] - 2019-10-28
 ### Added
 - `version_check.py`
