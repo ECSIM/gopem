@@ -1,7 +1,7 @@
 art==4.5
 requests==2.23.0
 matplotlib==3.2.0
-opem==1.1
+opem==1.2
 PyQt5==5.14.1
 PyQt5-sip==12.7.1
 setuptools>=40.8.3
