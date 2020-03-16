@@ -4,7 +4,7 @@ echo "Your Python Version : $py_version"
 echo "Recommended Python Version : >= 3.5"
 echo "-----"
 echo "-----"
-pip3 install -r build-requirements.txt
+pip3 install -r rsrc/build-requirements.txt
 python3 setup.py install
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         pyinstaller -y --clean --windowed GOPEM.spec
