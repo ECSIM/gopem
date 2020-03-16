@@ -57,7 +57,7 @@ matrix:
           dist: xenial
           services:
               - xvfb
-  
+
 addons:
   apt:
     packages: &BASE_PACKAGES
