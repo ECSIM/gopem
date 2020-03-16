@@ -114,13 +114,13 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 
 <div align="center">
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/GOPEM.gif">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/GOPEM.gif">
 <p>GIF</p>
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS1.png">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/SS1.png">
 <p>Screenshot 1</p>
 
-<img src="https://github.com/ECSIM/gopem/blob/master/rsrc/SS2.png">
+<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/SS2.png">
 <p>Screenshot 2</p>
 
 </div>	
