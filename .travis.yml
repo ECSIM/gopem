@@ -57,6 +57,11 @@ matrix:
           dist: xenial
           services:
               - xvfb
+        - os: linux
+          python: nightly
+          dist: xenial
+          services:
+              - xvfb
 
 addons:
   apt:
