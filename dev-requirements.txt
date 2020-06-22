@@ -1,5 +1,5 @@
 art==4.7
-requests==2.23.0
+requests==2.24.0
 matplotlib==3.2.1
 opem==1.2
 PyQt5==5.15.0
