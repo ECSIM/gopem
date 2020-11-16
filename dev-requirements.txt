@@ -1,6 +1,6 @@
 art==4.9
 requests==2.25.0
-matplotlib==3.3.2
+matplotlib==3.3.3
 opem==1.2
 PyQt5==5.15.1
 PyQt5-sip==12.8.1
