@@ -18,7 +18,7 @@
  if [ "$IS_IN_TRAVIS" = 'false' ] || [ "$TRAVIS_PYTHON_VERSION" = '3.6' ]
  then
      $PYTHON_COMMAND -m vulture --min-confidence 65 --sort-by-size gopem rsrc setup.py
-	 $PYTHON_COMMAND -m bandit -r gopem -s B322
+	 $PYTHON_COMMAND -m bandit -r gopem
 	 $PYTHON_COMMAND rsrc/version_check.py
 	 $PYTHON_COMMAND -m pydocstyle
  fi
