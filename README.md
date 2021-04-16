@@ -34,14 +34,9 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 		<td align="center">develop</td>	
 	</tr>
 	<tr>
-		<td align="center">Travis</td>
-		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=master"></a></td>
-		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=develop"></a></td>
-	</tr>
-	<tr>
-		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/develop?svg=true"></a></td>
+		<td align="center">CI</td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=develop"></td>
 	</tr>
 </table>
 
