@@ -15,7 +15,6 @@ jobs:
         python-version: [3.6, 3.7, 3.8, 3.9]
     env:
       DISPLAY: :99.0
-      QT_DEBUG_PLUGINS: 1
 
     steps:
     - uses: actions/checkout@v2
@@ -30,6 +29,7 @@ jobs:
         python setup.py install
     - name: Setup system requirements
       run: |
+        export QT_DEBUG_PLUGINS=1
         sudo apt-get install libnotify-bin libcairo2-dev \
           gir1.2-gtk-3.0 libpango1.0-dev libxcb-xtest0-dev \
           libxcb-icccm4-dev libxcb-randr0-dev libxcb-keysyms1-dev \
