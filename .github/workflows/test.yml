@@ -37,7 +37,7 @@ jobs:
           libstartup-notification0-dev imagemagick libxcb1-dev \
           libxcb-shape0-dev libxcb-util0-dev libx11-xcb-dev \
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
-          libxkbcommon-dev libxkbcommon-x11-dev
+          libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
     - name: First test
       run: |
         python -m gopem --test
