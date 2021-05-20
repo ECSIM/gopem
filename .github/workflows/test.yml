@@ -38,36 +38,36 @@ jobs:
           libxcb-shape0-dev libxcb-util0-dev libx11-xcb-dev \
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
-      if: matrix.os != 'windows-latest'
-    - name: First test (Ubuntu & macOS)
-      run: |
-        xvfb-run python -m gopem --test
-      if: matrix.os != 'windows-latest'
-    - name: First test (Windows)
-      run: |
-        python -m gopem --test
-      if: matrix.os == 'windows-latest'
-    - name: Test requirements Installation
-      run: |
-        python rsrc/requirements-splitter.py
-        pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
-    - name: Second test (Ubuntu & macOS)
-      run: |
-        xvfb-run python -m gopem --test
-      if: matrix.os != 'windows-latest'
-    - name: Second test (Windows)
-      run: |
-        python -m gopem --test
-      if: matrix.os == 'windows-latest'
-    - name: Version check
-      run: |
-        python rsrc/version_check.py
-      if: matrix.python-version == 3.7
-    - name: Xvfb test (macOS-latest) 
+      if: matrix.os == 'ubuntu-latest'
+    - name: Xvfb test (macOS) 
       run: |
         sudo Xvfb :99 -ac -screen 0 1024x768x8
         echo "OK"
       if: matrix.os == 'macOS-latest'
+    - name: First test (Ubuntu)
+      run: |
+        xvfb-run python -m gopem --test
+      if: matrix.os == 'ubuntu-latest'
+    - name: First test (Windows)
+      run: |
+        python -m gopem --test
+      if: matrix.os != 'ubuntu-latest'
+    - name: Test requirements Installation
+      run: |
+        python rsrc/requirements-splitter.py
+        pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
+    - name: Second test (Ubuntu)
+      run: |
+        xvfb-run python -m gopem --test
+      if: matrix.os == 'ubuntu-latest'
+    - name: Second test (Windows)
+      run: |
+        python -m gopem --test
+      if: matrix.os != 'ubuntu-latest'
+    - name: Version check
+      run: |
+        python rsrc/version_check.py
+      if: matrix.python-version == 3.7
     - name: Other tests
       run: |
           python -m vulture --min-confidence 65 --sort-by-size gopem rsrc setup.py
