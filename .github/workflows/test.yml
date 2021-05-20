@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
         python-version: [3.6, 3.7, 3.8, 3.9]
     env:
       DISPLAY: :99.0
@@ -41,16 +41,10 @@ jobs:
     - name: First test
       run: |
         python -m gopem --test
-    - name: Test requirements Installation (macOs-latest)
-      run: |
-        python rsrc/requirements-splitter.py
-        pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt --user
-      if: matrix.os == 'macOS-latest'
-    - name: Test requirements Installation (other OSs)
+    - name: Test requirements Installation
       run: |
         python rsrc/requirements-splitter.py
         pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
-      if: matrix.os != 'macOS-latest'
     - name: Second test
       run: |
         python -m gopem --test
