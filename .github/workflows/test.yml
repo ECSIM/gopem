@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest]
         python-version: [3.6, 3.7, 3.8, 3.9]
     env:
       DISPLAY: :99.0
@@ -41,7 +41,7 @@ jobs:
       if: matrix.os != 'windows-latest'
     - name: First test
       run: |
-        python -m gopem --test
+        xvfb-run python -m gopem --test
     - name: Test requirements Installation
       run: |
         python rsrc/requirements-splitter.py
