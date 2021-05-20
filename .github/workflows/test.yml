@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest,macOS-latest,windows-latest]
+        os: [ubuntu-latest,windows-latest]
         python-version: [3.6, 3.7, 3.8, 3.9]
     env:
       DISPLAY: :99.0
@@ -39,11 +39,6 @@ jobs:
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
       if: matrix.os == 'ubuntu-latest'
-    - name: Xvfb test (macOS) 
-      run: |
-        sudo Xvfb :99 -ac -screen 0 1024x768x8
-        echo "OK"
-      if: matrix.os == 'macOS-latest'
     - name: First test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
