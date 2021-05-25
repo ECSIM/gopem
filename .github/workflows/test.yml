@@ -67,5 +67,5 @@ jobs:
       run: |
           python -m vulture --min-confidence 65 --sort-by-size gopem rsrc setup.py
           python -m bandit -r gopem
-          python -m pydocstyle
+          python -m pydocstyle -v --match-dir=gopem
       if: matrix.python-version == 3.7
