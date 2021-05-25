@@ -39,26 +39,19 @@ jobs:
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
       if: matrix.os == 'ubuntu-latest'
-    - name: First test (Ubuntu)
+    - name: Test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
       if: matrix.os == 'ubuntu-latest'
-    - name: First test (Windows)
+    - name: Test (Windows)
       run: |
         python -m gopem --test
       if: matrix.os != 'ubuntu-latest'
-    - name: Test requirements Installation
+    - name: Other tests requirements Installation
       run: |
         python rsrc/requirements-splitter.py
         pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
-    - name: Second test (Ubuntu)
-      run: |
-        xvfb-run python -m gopem --test
-      if: matrix.os == 'ubuntu-latest'
-    - name: Second test (Windows)
-      run: |
-        python -m gopem --test
-      if: matrix.os != 'ubuntu-latest'
+      if: matrix.python-version == 3.7
     - name: Version check
       run: |
         python rsrc/version_check.py
