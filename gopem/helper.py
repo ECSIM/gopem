@@ -2,7 +2,7 @@
 """GOPEM helper."""
 import os
 import sys
-ImportErrorMessage = "Please update your OPEM package version!"
+ImportErrorMessage = "Please update your OPEM package!"
 try:
     from opem.Params import Amphlett_InputParams as A
     from opem.Params import Chamberline_InputParams as C
