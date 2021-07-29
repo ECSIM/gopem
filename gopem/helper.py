@@ -25,6 +25,7 @@ VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),
 ReportTitle = "Do you want to have a generated report for this analysis ?"
 PrintTitle = "Console print"
 TestTitle = "Use Test Data"
+ImportErrorMessage = "Please update your OPEM package version!"
 AnalyzingMessage = "Analyzing ..."
 DownloadLink = '<a href="https://www.ecsim.ir/gopem/">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/gopem/update.html"
