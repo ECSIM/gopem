@@ -2,14 +2,20 @@
 """GOPEM helper."""
 import os
 import sys
-from opem.Params import Amphlett_InputParams as A
-from opem.Params import Chamberline_InputParams as C
-from opem.Params import Larminiee_InputParams as L
-from opem.Params import Padulles_InputParams as P
-from opem.Params import Padulles2_InputParams as P2
-from opem.Params import Padulles_Amphlett_InputParams as PA
-from opem.Params import Padulles_Hauer_InputParams as PH
-from opem.Params import Version as OPEM_Version
+ImportErrorMessage = "Please update your OPEM package version!"
+try:
+    from opem.Params import Amphlett_InputParams as A
+    from opem.Params import Chamberline_InputParams as C
+    from opem.Params import Larminiee_InputParams as L
+    from opem.Params import Padulles_InputParams as P
+    from opem.Params import Padulles2_InputParams as P2
+    from opem.Params import Padulles_Amphlett_InputParams as PA
+    from opem.Params import Padulles_Hauer_InputParams as PH
+    from opem.Params import Chakraborty_InputParams as CH
+    from opem.Params import Version as OPEM_Version
+except ImportError:
+    print(ImportErrorMessage)
+    sys.exit()
 
 Version = 0.6
 
@@ -25,7 +31,6 @@ VersionText = 'GOPEM(v{0}) / OPEM(v{1}) '.format(str(Version),
 ReportTitle = "Do you want to have a generated report for this analysis ?"
 PrintTitle = "Console print"
 TestTitle = "Use Test Data"
-ImportErrorMessage = "Please update your OPEM package version!"
 AnalyzingMessage = "Analyzing ..."
 DownloadLink = '<a href="https://www.ecsim.ir/gopem/">Download</a>'
 UpdateUrl = "http://www.ecsim.ir/gopem/update.html"
