@@ -80,7 +80,8 @@ class MainWindow(QWidget):
             "Padulles_Analysis I (Dynamic)": Padulles1_Analysis,
             "Padulles_Analysis II (Dynamic)": Padulles2_Analysis,
             "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
-            "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
+            "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis,
+            "Chakraborty_Analysis (Dynamic)": Chakraborty_Analysis}
         self.menuKey = list(self.menu.keys())
         self.menuKey.sort()
         self.super = QHBoxLayout()

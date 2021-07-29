@@ -78,7 +78,8 @@ InputParam = {
     "Padulles_Analysis I (Dynamic)": P,
     "Padulles_Analysis II (Dynamic)": P2,
     "Padulles_Hauer Analysis (Dynamic)": PH,
-    "Padulles_Amphlett Analysis (Dynamic)": PA
+    "Padulles_Amphlett Analysis (Dynamic)": PA,
+    "Chakraborty_Analysis (Dynamic)": CH
 }
 
 UnitTable = {
