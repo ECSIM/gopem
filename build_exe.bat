@@ -14,6 +14,6 @@ python -m pip install "matplotlib==3.1.1"
 python -m pip install "opem==1.3"
 python -m pip install "PyQt5==5.13.1"
 python -m pip install "setuptools==40.9.0"
-python -m pip install "PyInstaller==3.4"
+python -m pip install "PyInstaller>=3.4"
 python -m PyInstaller GOPEM.spec
 pause
