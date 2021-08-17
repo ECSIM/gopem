@@ -2,16 +2,22 @@
 """GOPEM helper."""
 import os
 import sys
-from opem.Params import Amphlett_InputParams as A
-from opem.Params import Chamberline_InputParams as C
-from opem.Params import Larminiee_InputParams as L
-from opem.Params import Padulles_InputParams as P
-from opem.Params import Padulles2_InputParams as P2
-from opem.Params import Padulles_Amphlett_InputParams as PA
-from opem.Params import Padulles_Hauer_InputParams as PH
-from opem.Params import Version as OPEM_Version
+ImportErrorMessage = "Please update your OPEM package!"
+try:
+    from opem.Params import Amphlett_InputParams as A
+    from opem.Params import Chamberline_InputParams as C
+    from opem.Params import Larminiee_InputParams as L
+    from opem.Params import Padulles_InputParams as P
+    from opem.Params import Padulles2_InputParams as P2
+    from opem.Params import Padulles_Amphlett_InputParams as PA
+    from opem.Params import Padulles_Hauer_InputParams as PH
+    from opem.Params import Chakraborty_InputParams as CH
+    from opem.Params import Version as OPEM_Version
+except ImportError:
+    print(ImportErrorMessage)
+    sys.exit()
 
-Version = 0.6
+Version = 0.7
 
 ScriptDir = os.path.dirname(os.path.realpath(__file__))
 ParentDir = os.path.abspath(os.path.join(ScriptDir, os.pardir))
@@ -72,7 +78,8 @@ InputParam = {
     "Padulles_Analysis I (Dynamic)": P,
     "Padulles_Analysis II (Dynamic)": P2,
     "Padulles_Hauer Analysis (Dynamic)": PH,
-    "Padulles_Amphlett Analysis (Dynamic)": PA
+    "Padulles_Amphlett Analysis (Dynamic)": PA,
+    "Chakraborty_Analysis (Dynamic)": CH
 }
 
 UnitTable = {

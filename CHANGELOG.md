@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.7] - 2021-08-18
+### Added
+- Chakraborty model
+### Changed
+- Test system modified
+- Import section updated
 ## [0.6] - 2020-03-16
 ### Added
 - `__version__` variable
@@ -49,7 +55,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Documents and README
 
 
-[Unreleased]: https://github.com/ECSIM/gopem/compare/v0.6...develop
+[Unreleased]: https://github.com/ECSIM/gopem/compare/v0.7...develop
+[0.7]: https://github.com/ECSIM/gopem/compare/v0.6...v0.7
 [0.6]: https://github.com/ECSIM/gopem/compare/v0.5...v0.6
 [0.5]: https://github.com/ECSIM/gopem/compare/v0.1...v0.5
 [0.1]: https://github.com/ECSIM/gopem/compare/0f35fc9...v0.1

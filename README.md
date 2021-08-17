@@ -34,14 +34,9 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 		<td align="center">develop</td>	
 	</tr>
 	<tr>
-		<td align="center">Travis</td>
-		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=master"></a></td>
-		<td align="center"><a href="https://travis-ci.org/ECSIM/gopem"><img src="https://travis-ci.org/ECSIM/gopem.svg?branch=develop"></a></td>
-	</tr>
-	<tr>
-		<td align="center">AppVeyor</td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/master?svg=true"></a></td>
-		<td align="center"><a href="https://ci.appveyor.com/project/sepandhaghighi/gopem"><img src="https://ci.appveyor.com/api/projects/status/2765bl1ne9cy1j4o/branch/develop?svg=true"></a></td>
+		<td align="center">CI</td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=develop"></td>
 	</tr>
 </table>
 
@@ -49,7 +44,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	<tr> 
 		<td align="center">Code Quality</td>
 		<td align="center"><a href="https://www.codefactor.io/repository/github/ecsim/gopem"><img src="https://www.codefactor.io/repository/github/ecsim/gopem/badge" alt="CodeFactor" /></a></td>
-		<td align="center"><a href="https://www.codacy.com/app/sepand-haghighi/gopem?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECSIM/gopem&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/f715670f91fb4765a98f93f1908d4943"/></a></td>
+		<td align="center"><a href="https://www.codacy.com/gh/ECSIM/gopem/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECSIM/gopem&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/1ab9a56a65414c2f9b0b7d9ec127ea9f"/></a></td>
 	</tr>
 </table>
 
@@ -59,7 +54,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Download and install [Python3.x](https://www.python.org/downloads/) (>=3.6)
 	- [x] Select `Add to PATH` option
 	- [x] Select `Install pip` option
-- Download [Version 0.6](https://github.com/ecsim/gopem/archive/v0.6.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
+- Download [Version 0.7](https://github.com/ecsim/gopem/archive/v0.7.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
 - Run `pip install -r requirements.txt` or `pip3 install -r requirements.txt` (Need root access)
 - Run `python3 setup.py install` or `python setup.py install` (Need root access)				
 
@@ -83,13 +78,13 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 
 ### Exe Version (Only Windows)
-- Download [Installer-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-0.6.exe) or [Portable-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-Portable-0.6.exe)
+- Download [Installer-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-0.7.exe) or [Portable-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-Portable-0.7.exe)
 - Run and install
 
 ⚠️ The portable build is slower to start
 
 ### DMG Version (MacOS)
-- Download [DMG-Version 0.6](https://github.com/ECSIM/gopem/releases/download/v0.6/GOPEM-0.6.dmg)
+- Download [DMG-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-0.7.dmg)
 - Open DMG file
 - Copy `GOPEM` into your system
 - Run `GOPEM`

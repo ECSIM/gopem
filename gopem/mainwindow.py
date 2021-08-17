@@ -2,21 +2,27 @@
 """GOPEM mainwindow."""
 import requests
 import os
+import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QCheckBox, QComboBox, QDoubleSpinBox, QMessageBox, QFileDialog
 from PyQt5.QtWidgets import QWidget, QFrame, QHBoxLayout, QVBoxLayout, QScrollArea, QSizePolicy
 from PyQt5.QtWidgets import QLabel, QPushButton, QDesktopWidget
 from PyQt5.QtGui import QIcon, QFont
-from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
-from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
-from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
-from opem.Dynamic.Padulles1 import Dynamic_Analysis as Padulles1_Analysis
-from opem.Dynamic.Padulles2 import Dynamic_Analysis as Padulles2_Analysis
-from opem.Dynamic.Padulles_Hauer import Dynamic_Analysis as Padulles_Hauer_Analysis
-from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett_Analysis
-from opem.Params import Description_Menu, Description_Links, Vectors
 import gopem.helper
 import gopem.plotter
+try:
+    from opem.Static.Amphlett import Static_Analysis as Amphlett_Analysis
+    from opem.Static.Larminie_Dicks import Static_Analysis as Larminiee_Analysis
+    from opem.Static.Chamberline_Kim import Static_Analysis as Chamberline_Kim_Analysis
+    from opem.Dynamic.Padulles1 import Dynamic_Analysis as Padulles1_Analysis
+    from opem.Dynamic.Padulles2 import Dynamic_Analysis as Padulles2_Analysis
+    from opem.Dynamic.Padulles_Hauer import Dynamic_Analysis as Padulles_Hauer_Analysis
+    from opem.Dynamic.Padulles_Amphlett import Dynamic_Analysis as Padulles_Amphlett_Analysis
+    from opem.Dynamic.Chakraborty import Dynamic_Analysis as Chakraborty_Analysis
+    from opem.Params import Description_Menu, Description_Links, Vectors
+except ImportError:
+    print(gopem.helper.ImportErrorMessage)
+    sys.exit()
 
 
 class MainWindow(QWidget):
@@ -74,7 +80,8 @@ class MainWindow(QWidget):
             "Padulles_Analysis I (Dynamic)": Padulles1_Analysis,
             "Padulles_Analysis II (Dynamic)": Padulles2_Analysis,
             "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
-            "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis}
+            "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis,
+            "Chakraborty_Analysis (Dynamic)": Chakraborty_Analysis}
         self.menuKey = list(self.menu.keys())
         self.menuKey.sort()
         self.super = QHBoxLayout()
