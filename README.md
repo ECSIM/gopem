@@ -8,7 +8,7 @@
 
 --------
 
-## Table of contents				
+## Table of Contents				
    * [Overview](https://github.com/ECSIM/gopem#overview)
    * [Installation](https://github.com/ECSIM/gopem#installation)
    * [Usage](https://github.com/ECSIM/gopem#usage)
@@ -19,7 +19,7 @@
    * [Cite](https://github.com/ECSIM/gopem#cite)
    * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
    * [License](https://github.com/ECSIM/gopem#license)
-   * [Donate](https://github.com/ECSIM/gopem#donate-to-our-project)
+   * [Show Your Support](https://github.com/ECSIM/gopem#show-your-support)
    * [Changelog](https://github.com/ECSIM/gopem/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/ECSIM/gopem/blob/master/.github/CODE_OF_CONDUCT.md)
 
@@ -198,8 +198,14 @@ Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)		
 
+## Show Your Support			
 
-## Donate to our project
+<h3>Star This Repo</h3>					
+
+Give a ⭐️ if this project helped you! 
+
+
+<h3>Donate to Our Project</h3>  
 								
 If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .
 
