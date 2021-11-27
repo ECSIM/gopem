@@ -17,7 +17,7 @@
    * [Thanks](https://github.com/ECSIM/gopem#thanks)
    * [Cite](https://github.com/ECSIM/gopem#cite)
    * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
-   * [License](https://github.com/ECSIM/gopem#license)
+   * [License](https://github.com/ECSIM/gopem/blob/master/LICENSE)
    * [Show Your Support](https://github.com/ECSIM/gopem#show-your-support)
    * [Changelog](https://github.com/ECSIM/gopem/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/ECSIM/gopem/blob/master/.github/CODE_OF_CONDUCT.md)
