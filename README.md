@@ -3,7 +3,6 @@
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
-<a href = "https://hub.docker.com/r/ecsim/gopem"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/ecsim/gopem"></a>
 </div>
 
 --------
@@ -67,14 +66,6 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 ### Easy Install
 
 - Run `easy_install --upgrade gopem` (Need root access)
-
-
-### Docker	
-
-- Run `docker pull ecsim/gopem` (Need root access)
-- Configuration :
-	- Ubuntu 16.04
-	- Python 3.6
 
 
 ### Exe Version (Only Windows)
