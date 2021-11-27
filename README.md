@@ -186,8 +186,6 @@ Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)
 	</tr>
 </table>
 
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)		
 
 ## Show Your Support			
 
