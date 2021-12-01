@@ -3,7 +3,6 @@
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
-<a href = "https://hub.docker.com/r/ecsim/gopem"><img alt="Docker Cloud Build Status" src="https://img.shields.io/docker/cloud/build/ecsim/gopem"></a>
 </div>
 
 --------
@@ -18,7 +17,7 @@
    * [Thanks](https://github.com/ECSIM/gopem#thanks)
    * [Cite](https://github.com/ECSIM/gopem#cite)
    * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
-   * [License](https://github.com/ECSIM/gopem#license)
+   * [License](https://github.com/ECSIM/gopem/blob/master/LICENSE)
    * [Show Your Support](https://github.com/ECSIM/gopem#show-your-support)
    * [Changelog](https://github.com/ECSIM/gopem/blob/master/CHANGELOG.md)
    * [Code of Conduct](https://github.com/ECSIM/gopem/blob/master/.github/CODE_OF_CONDUCT.md)
@@ -67,14 +66,6 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 ### Easy Install
 
 - Run `easy_install --upgrade gopem` (Need root access)
-
-
-### Docker	
-
-- Run `docker pull ecsim/gopem` (Need root access)
-- Configuration :
-	- Ubuntu 16.04
-	- Python 3.6
 
 
 ### Exe Version (Only Windows)
@@ -195,8 +186,6 @@ Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)
 	</tr>
 </table>
 
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FECSIM%2Fgopem.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FECSIM%2Fgopem?ref=badge_large)		
 
 ## Show Your Support			
 
