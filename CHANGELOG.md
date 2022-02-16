@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Changed
-+ `Python 3.10` added to `test.yml`
+- `Python 3.10` added to `test.yml`
+- Logo updated
 ## [0.7] - 2021-08-18
 ### Added
 - Chakraborty model
