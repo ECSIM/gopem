@@ -3,10 +3,10 @@
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
-</div>
 <a href="https://discord.gg/mgpwvEuBxZ">
   <img src="https://img.shields.io/discord/1006472275920425012.svg" alt="Discord Channel">
 </a>
+</div>
 
 --------
 
