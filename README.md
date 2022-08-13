@@ -3,6 +3,9 @@
 </br>
 <a href="https://www.python.org/"><img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3" /></a>
 <a href="https://badge.fury.io/py/gopem"><img src="https://badge.fury.io/py/gopem.svg" alt="PyPI version" height="18"></a>
+<a href="https://discord.gg/mgpwvEuBxZ">
+  <img src="https://img.shields.io/discord/1006472275920425012.svg" alt="Discord Channel">
+</a>
 </div>
 
 --------
@@ -121,9 +124,11 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 Just fill an issue and describe it. We'll check it ASAP!							
 or send an email to [opem@ecsim.ir](mailto:opem@ecsim.ir "opem@ecsim.ir"). 
 
-Gitter is another option :				
+You can also join our discord server			
 
-[![Gitter](https://badges.gitter.im/ECSIM/opem.svg)](https://gitter.im/ECSIM/opem?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+<a href="https://discord.gg/mgpwvEuBxZ">
+  <img src="https://img.shields.io/discord/1006472275920425012.svg?style=for-the-badge" alt="Discord Channel">
+</a>
 
 
 ## Dependencies		
