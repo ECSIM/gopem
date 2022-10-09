@@ -52,14 +52,14 @@ jobs:
       run: |
         python rsrc/requirements-splitter.py
         pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
-      if: matrix.python-version == 3.7
+      if: matrix.python-version == 3.8
     - name: Version check
       run: |
         python rsrc/version_check.py
-      if: matrix.python-version == 3.7
+      if: matrix.python-version == 3.8
     - name: Other tests
       run: |
           python -m vulture --min-confidence 65 --sort-by-size gopem rsrc setup.py
           python -m bandit -r gopem
           python -m pydocstyle -v --match-dir=gopem
-      if: matrix.python-version == 3.7
+      if: matrix.python-version == 3.8
