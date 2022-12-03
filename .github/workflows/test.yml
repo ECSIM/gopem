@@ -39,7 +39,7 @@ jobs:
           libxcb-shape0-dev libxcb-util0-dev libx11-xcb-dev \
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.os == 'ubuntu-20.04'
     - name: Test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
