@@ -43,11 +43,11 @@ jobs:
     - name: Test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.os == 'ubuntu-20.04'
     - name: Test (Windows)
       run: |
         python -m gopem --test
-      if: matrix.os != 'ubuntu-latest'
+      if: matrix.os != 'ubuntu-20.04'
     - name: Other tests requirements Installation
       run: |
         python rsrc/requirements-splitter.py
