@@ -11,8 +11,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest,windows-latest]
-        python-version: [3.6, 3.7, 3.8, 3.9, 3.10.0]
+        os: [ubuntu-20.04,windows-latest]
+        python-version: [3.6, 3.7, 3.8, 3.9, 3.10.0, 3.11.0]
     env:
       DISPLAY: :99.0
 
@@ -39,15 +39,15 @@ jobs:
           libxcb-shape0-dev libxcb-util0-dev libx11-xcb-dev \
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.os == 'ubuntu-20.04'
     - name: Test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.os == 'ubuntu-20.04'
     - name: Test (Windows)
       run: |
         python -m gopem --test
-      if: matrix.os != 'ubuntu-latest'
+      if: matrix.os != 'ubuntu-20.04'
     - name: Other tests requirements Installation
       run: |
         python rsrc/requirements-splitter.py
