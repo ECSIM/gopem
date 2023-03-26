@@ -669,7 +669,7 @@ class MainWindow(QWidget):
         :return: None
         """
         try:
-            update_obj = requests.get(gopem.helper.UpdateUrl)
+            update_obj = requests.get(gopem.helper.UpdateUrl, timeout=100)
             update_data = update_obj.text
             if float(update_data) > float(gopem.helper.Version):
                 self.message_box("Check Update", gopem.helper.UpdateMessage2.format(
