@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Logo updated
 - `AUTHORS.md` updated
 - Test system modified
+- `check_update` function modified
 ## [0.7] - 2021-08-18
 ### Added
 - Chakraborty model
