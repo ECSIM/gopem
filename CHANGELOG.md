@@ -5,12 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Changed
-- `README.md` modified
-- `setup.cfg` removed
 ### Added
 - Discord badge
 ### Changed
+- `README.md` modified
+- `setup.cfg` removed
 - `Python 3.10` added to `test.yml`
 - `Python 3.11` added to `test.yml`
 - Logo updated
