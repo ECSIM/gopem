@@ -16,7 +16,6 @@
    * [Usage](https://github.com/ECSIM/gopem#usage)
    * [Issues & Bug Reports](https://github.com/ECSIM/gopem#issues--bug-reports)
    * [Contribution](https://github.com/ECSIM/gopem/blob/master/.github/CONTRIBUTING.md)
-   * [Dependencies](https://github.com/ECSIM/gopem#dependencies)
    * [Thanks](https://github.com/ECSIM/gopem#thanks)
    * [Cite](https://github.com/ECSIM/gopem#cite)
    * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
@@ -130,20 +129,6 @@ You can also join our discord server
   <img src="https://img.shields.io/discord/1006472275920425012.svg?style=for-the-badge" alt="Discord Channel">
 </a>
 
-
-## Dependencies		
-
-
-<table>
-	<tr> 
-		<td align="center">master</td>	
-		<td align="center">develop</td>	
-	</tr>
-	<tr>
-		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=master"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=master" alt="Requirements Status" /></a></td>
-		<td align="center"><a href="https://requires.io/github/ECSIM/gopem/requirements/?branch=develop"><img src="https://requires.io/github/ECSIM/gopem/requirements.svg?branch=develop" alt="Requirements Status" /></a></td>
-	</tr>
-</table>
 
 ## Thanks
 
