@@ -60,7 +60,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 ### PyPI
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- Run `pip install gopem`
+- Run `pip install gopem==0.7`
 
 
 ### Exe Version (Only Windows)
