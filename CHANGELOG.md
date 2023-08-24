@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Discord badge
 ### Changed
 - `README.md` modified
-- `setup.cfg` removed
 - `Python 3.10` added to `test.yml`
 - `Python 3.11` added to `test.yml`
 - Logo updated
