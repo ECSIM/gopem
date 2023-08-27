@@ -24,7 +24,7 @@ def console_start():
     line(32, "*")
 
 
-if __name__ == "__main__":
+def main():
     console_start()
     try:
         QtCore.Qt.AA_EnableHighDpiScaling = 1
@@ -40,3 +40,7 @@ if __name__ == "__main__":
     a.message_box("Welcome", CiteMessage)
     if app is not None:
         sys.exit(app.exec_())
+
+
+if __name__ == "__main__":
+    main()
