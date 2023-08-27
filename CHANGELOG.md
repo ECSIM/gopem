@@ -7,9 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Discord badge
+- Console scripts entry point
 ### Changed
-- console scripts entry point added
-- `main` function added to `__main__.py`
 - `README.md` modified
 - `Python 3.10` added to `test.yml`
 - `Python 3.11` added to `test.yml`
