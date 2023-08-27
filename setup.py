@@ -60,4 +60,9 @@ setup(
         'Topic :: Scientific/Engineering :: Physics',
     ],
     license='MIT',
+    entry_points={
+        'console_scripts': [
+            'gopem = gopem.__main__:main',
+        ]
+    }
 )
