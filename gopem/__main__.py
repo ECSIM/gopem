@@ -25,6 +25,11 @@ def console_start():
 
 
 def main():
+    """
+    CLI main function.
+
+    :return: None
+    """
     console_start()
     try:
         QtCore.Qt.AA_EnableHighDpiScaling = 1
