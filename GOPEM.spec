@@ -2,6 +2,8 @@
 
 block_cipher = None
 
+gopem_version = "0.6"
+
 
 a = Analysis(['gopem/__main__.py'],
              pathex=['gopem'],
@@ -17,37 +19,37 @@ a = Analysis(['gopem/__main__.py'],
 pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 exe = EXE(pyz,
-		  a.scripts,
-		  exclude_binaries=True,
-          name='GOPEM',
+	  a.scripts,
+	  exclude_binaries=True,
+          name='GOPEM'+gopem_version,
           debug=False,
           strip=False,
           upx=True,
-		  icon='rsrc/icon.ico',
-		  version="rsrc/Version.rc",
+	  icon='rsrc/icon.ico',
+	  version="rsrc/Version.rc",
           console=True )
 
 coll = COLLECT(exe,
           a.binaries,
           a.zipfiles,
           a.datas,
-		  strip=False,
+          strip=False,
           upx=True,
-		  name='GOPEM')
+	  name='GOPEM')
 
 		  
 exe2 = EXE(pyz,
-		  a.scripts,
-		  a.binaries,
+          a.scripts,
+          a.binaries,
           a.zipfiles,
           a.datas,
-          name='GOPEM-Portable',
+          name='GOPEM-Portable-'+gopem_version,
           debug=False,
           strip=False,
           upx=True,
-		  runtime_tmpdir=None,
-		  icon='rsrc/icon.ico',
-		  version="rsrc/Version.rc",
+          runtime_tmpdir=None,
+	  icon='rsrc/icon.ico',
+	  version="rsrc/Version.rc",
           console=True )
 
 
