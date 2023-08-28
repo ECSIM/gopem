@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Discord badge
+- Console scripts entry point
 ### Changed
 - `README.md` modified
 - `Python 3.10` added to `test.yml`
