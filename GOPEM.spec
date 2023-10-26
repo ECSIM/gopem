@@ -2,7 +2,7 @@
 
 block_cipher = None
 
-gopem_version = "0.6"
+gopem_version = "0.7"
 
 
 a = Analysis(['gopem/__main__.py'],
