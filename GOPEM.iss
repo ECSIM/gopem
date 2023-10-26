@@ -24,6 +24,7 @@ DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 LicenseFile=LICENSE
 OutputBaseFilename={#MyAppOutputName}
+OutputDir=gopem-setup
 Compression=lzma
 SolidCompression=yes
 UsePreviousAppDir=yes
