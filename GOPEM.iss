@@ -3,9 +3,10 @@
 
 #define MyAppName "GOPEM"
 #define MyAppVersion "0.7"
+#define MyAppOutputName MyAppName + "-" + MyAppVersion
 #define MyAppPublisher "ECSIM"
 #define MyAppURL "https://www.ecsim.ir/"
-#define MyAppExeName "GOPEM.exe"
+#define MyAppExeName MyAppOutputName + ".exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -22,9 +23,14 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 LicenseFile=LICENSE
-OutputBaseFilename=setup
+OutputBaseFilename={#MyAppOutputName}
+OutputDir=dist
 Compression=lzma
 SolidCompression=yes
+UsePreviousAppDir=yes
+CreateUninstallRegKey=yes
+UpdateUninstallLogAppName=yes
+DisableDirPage=auto
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -33,7 +39,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "dist\GOPEM\GOPEM.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\GOPEM\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist\GOPEM\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
