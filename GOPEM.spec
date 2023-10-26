@@ -2,7 +2,9 @@
 
 block_cipher = None
 
+
 gopem_version = "0.7"
+
 
 a = Analysis(['gopem/__main__.py'],
 	pathex=['gopem'],
@@ -15,7 +17,9 @@ a = Analysis(['gopem/__main__.py'],
 	win_no_prefer_redirects=False,
 	win_private_assemblies=False,
 	cipher=block_cipher)
-	pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+	
+	
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 	
 	
 exe = EXE(pyz,
