@@ -26,6 +26,10 @@ LicenseFile=LICENSE
 OutputBaseFilename={#MyAppOutputName}
 Compression=lzma
 SolidCompression=yes
+UsePreviousAppDir=yes
+CreateUninstallRegKey=yes
+UpdateUninstallLogAppName=yes
+DisableDirPage=auto
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
