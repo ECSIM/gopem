@@ -41,6 +41,7 @@
 	5. Tag all related issues
 	6. Upload `dist/GOPEM-x.x.exe`
 	7. Upload `dist/GOPEM-Portable-x.x.exe`
+	8. Upload `dist/GOPEM-x.x.dmg`
 9. Bump!!
 10. Close this version issues
 11. Close milestone
