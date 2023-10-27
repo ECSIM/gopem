@@ -28,10 +28,12 @@
 	2. `git merge develop`
 	3. `git push origin master`
 	4. Wait for all CI pass
-6. Build EXE files
+6. Build EXE files (Windows)
 	1. Run `build_exe.bat` (Use `Python >= 3.5`)
 	2. Run `GOPEM.iss` (Use `Inno Setup >= 6.0.2`)
-7. Create a new release
+7. Build DMG file (macOS)
+	1. Run `build_unix.sh` (Use `Python >= 3.5`)
+8. Create a new release
 	1. Target branch: `master`
 	2. Tag: `vx.x` (Example: `v0.1`)
 	3. Title: `Version x.x` (Example: `Version 0.1`)
@@ -39,10 +41,10 @@
 	5. Tag all related issues
 	6. Upload `dist/GOPEM-x.x.exe`
 	7. Upload `dist/GOPEM-Portable-x.x.exe`
-8. Bump!!
-9. Close this version issues
-10. Close milestone
-11. Update website
+9. Bump!!
+10. Close this version issues
+11. Close milestone
+12. Update website
 	1. `git checkout gh-pages`
 	2. Update `index.html` page
 		1. Add a new section
