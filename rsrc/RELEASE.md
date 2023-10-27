@@ -53,3 +53,4 @@
 		2. Add changelogs
 		3. Add download links
 	3. Update `update.html`
+	4. `git push origin gh-pages`
