@@ -8,8 +8,9 @@
 	2. `README.md`
 	3. `GOPEM.spec`
 	4. `GOPEM.iss`
-	5. `rsrc/version_check.py`
-	6. `rsrc/Version.rc`
+	5. `rsrc/helper.py`
+	6. `rsrc/version_check.py`
+	7. `rsrc/Version.rc`
 3. Update `CHANGELOG.md`
 	1. Add a new header under `Unreleased` section (Example: `## [0.1] - 2022-08-17`)
 	2. Add a new compare link to the end of the file (Example: `[0.2]: https://github.com/ECSIM/gopem/compare/v0.1...v0.2`)
