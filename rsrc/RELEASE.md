@@ -8,7 +8,7 @@
 	2. `README.md`
 	3. `GOPEM.spec`
 	4. `GOPEM.iss`
-	5. `rsrc/helper.py`
+	5. `gopem/helper.py`
 	6. `rsrc/version_check.py`
 	7. `rsrc/Version.rc`
 3. Update `CHANGELOG.md`
