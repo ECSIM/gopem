@@ -5,6 +5,10 @@ name: CI
 
 on: [push, pull_request]
 
+env:
+  TEST_PYTHON_VERSION: 3.9
+  TEST_OS: 'ubuntu-20.04'
+
 jobs:
   build:
 
@@ -38,27 +42,27 @@ jobs:
           libxcb-shape0-dev libxcb-util0-dev libx11-xcb-dev \
           libxcb-cursor-dev libxcb-xkb-dev libxcb-xfixes0-dev \
           libxkbcommon-dev libxkbcommon-x11-dev libxkbcommon-x11-0
-      if: matrix.os == 'ubuntu-20.04'
+      if: matrix.os == env.TEST_OS
     - name: Test (Ubuntu)
       run: |
         xvfb-run python -m gopem --test
-      if: matrix.os == 'ubuntu-20.04'
+      if: matrix.os == env.TEST_OS
     - name: Test (Windows)
       run: |
         python -m gopem --test
-      if: matrix.os != 'ubuntu-20.04'
+      if: matrix.os != env.TEST_OS
     - name: Other tests requirements Installation
       run: |
         python rsrc/requirements-splitter.py
         pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
-      if: matrix.python-version == 3.8
+      if: matrix.python-version == env.TEST_PYTHON_VERSION
     - name: Version check
       run: |
         python rsrc/version_check.py
-      if: matrix.python-version == 3.8
+      if: matrix.python-version == env.TEST_PYTHON_VERSION
     - name: Other tests
       run: |
           python -m vulture --min-confidence 65 --sort-by-size gopem rsrc setup.py
           python -m bandit -r gopem
           python -m pydocstyle -v --match-dir=gopem
-      if: matrix.python-version == 3.8
+      if: matrix.python-version == env.TEST_PYTHON_VERSION
