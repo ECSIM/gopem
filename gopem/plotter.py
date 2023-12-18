@@ -63,7 +63,7 @@ class MplCanvas(FigureCanvas):
         """
         self.axes.cla()
         self.axes.grid(True, linestyle='-.', which='both')
-        if x_axis in data.keys() and y_axis in data.keys():
+        if x_axis in data and y_axis in data:
             x_unit = ""
             y_unit = ""
             title = ""
@@ -74,11 +74,11 @@ class MplCanvas(FigureCanvas):
                 marker=marker,
                 linestyle=style,
                 linewidth=linewidth)
-            if y_axis in gopem.helper.UnitTable.keys():
+            if y_axis in gopem.helper.UnitTable:
                 title += gopem.helper.UnitTable[y_axis][0] + "~"
                 if gopem.helper.UnitTable[y_axis][1] is not None:
                     y_unit = "({0})".format(gopem.helper.UnitTable[y_axis][1])
-            if x_axis in gopem.helper.UnitTable.keys():
+            if x_axis in gopem.helper.UnitTable:
                 if title:
                     title += gopem.helper.UnitTable[x_axis][0]
                     self.axes.set_title(title, fontsize=font_title)
