@@ -109,11 +109,11 @@ MarkerTable = {
     "Vline": "|",
     "Hline": "_",
     "None": ""}
-MarkerList = list(sorted(MarkerTable))
+MarkerList = sorted(MarkerTable)
 MarkerList.insert(0, MarkerList.pop(MarkerList.index("None")))
 
 StyleTable = {"Solid": "-", "Dashed": "--", "Dash-Dot": "-.", "Dotted": ":"}
-StyleList = list(sorted(StyleTable))
+StyleList = sorted(StyleTable)
 StyleList.insert(0, StyleList.pop(StyleList.index("Solid")))
 
 ScaleList = ["Linear", "Log"]
