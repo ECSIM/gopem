@@ -33,7 +33,7 @@ setup(
     description='GOPEM is a graphical user interface of OPEM',
     long_description=read_description(),
     long_description_content_type='text/markdown',
-    author='Mohammad Mahdi Rahimi,Sepand Haghighi,Kasra Askari,Sarmin Hamidi',
+    author='ECSIM Development Team',
     author_email='opem@ecsim.ir',
     url='https://github.com/ecsim/gopem',
     download_url='https://github.com/ecsim/gopem/tarball/v0.7',

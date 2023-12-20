@@ -82,12 +82,12 @@ class MainWindow(QWidget):
             "Padulles_Hauer Analysis (Dynamic)": Padulles_Hauer_Analysis,
             "Padulles_Amphlett Analysis (Dynamic)": Padulles_Amphlett_Analysis,
             "Chakraborty_Analysis (Dynamic)": Chakraborty_Analysis}
-        self.menuKey = list(self.menu.keys())
+        self.menuKey = list(self.menu)
         self.menuKey.sort()
         self.super = QHBoxLayout()
         self.main = QVBoxLayout()
 
-        self.initial_modes(self.menu.keys())
+        self.initial_modes(self.menu)
         for mode in self.mode:
             mode.setVisible(False)
         self.mode[0].setVisible(True)
@@ -163,7 +163,7 @@ class MainWindow(QWidget):
         for size in gopem.helper.FontSizeList:
             self.font_title.addItem(str(size))
             self.font_axes.addItem(str(size))
-        for item in self.default_setting.keys():
+        for item in self.default_setting:
             item.setCurrentText(str(self.default_setting[item]))
         min_width = int(self.min_width * ratio)
         self.x_ax.setMinimumWidth(min_width)
@@ -429,7 +429,7 @@ class MainWindow(QWidget):
         input_param = gopem.helper.InputParam[self.menuKey[mode]]
         name = self.menuKey[mode]
         self.attributes[name] = {}
-        inputs_list = list(input_param.keys())
+        inputs_list = list(input_param)
         for item in sorted(inputs_list):
             field = QHBoxLayout()
             label = QLabel(item + ' ( ' + input_param[item] + ' ) : ')
@@ -451,7 +451,7 @@ class MainWindow(QWidget):
 
         :return: None
         """
-        for k in self.attributes[self.menuKey[self.selectedMode]].keys():
+        for k in self.attributes[self.menuKey[self.selectedMode]]:
             self.attributes[self.menuKey[self.selectedMode]][k].setValue(0.0)
         self.reportChkBox.setChecked(False)
         self.test_checkbox.setChecked(False)
@@ -474,7 +474,7 @@ class MainWindow(QWidget):
         self.output = output
         self.x_ax.clear()
         self.y_ax.clear()
-        for k in output.keys():
+        for k in output:
             if isinstance(output[k], list):
                 self.x_ax.addItem(str(k))
                 self.y_ax.addItem(str(k))
@@ -497,7 +497,7 @@ class MainWindow(QWidget):
 
         name = self.menuKey[self.selectedMode]
         input_attr = {"Name": name}
-        for k in self.attributes[name].keys():
+        for k in self.attributes[name]:
             input_attr[k] = self.attributes[name][k].value()
         if report_flag:
             options = QFileDialog.Options()
@@ -619,8 +619,8 @@ class MainWindow(QWidget):
         """
         if state == 2:
             name = self.menuKey[self.selectedMode]
-            for k in self.attributes[name].keys():
-                if k in Vectors[name].keys():
+            for k in self.attributes[name]:
+                if k in Vectors[name]:
                     self.attributes[name][k].setValue(Vectors[name][k])
 
     def axis_changed(self):
