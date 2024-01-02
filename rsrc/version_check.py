@@ -35,6 +35,7 @@ RC_ITEMS = [
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
 INNO_ITEMS = ['#define MyAppVersion "{0}"']
 SPEC_ITEMS = ['gopem_version = "{0}"']
+ISSUE_TEMPLATE_ITEMS = ["- Gopem {0}"]
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": INSTALL_ITEMS,
@@ -43,7 +44,9 @@ FILES = {
         "gopem",
         "helper.py"): PARAMS_ITEMS,
     "GOPEM.iss": INNO_ITEMS,
-    "GOPEM.spec": SPEC_ITEMS}
+    "GOPEM.spec": SPEC_ITEMS,
+    os.path.join(".github", "ISSUE_TEMPLATE", "bug_report.yml"): ISSUE_TEMPLATE_ITEMS,
+    }
 
 TEST_NUMBER = len(FILES) + 1
 
