@@ -82,13 +82,13 @@ body:
   - type: dropdown
     id: gopem-version
     attributes:
-      label: Gopem version
-      description: Which version of Gopem are you using?
+      label: GOPEM version
+      description: Which version of GOPEM are you using?
       options:
-        - Gopem 0.7
-        - Gopem 0.6
-        - Gopem 0.5
-        - Gopem 0.1
+        - GOPEM 0.7
+        - GOPEM 0.6
+        - GOPEM 0.5
+        - GOPEM 0.1
       default: 0
     validations:
       required: true

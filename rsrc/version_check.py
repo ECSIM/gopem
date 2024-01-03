@@ -35,7 +35,7 @@ RC_ITEMS = [
 TEST_ITEMS = ["New Version ({0}) Is Available!"]
 INNO_ITEMS = ['#define MyAppVersion "{0}"']
 SPEC_ITEMS = ['gopem_version = "{0}"']
-ISSUE_TEMPLATE_ITEMS = ["- Gopem {0}"]
+ISSUE_TEMPLATE_ITEMS = ["- GOPEM {0}"]
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": INSTALL_ITEMS,
