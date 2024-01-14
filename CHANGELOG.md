@@ -6,9 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
+- `feature_request.yml` template
+- `config.yml` for issue template
 - Discord badge
 - Console scripts entry point
 ### Changed
+- Bug report template modified
 - `README.md` modified
 - `Python 3.10` added to `test.yml`
 - `Python 3.11` added to `test.yml`
