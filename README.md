@@ -45,7 +45,7 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	<tr> 
 		<td align="center">Code Quality</td>
 		<td align="center"><a href="https://www.codefactor.io/repository/github/ecsim/gopem"><img src="https://www.codefactor.io/repository/github/ecsim/gopem/badge" alt="CodeFactor" /></a></td>
-		<td align="center"><a href="https://www.codacy.com/gh/ECSIM/gopem/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ECSIM/gopem&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/1ab9a56a65414c2f9b0b7d9ec127ea9f"/></a></td>
+		<td align="center"><a href="https://app.codacy.com/gh/ECSIM/gopem/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://app.codacy.com/project/badge/Grade/1ab9a56a65414c2f9b0b7d9ec127ea9f"/></a></td>
 	</tr>
 </table>
 
