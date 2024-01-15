@@ -654,7 +654,7 @@ class MainWindow(QWidget):
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             try:
-                self.plotter.sc.save_fig(filename, trans_flag)
+                self.plotter.canvas.save_fig(filename, trans_flag)
                 self.message_box("Save Plot", gopem.helper.PlotMessage)
             except Exception:
                 self.message_box(
