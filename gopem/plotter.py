@@ -114,10 +114,10 @@ class ApplicationWindow(QtWidgets.QWidget):
         :param kwargs: the dictionary of keywords
         """
         super().__init__(*args, **kwargs)
-        l = QtWidgets.QVBoxLayout(self)
-        self.sc = MplCanvas(self, width=20, height=20, dpi=100)
+        layout = QtWidgets.QVBoxLayout(self)
+        self.canvas = MplCanvas(self, width=20, height=20, dpi=100)
 
-        l.addWidget(self.sc)
+        layout.addWidget(self.canvas)
 
     def update_plotter_data(
             self,
@@ -177,7 +177,7 @@ class ApplicationWindow(QtWidgets.QWidget):
             style = gopem.helper.StyleTable["Solid"]
         else:
             style = gopem.helper.StyleTable[style]
-        self.sc.update_plot(
+        self.canvas.update_plot(
             data,
             x_axis,
             y_axis,
@@ -212,4 +212,4 @@ class ApplicationWindow(QtWidgets.QWidget):
 
         :return: None
         """
-        self.sc.axes.cla()
+        self.canvas.axes.cla()

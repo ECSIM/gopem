@@ -293,9 +293,9 @@ class MainWindow(QWidget):
 
         :return: QWidget for plotter layer
         """
-        w = QWidget(self)
-        l = QVBoxLayout()
-        w.setLayout(l)
+        widget = QWidget(self)
+        widget_layout = QVBoxLayout()
+        widget.setLayout(widget_layout)
         x_label = QLabel("X-Axis")
         y_label = QLabel("Y-Axis")
         color_label = QLabel("Color")
@@ -313,7 +313,7 @@ class MainWindow(QWidget):
         self.transChkBox.setEnabled(False)
         self.saveBtn.clicked.connect(self.save_slt)
         checkBtn.clicked.connect(self.check_update)
-        ll = QHBoxLayout()
+        hbl1 = QHBoxLayout()
 
         vbl1 = QVBoxLayout()
         vbl1.addWidget(x_label, alignment=Qt.AlignCenter)
@@ -323,7 +323,7 @@ class MainWindow(QWidget):
         vbl1.setContentsMargins(0, 0, 20, 0)
         vbl1.setAlignment(Qt.AlignCenter)
         vbl1.setAlignment(Qt.AlignHCenter)
-        ll.addLayout(vbl1)
+        hbl1.addLayout(vbl1)
 
         vbl2 = QVBoxLayout()
         vbl2.addWidget(x_scale_label, alignment=Qt.AlignCenter)
@@ -331,7 +331,7 @@ class MainWindow(QWidget):
         vbl2.addWidget(y_scale_label, alignment=Qt.AlignCenter)
         vbl2.addWidget(self.y_scale, alignment=Qt.AlignCenter)
         vbl2.setContentsMargins(0, 0, 20, 0)
-        ll.addLayout(vbl2)
+        hbl1.addLayout(vbl2)
 
         vbl3 = QVBoxLayout()
         vbl3.addWidget(color_label, alignment=Qt.AlignCenter)
@@ -339,7 +339,7 @@ class MainWindow(QWidget):
         vbl3.addWidget(marker_label, alignment=Qt.AlignCenter)
         vbl3.addWidget(self.marker_bar, alignment=Qt.AlignCenter)
         vbl3.setContentsMargins(0, 0, 20, 0)
-        ll.addLayout(vbl3)
+        hbl1.addLayout(vbl3)
 
         vbl4 = QVBoxLayout()
         vbl4.addWidget(style_label, alignment=Qt.AlignCenter)
@@ -347,7 +347,7 @@ class MainWindow(QWidget):
         vbl4.addWidget(line_width_label, alignment=Qt.AlignCenter)
         vbl4.addWidget(self.line_width, alignment=Qt.AlignCenter)
         vbl4.setContentsMargins(0, 0, 20, 0)
-        ll.addLayout(vbl4)
+        hbl1.addLayout(vbl4)
 
         vbl5 = QVBoxLayout()
         vbl5.addWidget(font_axes_label, alignment=Qt.AlignCenter)
@@ -355,19 +355,19 @@ class MainWindow(QWidget):
         vbl5.addWidget(font_title_label, alignment=Qt.AlignCenter)
         vbl5.addWidget(self.font_title, alignment=Qt.AlignCenter)
         vbl5.setContentsMargins(0, 0, 20, 0)
-        ll.addLayout(vbl5)
+        hbl1.addLayout(vbl5)
 
-        ll.setAlignment(Qt.AlignCenter)
-        l.addLayout(ll)
-        l.addWidget(self.h_line())
-        l.addWidget(self.plotter)
-        l.addWidget(self.h_line())
-        l.addWidget(self.transChkBox)
-        llll = QHBoxLayout()
-        llll.addWidget(checkBtn)
-        llll.addWidget(self.saveBtn)
-        l.addLayout(llll)
-        return w
+        hbl1.setAlignment(Qt.AlignCenter)
+        widget_layout.addLayout(hbl1)
+        widget_layout.addWidget(self.h_line())
+        widget_layout.addWidget(self.plotter)
+        widget_layout.addWidget(self.h_line())
+        widget_layout.addWidget(self.transChkBox)
+        hbl2 = QHBoxLayout()
+        hbl2.addWidget(checkBtn)
+        hbl2.addWidget(self.saveBtn)
+        widget_layout.addLayout(hbl2)
+        return widget
 
     def get_button_widget(self):
         """
@@ -654,7 +654,7 @@ class MainWindow(QWidget):
             self, "Save Plot", "", "PNG (*.png)", options=options)
         if filename:
             try:
-                self.plotter.sc.save_fig(filename, trans_flag)
+                self.plotter.canvas.save_fig(filename, trans_flag)
                 self.message_box("Save Plot", gopem.helper.PlotMessage)
             except Exception:
                 self.message_box(
