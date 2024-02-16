@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `AUTHORS.md` updated
 - Test system modified
 - Setup system modified
+- Docstrings modified
 - `check_update` function modified
 ## [0.7] - 2021-08-18
 ### Added
