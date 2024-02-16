@@ -36,8 +36,8 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	</tr>
 	<tr>
 		<td align="center">CI</td>
-		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=master"></td>
-		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=develop"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/actions/workflows/test.yml/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/actions/workflows/test.yml/badge.svg?branch=develop"></td>
 	</tr>
 </table>
 
