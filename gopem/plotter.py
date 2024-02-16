@@ -52,11 +52,11 @@ class MplCanvas(FigureCanvas):
         """
         Update the data and axis range of the canvas.
 
-        :param data: a dictionary that contains the data points
+        :param data: data points
         :type data: dict
-        :param x_axis: the ticks on X axis
+        :param x_axis: the ticks on x-axis
         :type x_axis: str
-        :param y_axis: the ticks on Y axis
+        :param y_axis: the ticks on y-axis
         :type y_axis: str
         :param color: color name
         :type color: str
@@ -154,11 +154,11 @@ class ApplicationWindow(QtWidgets.QWidget):
         """
         Update the plotter data and axis.
 
-        :param data: the dictionary of data
+        :param data: data points
         :type data: dict
-        :param x_axis: the Ticks on X axis
+        :param x_axis: the ticks on x-axis
         :type x_axis: str
-        :param y_axis:  the Ticks on Y axis
+        :param y_axis:  the ticks on y-axis
         :type y_axis: str
         :param color: color name
         :type color: str
