@@ -139,7 +139,7 @@ class MainWindow(QWidget):
         """
         Set config for plot setting bar.
 
-        :param ratio: ration of min size of window
+        :param ratio: ratio of min size of window
         :type ratio: float
         :return: None
         """
@@ -681,7 +681,7 @@ class MainWindow(QWidget):
 
     def check_update(self):
         """
-        Check for new gopem version in website.
+        Check for new GOPEM version in website.
 
         :return: None
         """
