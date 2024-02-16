@@ -69,12 +69,6 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 
 ⚠️ The portable build is slower to start
 
-### DMG Version (MacOS)
-- Download [DMG-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-0.7.dmg)
-- Open DMG file
-- Copy `GOPEM` into your system
-- Run `GOPEM`
-
 
 ### Exe Version Note
 For GOPEM targeting Windows < 10, the user needs to take special care to include the Visual C++ run-time .dlls: Python >=3.5 uses Visual Studio 2015 run-time, which has been renamed into “Universal CRT“ and has become part of Windows 10. For Windows Vista through Windows 8.1 there are Windows update packages, which may or may not be installed in the target-system. So you have the following options:
