@@ -1,6 +1,6 @@
 # GOPEM Release Instructions
 
-#### Last Update: 2024-01-05
+#### Last Update: 2024-02-16
 
 1. Create the `release` branch under `develop`
 2. Update all version tags
@@ -34,9 +34,7 @@
 7. Build EXE files (Windows)
 	1. Run `build_exe.bat` (Use `Python >= 3.6`)
 	2. Run `GOPEM.iss` (Use `Inno Setup >= 6.0.2`)
-8. Build DMG file (macOS)
-	1. Run `build_unix.sh` (Use `Python >= 3.6`)
-9. Create a new release
+8. Create a new release
 	1. Target branch: `master`
 	2. Tag: `vx.x` (Example: `v0.1`)
 	3. Title: `Version x.x` (Example: `Version 0.1`)
@@ -44,11 +42,10 @@
 	5. Tag all related issues
 	6. Upload `dist/GOPEM-x.x.exe`
 	7. Upload `dist/GOPEM-Portable-x.x.exe`
-	8. Upload `dist/GOPEM-x.x.dmg`
-10. Bump!!
-11. Close this version issues
-12. Close milestone
-13. Update website
+9. Bump!!
+10. Close this version issues
+11. Close milestone
+12. Update website
 	1. `git checkout gh-pages`
 	2. Update `index.html` page
 		1. Add a new section

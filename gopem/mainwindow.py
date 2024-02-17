@@ -120,6 +120,7 @@ class MainWindow(QWidget):
         Set minimum size of main window.
 
         :param ratio: ratio of screen size
+        :type ratio: float
         :return: None
         """
         width = 1000
@@ -138,7 +139,8 @@ class MainWindow(QWidget):
         """
         Set config for plot setting bar.
 
-        :param ratio: ration of min size of window
+        :param ratio: ratio of min size of window
+        :type ratio: float
         :return: None
         """
         self.color_bar.clear()
@@ -189,9 +191,10 @@ class MainWindow(QWidget):
 
     def plot_bar_switch(self, active=True):
         """
-        Enbale/Disable plot bar.
+        Enable/Disable plot bar.
 
         :param active: active flag
+        :type active: bool
         :return: None
         """
         self.x_ax.setEnabled(active)
@@ -212,7 +215,9 @@ class MainWindow(QWidget):
         Set window location.
 
         :param x: x-axis
+        :type x: int
         :param y: y-axis
+        :type y: int
         :return: None
         """
         self.move(x, y)
@@ -226,8 +231,11 @@ class MainWindow(QWidget):
         Show message box.
 
         :param title: title of window
+        :type title: str
         :param message: message text
+        :type message: str
         :param message_type: type of message
+        :type message_type: int
         :return: None
         """
         msg = QMessageBox()
@@ -257,6 +265,7 @@ class MainWindow(QWidget):
         Edit name_version widget in different mode.
 
         :param analyse: analyse mode flag
+        :type analyse: bool
         :return: None
         """
         if analyse:
@@ -273,6 +282,7 @@ class MainWindow(QWidget):
         Generate a page for each model in OPEM and put them on each other.
 
         :param menu: the dictionary of OPEM models
+        :type menu: dict
         :return: None
         """
         for i, _ in enumerate(menu):
@@ -399,6 +409,7 @@ class MainWindow(QWidget):
         Construct the combo box of models.
 
         :param combo_list: the list of models
+        :type combo_list: list
         :return: QComboBox of models
         """
         combo = QComboBox(self)
@@ -423,6 +434,7 @@ class MainWindow(QWidget):
         Return the list of attributes for the given model.
 
         :param mode: the model to get its attributes
+        :type mode: str
         :return: the list of attributes for the given model
         """
         fields = []
@@ -469,6 +481,7 @@ class MainWindow(QWidget):
         Update x_ax and y_ax.
 
         :param output: output of model analyze
+        :type output: dict
         :return: None
         """
         self.output = output
@@ -484,7 +497,9 @@ class MainWindow(QWidget):
         Start an analysis by the selected model and given attributes values.
 
         :param menu: the model that analysis is based on
+        :type menu: function
         :param attributes: the value of each parameter of model
+        :type attributes: dict
         :return: None
         """
         temp = {}
@@ -599,6 +614,7 @@ class MainWindow(QWidget):
         Slot function for mode selector ComboBox.
 
         :param index: the index of the model that has been selected
+        :type index: int
         :return: None
         """
         for m in self.mode:
@@ -615,6 +631,7 @@ class MainWindow(QWidget):
         The slot function for test CheckBox.
 
         :param state: the state of the check box
+        :type state: int
         :return: None
         """
         if state == 2:
@@ -664,7 +681,7 @@ class MainWindow(QWidget):
 
     def check_update(self):
         """
-        Check for new gopem version in website.
+        Check for new GOPEM version in website.
 
         :return: None
         """

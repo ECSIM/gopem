@@ -17,9 +17,13 @@ class MplCanvas(FigureCanvas):
         Initialize of MatPlotLib canvas for plotter.
 
         :param parent: the QWidget parent
+        :type parent: QWidget
         :param width: the initial width of canvas
+        :type width: int
         :param height: the initial height of canvas
+        :type height: int
         :param dpi: the dpi of the canvas
+        :type dpi: int
         """
         self.fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = self.fig.add_subplot(111)
@@ -48,17 +52,28 @@ class MplCanvas(FigureCanvas):
         """
         Update the data and axis range of the canvas.
 
-        :param data: a dictionary that contains the data points
-        :param x_axis: the ticks on X axis
-        :param y_axis: the ticks on Y axis
+        :param data: data points
+        :type data: dict
+        :param x_axis: the ticks on x-axis
+        :type x_axis: str
+        :param y_axis: the ticks on y-axis
+        :type y_axis: str
         :param color: color name
+        :type color: str
         :param marker : data marker
+        :type marker: str
         :param style: line style
+        :type style: str
         :param x_scale: x-axis scale
+        :type x_scale: str
         :param y_scale: y-axis scale
+        :type y_scale: str
         :param linewidth: plot line width
+        :type linewidth: float
         :param font_title: title font size
+        :type font_title: int
         :param font_axes: axes labels font size
+        :type font_axes: int
         :return: None
         """
         self.axes.cla()
@@ -97,7 +112,9 @@ class MplCanvas(FigureCanvas):
         Save figure.
 
         :param filename: file name
+        :type filename: str
         :param transparent: transparent flag
+        :type transparent: bool
         :return: None
         """
         self.fig.savefig(filename, transparent=transparent)
@@ -111,7 +128,9 @@ class ApplicationWindow(QtWidgets.QWidget):
         Application widget for MPLCanvas class.
 
         :param args: the list of arguments
+        :type args: list
         :param kwargs: the dictionary of keywords
+        :type kwargs: dict
         """
         super().__init__(*args, **kwargs)
         layout = QtWidgets.QVBoxLayout(self)
@@ -135,17 +154,28 @@ class ApplicationWindow(QtWidgets.QWidget):
         """
         Update the plotter data and axis.
 
-        :param data: the dictionary of data
-        :param x_axis: the Ticks on X axis
-        :param y_axis:  the Ticks on Y axis
+        :param data: data points
+        :type data: dict
+        :param x_axis: the ticks on x-axis
+        :type x_axis: str
+        :param y_axis:  the ticks on y-axis
+        :type y_axis: str
         :param color: color name
+        :type color: str
         :param marker : data marker
+        :type marker: str
         :param style: line style
+        :type style: str
         :param x_scale: x-axis scale
+        :type x_scale: str
         :param y_scale: y-axis scale
+        :type y_scale: str
         :param linewidth: plot line width
+        :type linewidth: float
         :param font_title: title font size
+        :type font_title: int
         :param font_axes: axes labels font size
+        :type font_axes: int
         :return: None
         """
         if not font_title:

@@ -36,8 +36,8 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 	</tr>
 	<tr>
 		<td align="center">CI</td>
-		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=master"></td>
-		<td align="center"><img src="https://github.com/ECSIM/gopem/workflows/CI/badge.svg?branch=develop"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/actions/workflows/test.yml/badge.svg?branch=master"></td>
+		<td align="center"><img src="https://github.com/ECSIM/gopem/actions/workflows/test.yml/badge.svg?branch=develop"></td>
 	</tr>
 </table>
 
@@ -68,12 +68,6 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Run and install
 
 ⚠️ The portable build is slower to start
-
-### DMG Version (MacOS)
-- Download [DMG-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-0.7.dmg)
-- Open DMG file
-- Copy `GOPEM` into your system
-- Run `GOPEM`
 
 
 ### Exe Version Note
