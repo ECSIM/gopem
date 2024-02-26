@@ -5,7 +5,7 @@
 #define MyAppVersion "0.7"
 #define MyAppOutputName MyAppName + "-" + MyAppVersion
 #define MyAppPublisher "ECSIM"
-#define MyAppURL "https://www.ecsim.ir/"
+#define MyAppURL "https://www.ecsim.site/"
 #define MyAppExeName MyAppOutputName + ".exe"
 
 [Setup]

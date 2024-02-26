@@ -32,8 +32,8 @@ ReportTitle = "Do you want to have a generated report for this analysis ?"
 PrintTitle = "Console print"
 TestTitle = "Use Test Data"
 AnalyzingMessage = "Analyzing ..."
-DownloadLink = '<a href="https://www.ecsim.ir/gopem/">Download</a>'
-UpdateUrl = "http://www.ecsim.ir/gopem/update.html"
+DownloadLink = '<a href="https://www.ecsim.site/gopem/">Download</a>'
+UpdateUrl = "http://www.ecsim.site/gopem/update.html"
 VersionMessage = """
 <br/>
 <br/>
@@ -53,7 +53,7 @@ When you want to use this software in your research projects and reports, we app
 <br/>
 <a href="https://doi.org/10.21105/joss.00676">Paper Link</a>
 <br/>
-<a href="http://www.ecsim.ir/opem/OPEM.bib">BibTeX Link</a>
+<a href="http://www.ecsim.site/opem/OPEM.bib">BibTeX Link</a>
 """
 DocumentLink = '<a href="{0}">Document Link</a>'
 UpdateMessage1 = "You are running the latest version.\n" + VersionMessage
