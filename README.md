@@ -108,7 +108,7 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 ## Issues & Bug Reports			
 
 Just fill an issue and describe it. We'll check it ASAP!							
-or send an email to [opem@ecsim.ir](mailto:opem@ecsim.ir "opem@ecsim.ir"). 
+or send an email to [opem@ecsim.site](mailto:opem@ecsim.site "opem@ecsim.site"). 
 
 You can also join our discord server			
 
@@ -147,7 +147,7 @@ If you use OPEM in your research , please cite this paper :
 
 </pre>
 
-Download [OPEM.bib](http://www.ecsim.ir/opem/OPEM.bib)(BibTeX Format)									
+Download [OPEM.bib](http://www.ecsim.site/opem/OPEM.bib)(BibTeX Format)									
 
 <table>
 	<tr> 
@@ -172,4 +172,4 @@ Give a ⭐️ if this project helped you!
 								
 If you do like our project and we hope that you do, can you please support us? Our project is not and is never going to be working for profit. We need the money just so we can continue doing what we do ;-) .
 
-<a href="https://www.ecsim.ir/opem/donate.html" target="_blank"><img src="http://www.ecsim.ir/images/Donate-Button.png" height="90px" width="270px" alt="OPEM Donation"></a>
+<a href="https://www.ecsim.site/opem/donate.html" target="_blank"><img src="http://www.ecsim.site/images/Donate-Button.png" height="90px" width="270px" alt="OPEM Donation"></a>
