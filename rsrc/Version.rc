@@ -18,7 +18,7 @@ VSVersionInfo(
         StringStruct(u'FileDescription', u'GOPEM.exe'),
         StringStruct(u'FileVersion', u'0.8.0.0'),
         StringStruct(u'InternalName', u'GOPEM.exe'),
-        StringStruct(u'LegalCopyright', u'Copyright (c) 2021 ECSIM'),
+        StringStruct(u'LegalCopyright', u'Copyright (c) 2024 ECSIM'),
         StringStruct(u'OriginalFilename', u'GOPEM.exe'),
         StringStruct(u'ProductName', u'GOPEM'),
         StringStruct(u'ProductVersion', u'0, 8, 0, 0')])
