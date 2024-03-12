@@ -55,16 +55,16 @@ GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulati
 - Download and install [Python3.x](https://www.python.org/downloads/) (>=3.6)
 	- [x] Select `Add to PATH` option
 	- [x] Select `Install pip` option
-- Download [Version 0.7](https://github.com/ecsim/gopem/archive/v0.7.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
+- Download [Version 0.8](https://github.com/ecsim/gopem/archive/v0.8.zip) or [Latest Source ](https://github.com/ecsim/gopem/archive/develop.zip)
 - Run `pip install .`
 
 ### PyPI
 - Check [Python Packaging User Guide](https://packaging.python.org/installing/)     
-- Run `pip install gopem==0.7`
+- Run `pip install gopem==0.8`
 
 
 ### Exe Version (Only Windows)
-- Download [Installer-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-0.7.exe) or [Portable-Version 0.7](https://github.com/ECSIM/gopem/releases/download/v0.7/GOPEM-Portable-0.7.exe)
+- Download [Installer-Version 0.8](https://github.com/ECSIM/gopem/releases/download/v0.8/GOPEM-0.8.exe) or [Portable-Version 0.8](https://github.com/ECSIM/gopem/releases/download/v0.8/GOPEM-Portable-0.8.exe)
 - Run and install
 
 ⚠️ The portable build is slower to start
