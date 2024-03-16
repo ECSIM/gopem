@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.8] - 2024-03-16
 ### Added
 - `feature_request.yml` template
 - `config.yml` for issue template
@@ -72,7 +73,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Documents and README
 
 
-[Unreleased]: https://github.com/ECSIM/gopem/compare/v0.7...develop
+[Unreleased]: https://github.com/ECSIM/gopem/compare/v0.8...develop
+[0.8]: https://github.com/ECSIM/gopem/compare/v0.7...v0.8
 [0.7]: https://github.com/ECSIM/gopem/compare/v0.6...v0.7
 [0.6]: https://github.com/ECSIM/gopem/compare/v0.5...v0.6
 [0.5]: https://github.com/ECSIM/gopem/compare/v0.1...v0.5

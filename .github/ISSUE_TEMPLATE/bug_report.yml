@@ -84,6 +84,7 @@ body:
       label: GOPEM version
       description: Which version of GOPEM are you using?
       options:
+        - GOPEM 0.8
         - GOPEM 0.7
         - GOPEM 0.6
         - GOPEM 0.5

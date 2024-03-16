@@ -17,7 +17,7 @@ except ImportError:
     print(ImportErrorMessage)
     sys.exit()
 
-Version = 0.7
+Version = 0.8
 
 ScriptDir = os.path.dirname(os.path.realpath(__file__))
 ParentDir = os.path.abspath(os.path.join(ScriptDir, os.pardir))

@@ -29,14 +29,14 @@ def read_description():
 setup(
     name='gopem',
     packages=['gopem'],
-    version='0.7',
+    version='0.8',
     description='GOPEM is a graphical user interface of OPEM',
     long_description=read_description(),
     long_description_content_type='text/markdown',
     author='ECSIM Development Team',
     author_email='opem@ecsim.site',
     url='https://github.com/ecsim/gopem',
-    download_url='https://github.com/ecsim/gopem/tarball/v0.7',
+    download_url='https://github.com/ecsim/gopem/tarball/v0.8',
     keywords="OPEM PEM FC CELL Fuel-Cell Chemistry GUI PyQt GOPEM",
     project_urls={
         'Webpage': 'http://opem.ecsim.site',
