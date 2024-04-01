@@ -10,20 +10,6 @@
 
 --------
 
-## Table of Contents				
-   * [Overview](https://github.com/ECSIM/gopem#overview)
-   * [Installation](https://github.com/ECSIM/gopem#installation)
-   * [Usage](https://github.com/ECSIM/gopem#usage)
-   * [Issues & Bug Reports](https://github.com/ECSIM/gopem#issues--bug-reports)
-   * [Contribution](https://github.com/ECSIM/gopem/blob/master/.github/CONTRIBUTING.md)
-   * [Thanks](https://github.com/ECSIM/gopem#thanks)
-   * [Cite](https://github.com/ECSIM/gopem#cite)
-   * [Authors](https://github.com/ECSIM/gopem/blob/master/AUTHORS.md)
-   * [License](https://github.com/ECSIM/gopem/blob/master/LICENSE)
-   * [Show Your Support](https://github.com/ECSIM/gopem#show-your-support)
-   * [Changelog](https://github.com/ECSIM/gopem/blob/master/CHANGELOG.md)
-   * [Code of Conduct](https://github.com/ECSIM/gopem/blob/master/.github/CODE_OF_CONDUCT.md)
-
 ## Overview		
 
 GOPEM is a graphical user interface of [OPEM (Open Source PEM Fuel Cell Simulation Tool)](https://github.com/ECSIM/opem "OPEM").
