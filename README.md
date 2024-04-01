@@ -1,6 +1,6 @@
 <div align="center">
 	<img src="https://github.com/ECSIM/gopem/raw/master/rsrc/logo.png" width=350px>
-	</br>
+	<br>
 	<a href="https://www.python.org/">
 		<img src="https://img.shields.io/badge/built%20with-Python3-green.svg" alt="built with Python3">
 	</a>
