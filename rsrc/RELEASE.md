@@ -1,6 +1,6 @@
 # GOPEM Release Instructions
 
-#### Last Update: 2024-05-07
+**Last Update: 2024-05-07**
 
 1. Create the `release` branch under `develop`
 2. Update all version tags
