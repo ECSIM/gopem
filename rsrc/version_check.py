@@ -35,10 +35,12 @@ TEST_ITEMS = ["New Version ({0}) Is Available!"]
 INNO_ITEMS = ['#define MyAppVersion "{0}"']
 SPEC_ITEMS = ['gopem_version = "{0}"']
 ISSUE_TEMPLATE_ITEMS = ["- GOPEM {0}"]
+SECURITY_ITEMS = ["| {0}           | :white_check_mark: |", "| < {0}         | :x:                |"]
 FILES = {
     "setup.py": SETUP_ITEMS,
     "README.md": INSTALL_ITEMS,
     "CHANGELOG.md": CHANGELOG_ITEMS,
+    "SECURITY.md": SECURITY_ITEMS,
     os.path.join(
         "gopem",
         "helper.py"): PARAMS_ITEMS,
