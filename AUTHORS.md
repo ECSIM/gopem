@@ -1,4 +1,4 @@
-# Core Developers #
+# Core Developers
 
 ----------
 - Mohammad Mahdi Rahimi - ECSIM - ([GitHub](https://github.com/mahi97))
@@ -9,7 +9,7 @@
 ** **Maintainer**
 
 
-# Other Contributors #
+# Other Contributors
 
 ----------
 - [Sadra Sabouri](https://github.com/sadrasabouri)
