@@ -1,16 +1,17 @@
 # GOPEM Release Instructions
 
-#### Last Update: 2024-04-02
+#### Last Update: 2024-05-07
 
 1. Create the `release` branch under `develop`
 2. Update all version tags
 	1. `setup.py`
 	2. `README.md`
-	3. `GOPEM.spec`
-	4. `GOPEM.iss`
-	5. `gopem/helper.py`
-	6. `rsrc/version_check.py`
-	7. `rsrc/Version.rc`
+	3. `SECURITY.md`
+	4. `GOPEM.spec`
+	5. `GOPEM.iss`
+	6. `gopem/helper.py`
+	7. `rsrc/version_check.py`
+	8. `rsrc/Version.rc`
 3. Update `CHANGELOG.md`
 	1. Add a new header under `Unreleased` section (Example: `## [0.1] - 2022-08-17`)
 	2. Add a new compare link to the end of the file (Example: `[0.2]: https://github.com/ECSIM/gopem/compare/v0.1...v0.2`)
