@@ -1,4 +1,4 @@
-art==6.1
+art==6.2
 requests==2.31.0
 matplotlib==3.8.4
 opem==1.4
