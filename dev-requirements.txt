@@ -1,6 +1,6 @@
 art==6.2
 requests==2.32.3
-matplotlib==3.9.1
+matplotlib==3.9.1.post1
 opem==1.4
 PyQt5==5.15.11
 PyQt5-sip==12.15.0
