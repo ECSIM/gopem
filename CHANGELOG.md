@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - `README.md` modified
 - Logo updated
+- `Python 3.13` added to `test.yml`
 ## [0.8] - 2024-03-16
 ### Added
 - `feature_request.yml` template
