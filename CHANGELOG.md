@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - `SECURITY.md`
 ### Changed
+- GitHub actions are limited to the `develop` and `master` branches
 - `README.md` modified
 - Logo updated
 - `Python 3.13` added to `test.yml`
