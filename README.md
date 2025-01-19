@@ -110,7 +110,7 @@ You can also join our discord server
 
 ## Cite
 
-If you use OPEM in your research , please cite this paper :
+If you use OPEM in your research , please cite this paper:
 
 ```bibtex
 @article{Haghighi2018,
