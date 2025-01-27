@@ -102,13 +102,6 @@ You can also join our discord server
 </a>
 
 
-## Thanks
-
-* [PyInstaller](https://github.com/pyinstaller/pyinstaller)
-* [Zahra Mobasher](https://www.instagram.com/littleblackoyster/?hl=en) (Logo design)
-
-
-
 ## Cite
 
 If you use OPEM in your research , please cite this paper:
