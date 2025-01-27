@@ -12,4 +12,8 @@
 # Other Contributors
 
 ----------
-- [Sadra Sabouri](https://github.com/sadrasabouri)
+- [@zhmbshr](https://github.com/zhmbshr) ++
+- [@sadrasabouri](https://github.com/sadrasabouri)
+
+
+++ **Graphic designer**
