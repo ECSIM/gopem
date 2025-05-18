@@ -116,7 +116,7 @@ StyleTable = {"Solid": "-", "Dashed": "--", "Dash-Dot": "-.", "Dotted": ":"}
 StyleList = sorted(StyleTable)
 StyleList.insert(0, StyleList.pop(StyleList.index("Solid")))
 
-ScaleList = ["linear", "Log"]
+ScaleList = ["linear", "log"]
 WidthList = list(range(1, 11))
 
 FontSizeList = list(range(1, 56))
