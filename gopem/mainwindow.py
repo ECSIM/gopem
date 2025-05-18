@@ -653,8 +653,8 @@ class MainWindow(QWidget):
             self.color_bar.currentText(),
             self.marker_bar.currentText(),
             self.style_bar.currentText(),
-            self.x_scale.currentText(),
-            self.y_scale.currentText(),
+            self.x_scale.currentText().lower(),
+            self.y_scale.currentText().lower(),
             self.line_width.currentText(),
             self.font_title.currentText(),
             self.font_axes.currentText())
