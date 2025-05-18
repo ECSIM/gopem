@@ -101,8 +101,8 @@ class MplCanvas(FigureCanvas):
                     x_unit = "({0})".format(gopem.helper.UnitTable[x_axis][1])
             self.axes.set_xlabel(x_axis + x_unit, fontsize=font_axes)
             self.axes.set_ylabel(y_axis + y_unit, fontsize=font_axes)
-            self.axes.set_yscale(y_scale)
-            self.axes.set_xscale(x_scale)
+            self.axes.set_yscale(y_scale.lower())
+            self.axes.set_xscale(x_scale.lower())
             self.axes.tick_params(labelsize=font_axes)
 
         self.draw()
