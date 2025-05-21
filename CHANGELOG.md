@@ -12,7 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `README.md` modified
 - `AUTHORS.md` updated
 - Logo updated
+- `Python 3.6` support dropped
 - `Python 3.13` added to `test.yml`
+- Test system modified
 - Plotting bug fixed
 ## [0.8] - 2024-03-16
 ### Added

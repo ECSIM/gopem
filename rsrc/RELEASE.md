@@ -1,6 +1,6 @@
 # GOPEM Release Instructions
 
-**Last Update: 2024-05-07**
+**Last Update: 2025-05-20**
 
 1. Create the `release` branch under `develop`
 2. Update all version tags
@@ -35,7 +35,7 @@
 7. Build EXE files (Windows)
 	1. Update `OPEM` version to the latest version available on [PyPI](https://pypi.org/project/opem/)
 		1. `build_script.exe`
-	2. Run `build_exe.bat` (Use `Python >= 3.6`)
+	2. Run `build_exe.bat` (Use `Python >= 3.7`)
 	3. Run `GOPEM.iss` (Use `Inno Setup >= 6.0.2`)
 8. Create a new release
 	1. Target branch: `master`
