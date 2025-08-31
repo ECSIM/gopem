@@ -85,7 +85,7 @@ GOPEM will likely run on a modern dual core PC. Typical configuration is:
 
 </div>	
 
-- Open `CMD` (Windows) or `Terminal` (UNIX)
+- Open Terminal
 - Run `gopem` or `python -m gopem` (or run `GOPEM.exe`)
 - Wait about 4-15 seconds (depends on your system specification)
 - Enter PEM cell parameters (or run standard test vectors)	
