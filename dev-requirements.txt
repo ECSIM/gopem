@@ -4,7 +4,7 @@ matplotlib==3.10.1
 opem==1.4
 PyQt5==5.15.11
 PyQt5-sip==12.17.1
-setuptools>=40.8.3
+setuptools>=82.0.1
 bandit>=1.8.6
 vulture>=1.0
 pydocstyle>=6.3.0
