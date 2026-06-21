@@ -1,15 +1,6 @@
 # -*- coding: utf-8 -*-
 """Setup module."""
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
-
-
-def get_requirements():
-    """Read requirements.txt."""
-    requirements = open("requirements.txt", "r").read()
-    return list(filter(lambda x: x != "", requirements.split()))
+from setuptools import setup
 
 
 def read_description():
@@ -37,13 +28,20 @@ setup(
     author_email='opem@ecsim.site',
     url='https://github.com/ecsim/gopem',
     download_url='https://github.com/ecsim/gopem/tarball/v0.8',
-    keywords="OPEM PEM FC CELL Fuel-Cell Chemistry GUI PyQt GOPEM",
+    keywords='OPEM PEM FC CELL Fuel-Cell Chemistry GUI PyQt GOPEM',
     project_urls={
         'Webpage': 'http://opem.ecsim.site',
         'Source': 'https://github.com/ecsim/gopem',
     },
-    platforms=["any"],
-    install_requires=get_requirements(),
+    platforms=['any'],
+    install_requires=[
+        'art>0.7',
+        'requests>=2.20.0',
+        'matplotlib>=2.2.2',
+        'PyQt5>=5.10',
+        'PyQt5-sip>=4.19.12',
+        'opem>=0.9'
+    ],
     python_requires='>=3.7',
     classifiers=[
         'Development Status :: 4 - Beta',

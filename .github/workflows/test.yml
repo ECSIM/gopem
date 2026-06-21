@@ -60,10 +60,9 @@ jobs:
       run: |
         python -m gopem --test
       if: matrix.os != env.TEST_OS
-    - name: Other tests requirements Installation
+    - name: Dev requirements Installation
       run: |
-        python rsrc/requirements-splitter.py
-        pip install --upgrade --upgrade-strategy=only-if-needed -r test-requirements.txt
+        pip install --upgrade --upgrade-strategy=only-if-needed -r requirements-dev.txt
       if: matrix.python-version == env.TEST_PYTHON_VERSION
     - name: Version check
       run: |

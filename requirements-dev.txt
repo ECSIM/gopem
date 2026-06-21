@@ -1,0 +1,4 @@
+setuptools>=82.0.1
+bandit>=1.8.6
+vulture>=2.16
+pydocstyle>=6.3.0

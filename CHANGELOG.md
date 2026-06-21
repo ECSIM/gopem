@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Python 3.6` support dropped
 - `Python 3.13` added to `test.yml`
 - `Python 3.14` added to `test.yml`
+- Dependencies structure modified
 - Test system modified
 - Plotting bug fixed
 ## [0.8] - 2024-03-16
