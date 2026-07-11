@@ -3,4 +3,4 @@ requests==2.34.2
 matplotlib==3.10.9
 opem==1.4
 PyQt5==5.15.11
-PyQt5-sip==12.17.1
+PyQt5-sip==12.18.0
